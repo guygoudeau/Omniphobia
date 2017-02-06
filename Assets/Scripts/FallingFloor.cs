@@ -25,7 +25,12 @@ public class FallingFloor : MonoBehaviour {
 
     public IEnumerator Fall()
     {
-        //    foreach 
-        yield return new WaitForSeconds(speed / 10);
+        foreach (GameObject obj in Tiles)
+        {
+            obj.AddComponent<Rigidbody>();
+            obj.GetComponent<Rigidbody>().isKinematic = false;
+            obj.GetComponent<Rigidbody>().useGravity = true;
+            yield return new WaitForSeconds(speed / 10);
+        }
     }
 }
