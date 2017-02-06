@@ -43,10 +43,12 @@ public class OVRPlayerController : MonoBehaviour
 	/// </summary>
 	public float BackAndSideDampen = 0.5f;
 
-	/// <summary>
-	/// The force applied to the character when jumping.
-	/// </summary>
-	public float JumpForce = 0.3f;
+    public float jumptime = 3.0f;
+    public float jtr = 3.0f;
+    /// <summary>
+    /// The force applied to the character when jumping.
+    /// </summary>
+    public float JumpForce = 0.3f;
 
 	/// <summary>
 	/// The rate of rotation when using a gamepad.
@@ -93,6 +95,7 @@ public class OVRPlayerController : MonoBehaviour
 	private bool prevHatLeft = false;
 	private bool prevHatRight = false;
 	private float SimulationRate = 60f;
+
 
 	void Start()
 	{
@@ -240,12 +243,20 @@ public class OVRPlayerController : MonoBehaviour
 		if ( (moveForward && moveLeft) || (moveForward && moveRight) ||
 			 (moveBack && moveLeft)    || (moveBack && moveRight) )
 			MoveScale = 0.70710678f;
+        if (OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.A))
+        {
+            
+            Jump();
+            jumptime = jtr;
 
-		// No positional movement if we are in the air
-		if (!Controller.isGrounded)
-			MoveScale = 0.0f;
+        }
 
-		MoveScale *= SimulationRate * Time.deltaTime;
+
+        // No positional movement if we are in the air
+        //if (!Controller.isGrounded)
+        //	MoveScale = 0.0f;
+
+        MoveScale *= SimulationRate * Time.deltaTime;
 
 		// Compute this for key movement
 		float moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
@@ -353,8 +364,12 @@ public class OVRPlayerController : MonoBehaviour
 	{
 		if (!Controller.isGrounded)
 			return false;
-
-		MoveThrottle += new Vector3(0, JumpForce, 0);
+        
+        while (jumptime >= 0)
+        {
+           MoveThrottle += new Vector3(0, JumpForce, 0);
+           jumptime -= Time.fixedDeltaTime;
+        }
 
 		return true;
 	}
