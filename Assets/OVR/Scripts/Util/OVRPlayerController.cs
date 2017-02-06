@@ -48,7 +48,7 @@ public class OVRPlayerController : MonoBehaviour
     /// <summary>
     /// The force applied to the character when jumping.
     /// </summary>
-    public float JumpForce = 0.3f;
+    public float JumpForce = 0.01f;
 
 	/// <summary>
 	/// The rate of rotation when using a gamepad.
