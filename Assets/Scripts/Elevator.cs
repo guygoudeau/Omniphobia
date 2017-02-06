@@ -13,13 +13,27 @@ public class Elevator : MonoBehaviour {
 
     private IEnumerator Lerp()
     {
-        while (gameObject.transform.position != Destination)
+        if (Destination.y / Mathf.Abs(Destination.y) == 1)
         {
-            Vector3 temp;
-            temp = Destination * Time.deltaTime;
-            temp *= speed;
-            gameObject.transform.position = transform.position + temp;
-            yield return 0;
+            while (transform.position.y <= Destination.y)
+            {
+                Vector3 temp;
+                temp = Destination * Time.deltaTime;
+                temp *= speed;
+                gameObject.transform.position = transform.position + temp;
+                yield return 0;
+            }
+        }
+        else if (Destination.y / Mathf.Abs(Destination.y) == -1)
+        {
+            while (transform.position.y >= Destination.y)
+            {
+                Vector3 temp;
+                temp = Destination * Time.deltaTime;
+                temp *= speed;
+                gameObject.transform.position = transform.position + temp;
+                yield return 0;
+            }
         }
     }
 }
