@@ -2,14 +2,14 @@
 
 Copyright   :   Copyright 2014 Oculus VR, LLC. All Rights reserved.
 
-Licensed under the Oculus VR Rift SDK License Version 3.2 (the "License");
+Licensed under the Oculus VR Rift SDK License Version 3.3 (the "License");
 you may not use the Oculus VR Rift SDK except in compliance with the License,
 which is provided at the time of installation or download, or which
 otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
 
-http://www.oculusvr.com/licenses/LICENSE-3.2
+http://www.oculus.com/licenses/LICENSE-3.3
 
 Unless required by applicable law or agreed to in writing, the Oculus VR SDK
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,8 +19,13 @@ limitations under the License.
 
 ************************************************************************************/
 
+#if !UNITY_5_3_OR_NEWER
+#error Oculus Utilities require Unity 5.3 or higher.
+#endif
+
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -31,22 +36,39 @@ using VR = UnityEngine.VR;
 /// </summary>
 public class OVRManager : MonoBehaviour
 {
+	public enum TrackingOrigin
+	{
+		EyeLevel   = OVRPlugin.TrackingOrigin.EyeLevel,
+		FloorLevel = OVRPlugin.TrackingOrigin.FloorLevel,
+	}
+
+	public enum EyeTextureFormat
+	{
+		Default = OVRPlugin.EyeTextureFormat.Default,
+		R16G16B16A16_FP = OVRPlugin.EyeTextureFormat.R16G16B16A16_FP,
+		R11G11B10_FP = OVRPlugin.EyeTextureFormat.R11G11B10_FP,
+	}
+
 	/// <summary>
 	/// Gets the singleton instance.
 	/// </summary>
 	public static OVRManager instance { get; private set; }
 		
 	/// <summary>
-	/// Gets a reference to the active OVRDisplay
+	/// Gets a reference to the active display.
 	/// </summary>
 	public static OVRDisplay display { get; private set; }
 
 	/// <summary>
-	/// Gets a reference to the active OVRTracker
+	/// Gets a reference to the active sensor.
 	/// </summary>
 	public static OVRTracker tracker { get; private set; }
 
-	private static bool _profileIsCached = false;
+	/// <summary>
+	/// Gets a reference to the active boundary system.
+	/// </summary>
+	public static OVRBoundary boundary { get; private set; }
+
 	private static OVRProfile _profile;
 	/// <summary>
 	/// Gets the current profile, which contains information about the user's settings and body dimensions.
@@ -54,21 +76,44 @@ public class OVRManager : MonoBehaviour
 	public static OVRProfile profile
 	{
 		get {
-			if (!_profileIsCached)
-			{
+			if (_profile == null)
 				_profile = new OVRProfile();
-				_profile.TriggerLoad();
-				
-				while (_profile.state == OVRProfile.State.LOADING)
-					System.Threading.Thread.Sleep(1);
-				
-				if (_profile.state != OVRProfile.State.READY)
-					Debug.LogWarning("Failed to load profile.");
-				
-				_profileIsCached = true;
-			}
 
 			return _profile;
+		}
+	}
+
+	private bool _isPaused;
+	private IEnumerable<Camera> disabledCameras;
+	float prevTimeScale;
+	private bool paused
+	{
+		get { return _isPaused; }
+		set {
+			if (value == _isPaused)
+				return;
+
+			// Sample code to handle VR Focus
+
+//			if (value)
+//			{
+//				prevTimeScale = Time.timeScale;
+//				Time.timeScale = 0.01f;
+//				disabledCameras = GameObject.FindObjectsOfType<Camera>().Where(c => c.isActiveAndEnabled);
+//				foreach (var cam in disabledCameras)
+//					cam.enabled = false;
+//			}
+//			else
+//			{
+//				Time.timeScale = prevTimeScale;
+//				if (disabledCameras != null) {
+//					foreach (var cam in disabledCameras)
+//						cam.enabled = true;
+//				}
+//				disabledCameras = null;
+//			}
+
+			_isPaused = value;
 		}
 	}
 
@@ -83,43 +128,135 @@ public class OVRManager : MonoBehaviour
 	public static event Action HMDLost;
 
 	/// <summary>
-	/// Occurs when the tracker gained tracking.
+	/// Occurs when an HMD is put on the user's head.
+	/// </summary>
+	public static event Action HMDMounted;
+
+	/// <summary>
+	/// Occurs when an HMD is taken off the user's head.
+	/// </summary>
+	public static event Action HMDUnmounted;
+
+	/// <summary>
+	/// Occurs when VR Focus is acquired.
+	/// </summary>
+	public static event Action VrFocusAcquired;
+
+	/// <summary>
+	/// Occurs when VR Focus is lost.
+	/// </summary>
+	public static event Action VrFocusLost;
+
+	/// <summary>
+	/// Occurs when the active Audio Out device has changed and a restart is needed.
+	/// </summary>
+	public static event Action AudioOutChanged;
+
+	/// <summary>
+	/// Occurs when the active Audio In device has changed and a restart is needed.
+	/// </summary>
+	public static event Action AudioInChanged;
+
+	/// <summary>
+	/// Occurs when the sensor gained tracking.
 	/// </summary>
 	public static event Action TrackingAcquired;
 
 	/// <summary>
-	/// Occurs when the tracker lost tracking.
+	/// Occurs when the sensor lost tracking.
 	/// </summary>
 	public static event Action TrackingLost;
 	
 	/// <summary>
-	/// Occurs when HSW dismissed.
+	/// Occurs when Health & Safety Warning is dismissed.
 	/// </summary>
+	//Disable the warning about it being unused. It's deprecated.
+	#pragma warning disable 0067
+	[Obsolete]
 	public static event Action HSWDismissed;
-	
+	#pragma warning restore
+
+	private static bool _isHmdPresentCached = false;
+	private static bool _isHmdPresent = false;
+	private static bool _wasHmdPresent = false;
+	/// <summary>
+	/// If true, a head-mounted display is connected and present.
+	/// </summary>
+	public static bool isHmdPresent
+	{
+		get {
+			if (!_isHmdPresentCached)
+			{
+				_isHmdPresentCached = true;
+				_isHmdPresent = OVRPlugin.hmdPresent;
+			}
+
+			return _isHmdPresent;
+		}
+
+		private set {
+			_isHmdPresentCached = true;
+			_isHmdPresent = value;
+		}
+	}
+
+	/// <summary>
+	/// Gets the audio output device identifier.
+	/// </summary>
+	/// <description>
+	/// On Windows, this is a string containing the GUID of the IMMDevice for the Windows audio endpoint to use.
+	/// </description>
+	public static string audioOutId
+	{
+		get { return OVRPlugin.audioOutId; }
+	}
+
+	/// <summary>
+	/// Gets the audio input device identifier.
+	/// </summary>
+	/// <description>
+	/// On Windows, this is a string containing the GUID of the IMMDevice for the Windows audio endpoint to use.
+	/// </description>
+	public static string audioInId
+	{
+		get { return OVRPlugin.audioInId; }
+	}
+
+	private static bool _hasVrFocusCached = false;
+	private static bool _hasVrFocus = false;
+	private static bool _hadVrFocus = false;
+	/// <summary>
+	/// If true, the app has VR Focus.
+	/// </summary>
+	public static bool hasVrFocus
+	{
+		get {
+			if (!_hasVrFocusCached)
+			{
+				_hasVrFocusCached = true;
+				_hasVrFocus = OVRPlugin.hasVrFocus;
+			}
+
+			return _hasVrFocus;
+		}
+
+		private set {
+			_hasVrFocusCached = true;
+			_hasVrFocus = value;
+		}
+	}
+
 	/// <summary>
 	/// If true, then the Oculus health and safety warning (HSW) is currently visible.
 	/// </summary>
-	public static bool isHSWDisplayed
-	{
-		get {			
-			if (!VR.VRDevice.isPresent)
-				return false;
-
-			return OVRPlugin.hswVisible;
-		}
-	}
+	[Obsolete]
+	public static bool isHSWDisplayed { get { return false; } }
 	
 	/// <summary>
 	/// If the HSW has been visible for the necessary amount of time, this will make it disappear.
 	/// </summary>
-	public static void DismissHSWDisplay()
-	{
-		if (!VR.VRDevice.isPresent)
-			return;
-
-		OVRPlugin.DismissHSW();
-	}
+	[Obsolete]
+	public static void DismissHSWDisplay() {}
 
 	/// <summary>
 	/// If true, chromatic de-aberration will be applied, improving the image at the cost of texture bandwidth.
@@ -127,14 +264,14 @@ public class OVRManager : MonoBehaviour
 	public bool chromatic
 	{
 		get {
-			if (!VR.VRDevice.isPresent)
+			if (!isHmdPresent)
 				return false;
 
 			return OVRPlugin.chromatic;
 		}
 
 		set {
-			if (!VR.VRDevice.isPresent)
+			if (!isHmdPresent)
 				return;
 
 			OVRPlugin.chromatic = value;
@@ -147,14 +284,14 @@ public class OVRManager : MonoBehaviour
 	public bool monoscopic
 	{
 		get {
-			if (!VR.VRDevice.isPresent)
+			if (!isHmdPresent)
 				return true;
 
 			return OVRPlugin.monoscopic;
 		}
 		
 		set {
-			if (!VR.VRDevice.isPresent)
+			if (!isHmdPresent)
 				return;
 
 			OVRPlugin.monoscopic = value;
@@ -164,20 +301,48 @@ public class OVRManager : MonoBehaviour
 	/// <summary>
 	/// If true, distortion rendering work is submitted a quarter-frame early to avoid pipeline stalls and increase CPU-GPU parallelism.
 	/// </summary>
-	public bool queueAhead
+	public bool queueAhead = true;
+
+	/// <summary>
+	/// If true, Unity will use the optimal antialiasing level for quality/performance on the current hardware.
+	/// </summary>
+	public bool useRecommendedMSAALevel = false;
+
+	/// <summary>
+	/// If true, dynamic resolution will be enabled
+	/// </summary>
+	public bool enableAdaptiveResolution = false;
+
+    /// <summary>
+    /// Max RenderScale the app can reach under adaptive resolution mode ( enableAdaptiveResolution = ture );
+    /// </summary>
+    [RangeAttribute(0.5f, 2.0f)]
+    public float maxRenderScale = 1.0f;
+
+    /// <summary>
+    /// Min RenderScale the app can reach under adaptive resolution mode ( enableAdaptiveResolution = ture );
+    /// </summary>
+    [RangeAttribute(0.5f, 2.0f)]
+
+    public float minRenderScale = 0.7f;
+
+	/// <summary>
+	/// The number of expected display frames per rendered frame.
+	/// </summary>
+	public int vsyncCount
 	{
 		get {
-			if (!VR.VRDevice.isPresent)
-				return false;
+			if (!isHmdPresent)
+				return 1;
 
-			return (OVRPlugin.queueAheadFraction != 0f);
+			return OVRPlugin.vsyncCount;
 		}
 
 		set {
-			if (!VR.VRDevice.isPresent)
+			if (!isHmdPresent)
 				return;
 
-			OVRPlugin.queueAheadFraction = (value) ? 0.25f : 0f;
+			OVRPlugin.vsyncCount = value;
 		}
 	}
 	
@@ -189,7 +354,7 @@ public class OVRManager : MonoBehaviour
 	public static float batteryLevel
 	{
 		get {
-			if (!VR.VRDevice.isPresent)
+			if (!isHmdPresent)
 				return 1f;
 
 			return OVRPlugin.batteryLevel;
@@ -204,7 +369,7 @@ public class OVRManager : MonoBehaviour
 	public static float batteryTemperature
 	{
 		get {
-			if (!VR.VRDevice.isPresent)
+			if (!isHmdPresent)
 				return 0f;
 
 			return OVRPlugin.batteryTemperature;
@@ -219,7 +384,7 @@ public class OVRManager : MonoBehaviour
 	public static int batteryStatus
 	{
 		get {
-			if (!VR.VRDevice.isPresent)
+			if (!isHmdPresent)
 				return -1;
 
 			return (int)OVRPlugin.batteryStatus;
@@ -233,7 +398,7 @@ public class OVRManager : MonoBehaviour
 	public static float volumeLevel
 	{
 		get {
-			if (!VR.VRDevice.isPresent)
+			if (!isHmdPresent)
 				return 0f;
 
 			return OVRPlugin.systemVolume;
@@ -241,29 +406,150 @@ public class OVRManager : MonoBehaviour
 	}
 
 	/// <summary>
-	/// If true, head tracking will affect the orientation of each OVRCameraRig's cameras.
+	/// Gets or sets the current CPU performance level (0-2). Lower performance levels save more power.
+	/// </summary>
+	public static int cpuLevel
+	{
+		get {
+			if (!isHmdPresent)
+				return 2;
+
+			return OVRPlugin.cpuLevel;
+		}
+
+		set {
+			if (!isHmdPresent)
+				return;
+
+			OVRPlugin.cpuLevel = value;
+		}
+	}
+
+	/// <summary>
+	/// Gets or sets the current GPU performance level (0-2). Lower performance levels save more power.
+	/// </summary>
+	public static int gpuLevel
+	{
+		get {
+			if (!isHmdPresent)
+				return 2;
+
+			return OVRPlugin.gpuLevel;
+		}
+
+		set {
+			if (!isHmdPresent)
+				return;
+
+			OVRPlugin.gpuLevel = value;
+		}
+	}
+
+	/// <summary>
+	/// If true, the CPU and GPU are currently throttled to save power and/or reduce the temperature.
+	/// </summary>
+	public static bool isPowerSavingActive
+	{
+		get {
+			if (!isHmdPresent)
+				return false;
+
+			return OVRPlugin.powerSaving;
+		}
+	}
+
+	/// <summary>
+	/// Gets or sets the eye texture format.
+	/// This feature is only for UNITY_5_6_OR_NEWER
+	/// </summary>
+	public static EyeTextureFormat eyeTextureFormat
+	{
+		get
+		{
+			return (OVRManager.EyeTextureFormat)OVRPlugin.GetDesiredEyeTextureFormat();
+		}
+
+		set
+		{
+			OVRPlugin.SetDesiredEyeTextureFormat((OVRPlugin.EyeTextureFormat)value);
+		}
+	}
+
+	[SerializeField]
+	private OVRManager.TrackingOrigin _trackingOriginType = OVRManager.TrackingOrigin.EyeLevel;
+	/// <summary>
+	/// Defines the current tracking origin type.
+	/// </summary>
+	public OVRManager.TrackingOrigin trackingOriginType
+	{
+		get {
+			if (!isHmdPresent)
+				return _trackingOriginType;
+
+			return (OVRManager.TrackingOrigin)OVRPlugin.GetTrackingOriginType();
+		}
+		
+		set {
+			if (!isHmdPresent)
+				return;
+
+			if (OVRPlugin.SetTrackingOriginType((OVRPlugin.TrackingOrigin)value))
+			{
+				// Keep the field exposed in the Unity Editor synchronized with any changes.
+				_trackingOriginType = value;
+			}
+		}
+	}
+
+	/// <summary>
+	/// If true, head tracking will affect the position of each OVRCameraRig's cameras.
 	/// </summary>
 	public bool usePositionTracking = true;
 
 	/// <summary>
+	/// If true, the distance between the user's eyes will affect the position of each OVRCameraRig's cameras.
+	/// </summary>
+	public bool useIPDInPositionTracking = true;
+
+	/// <summary>
 	/// If true, each scene load will cause the head pose to reset.
 	/// </summary>
-	public bool resetTrackerOnLoad = true;
+	public bool resetTrackerOnLoad = false;
 
 	/// <summary>
 	/// True if the current platform supports virtual reality.
 	/// </summary>
     public bool isSupportedPlatform { get; private set; }
-	
-	private static bool usingPositionTrackingCached = false;
-	private static bool usingPositionTracking = false;
-	private static bool wasHmdPresent = false;
-	private static bool wasPositionTracked = false;
 
-	[NonSerialized]
-	private static OVRVolumeControl volumeController = null;
-	[NonSerialized]
-	private Transform volumeControllerTransform = null;
+	private static bool _isUserPresentCached = false;
+	private static bool _isUserPresent = false;
+	private static bool _wasUserPresent = false;
+	/// <summary>
+	/// True if the user is currently wearing the display.
+	/// </summary>
+	public bool isUserPresent
+	{
+		get {
+			if (!_isUserPresentCached)
+			{
+				_isUserPresentCached = true;
+				_isUserPresent = OVRPlugin.userPresent;
+			}
+
+			return _isUserPresent;
+		}
+
+		private set {
+			_isUserPresentCached = true;
+			_isUserPresent = value;
+		}
+	}
+
+	private static bool prevAudioOutIdIsCached = false;
+	private static bool prevAudioInIdIsCached = false;
+	private static string prevAudioOutId = string.Empty;
+	private static string prevAudioInId = string.Empty;
+	private static bool wasPositionTracked = false;
 
 #region Unity Messages
 
@@ -279,27 +565,18 @@ public class OVRManager : MonoBehaviour
 
 		instance = this;
 
-		var netVersion = new System.Version(OVRPlugin.WrapperVersion);
-		System.Version ovrVersion = new System.Version("0.0.0");
-		var versionString = OVRPlugin.version;
-		var success = false;
-		try {
-			ovrVersion = new System.Version(versionString);
-			success = true;
-		} catch (Exception e) {
-			Debug.Log("Failed to parse Oculus version string \"" + versionString + "\" with message \"" + e.Message + "\".");
-		}
-		if (!success || netVersion > ovrVersion)
-			Debug.LogWarning("Version check failed. Please make sure you are using Oculus runtime " +
-			                 OVRPlugin.WrapperVersion + " or newer.");
-
 		Debug.Log("Unity v" + Application.unityVersion + ", " +
-		          "Oculus Utilities v" + netVersion + ", " +
-		          "OVRPlugin v" + ovrVersion + ".");
+		          "Oculus Utilities v" + OVRPlugin.wrapperVersion + ", " +
+		          "OVRPlugin v" + OVRPlugin.version + ", " +
+		          "SDK v" + OVRPlugin.nativeSDKVersion + ".");
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-		if (SystemInfo.graphicsDeviceType != UnityEngine.Rendering.GraphicsDeviceType.Direct3D11)
-			Debug.LogWarning("VR rendering requires Direct3D11. Your graphics device: " + SystemInfo.graphicsDeviceType);
+		var supportedTypes = new UnityEngine.Rendering.GraphicsDeviceType[] {
+			UnityEngine.Rendering.GraphicsDeviceType.Direct3D11,
+			UnityEngine.Rendering.GraphicsDeviceType.Direct3D12,
+		};
+		if (!supportedTypes.Contains(SystemInfo.graphicsDeviceType))
+			Debug.LogWarning("VR rendering requires one of the following device types: (" + string.Join(", ", supportedTypes.Select(t=>t.ToString()).ToArray()) + "). Your graphics device: " + SystemInfo.graphicsDeviceType);
 #endif
 
         // Detect whether this platform is a supported platform
@@ -324,93 +601,253 @@ public class OVRManager : MonoBehaviour
         chromatic = false;
 #endif
 
-        InitVolumeController();
-
 		if (display == null)
 			display = new OVRDisplay();
 		if (tracker == null)
 			tracker = new OVRTracker();
+		if (boundary == null)
+			boundary = new OVRBoundary();
 
 		if (resetTrackerOnLoad)
 			display.RecenterPose();
+		
+		// Disable the occlusion mesh by default until open issues with the preview window are resolved.
+		OVRPlugin.occlusionMesh = false;
 	}
-
-	private void OnEnable()
-	{
-		if (volumeController != null)
-		{
-			volumeController.UpdatePosition(volumeControllerTransform);
-		}
-    }
 
 	private void Update()
 	{
-		if (!usingPositionTrackingCached || usingPositionTracking != usePositionTracking)
+#if !UNITY_EDITOR
+		paused = !OVRPlugin.hasVrFocus;
+#endif
+
+		if (OVRPlugin.shouldQuit)
+			Application.Quit();
+
+		if (OVRPlugin.shouldRecenter)
+			OVRManager.display.RecenterPose();
+
+		if (trackingOriginType != _trackingOriginType)
+			trackingOriginType = _trackingOriginType;
+
+		tracker.isEnabled = usePositionTracking;
+
+		OVRPlugin.useIPDInPositionTracking = useIPDInPositionTracking;
+
+		// Dispatch HMD events.
+
+		isHmdPresent = OVRPlugin.hmdPresent;
+
+		if (useRecommendedMSAALevel && QualitySettings.antiAliasing != display.recommendedMSAALevel)
 		{
-			tracker.isEnabled = usePositionTracking;
-			usingPositionTracking = usePositionTracking;
-			usingPositionTrackingCached = true;
+			Debug.Log("The current MSAA level is " + QualitySettings.antiAliasing +
+			", but the recommended MSAA level is " + display.recommendedMSAALevel +
+			". Switching to the recommended level.");
+
+			QualitySettings.antiAliasing = display.recommendedMSAALevel;
 		}
 
-		// Dispatch any events.
-		if (HMDLost != null && wasHmdPresent && !VR.VRDevice.isPresent)
-			HMDLost();
+		if (_wasHmdPresent && !isHmdPresent)
+		{
+			try
+			{
+				if (HMDLost != null)
+					HMDLost();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+		}
 
-        if (HMDAcquired != null && !wasHmdPresent && VR.VRDevice.isPresent)
-			HMDAcquired();
+        if (!_wasHmdPresent && isHmdPresent)
+		{
+			try
+			{
+				if (HMDAcquired != null)
+					HMDAcquired();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+		}
 
-        wasHmdPresent = VR.VRDevice.isPresent;
+		_wasHmdPresent = isHmdPresent;
 
-		if (TrackingLost != null && wasPositionTracked && !tracker.isPositionTracked)
-			TrackingLost();
+		// Dispatch HMD mounted events.
 
-		if (TrackingAcquired != null && !wasPositionTracked && tracker.isPositionTracked)
-			TrackingAcquired();
+		isUserPresent = OVRPlugin.userPresent;
+
+		if (_wasUserPresent && !isUserPresent)
+		{
+			try
+			{
+				if (HMDUnmounted != null)
+					HMDUnmounted();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+		}
+
+		if (!_wasUserPresent && isUserPresent)
+		{
+			try
+			{
+				if (HMDMounted != null)
+					HMDMounted();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+		}
+
+		_wasUserPresent = isUserPresent;
+
+		// Dispatch VR Focus events.
+
+		hasVrFocus = OVRPlugin.hasVrFocus;
+
+		if (_hadVrFocus && !hasVrFocus)
+		{
+			try
+			{
+				if (VrFocusLost != null)
+					VrFocusLost();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+		}
+
+        if (!_hadVrFocus && hasVrFocus)
+		{
+			try
+			{
+				if (VrFocusAcquired != null)
+					VrFocusAcquired();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+		}
+
+		_hadVrFocus = hasVrFocus;
+
+
+		// Changing effective rendering resolution dynamically according performance
+#if (UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN) && UNITY_5 && !(UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3)
+
+		if (enableAdaptiveResolution)
+		{
+            if (VR.VRSettings.renderScale < maxRenderScale)
+            {
+                // Allocate renderScale to max to avoid re-allocation
+                VR.VRSettings.renderScale = maxRenderScale;
+            }
+            else
+            {
+                // Adjusting maxRenderScale in case app started with a larger renderScale value
+                maxRenderScale = Mathf.Max(maxRenderScale, VR.VRSettings.renderScale);
+            }
+            float minViewportScale = minRenderScale / VR.VRSettings.renderScale;
+            float recommendedViewportScale = OVRPlugin.GetEyeRecommendedResolutionScale() / VR.VRSettings.renderScale;
+            recommendedViewportScale = Mathf.Clamp(recommendedViewportScale, minViewportScale, 1.0f);
+            VR.VRSettings.renderViewportScale = recommendedViewportScale;
+        }
+#endif
+
+		// Dispatch Audio Device events.
+
+		string audioOutId = OVRPlugin.audioOutId;
+		if (!prevAudioOutIdIsCached)
+		{
+			prevAudioOutId = audioOutId;
+			prevAudioOutIdIsCached = true;
+		}
+		else if (audioOutId != prevAudioOutId)
+		{
+			try
+			{
+				if (AudioOutChanged != null)
+					AudioOutChanged();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+
+			prevAudioOutId = audioOutId;
+		}
+
+		string audioInId = OVRPlugin.audioInId;
+		if (!prevAudioInIdIsCached)
+		{
+			prevAudioInId = audioInId;
+			prevAudioInIdIsCached = true;
+		}
+		else if (audioInId != prevAudioInId)
+		{
+			try
+			{
+				if (AudioInChanged != null)
+					AudioInChanged();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+
+			prevAudioInId = audioInId;
+		}
+
+		// Dispatch tracking events.
+
+		if (wasPositionTracked && !tracker.isPositionTracked)
+		{
+			try
+			{
+				if (TrackingLost != null)
+					TrackingLost();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+		}
+
+		if (!wasPositionTracked && tracker.isPositionTracked)
+		{
+			try
+			{
+				if (TrackingAcquired != null)
+					TrackingAcquired();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError("Caught Exception: " + e);
+			}
+		}
 
 		wasPositionTracked = tracker.isPositionTracked;
 
-		if (isHSWDisplayed && Input.anyKeyDown)
-		{
-			DismissHSWDisplay();
-			
-			if (HSWDismissed != null)
-				HSWDismissed();
-		}
-
 		display.Update();
-		
-		if (volumeController != null)
-		{
-			if (volumeControllerTransform == null)
-			{
-				if (gameObject.GetComponent<OVRCameraRig>() != null)
-				{
-					volumeControllerTransform = gameObject.GetComponent<OVRCameraRig>().centerEyeAnchor;
-				}
-			}
-			volumeController.UpdatePosition(volumeControllerTransform);
-		}
+		OVRInput.Update();
     }
 
-	/// <summary>
-	/// Creates a popup dialog that shows when volume changes.
-	/// </summary>
-	private static void InitVolumeController()
+	private void LateUpdate()
 	{
-		if (volumeController == null)
-		{
-			Debug.Log("Creating volume controller...");
-			// Create the volume control popup
-			GameObject go = GameObject.Instantiate(Resources.Load("OVRVolumeController")) as GameObject;
-			if (go != null)
-			{
-				volumeController = go.GetComponent<OVRVolumeControl>();
-			}
-			else
-			{
-				Debug.LogError("Unable to instantiate volume controller");
-			}
-		}
+		OVRHaptics.Process();
+	}
+
+	private void FixedUpdate()
+	{
+		OVRInput.FixedUpdate();
 	}
 
 	/// <summary>
@@ -426,7 +863,7 @@ public class OVRManager : MonoBehaviour
 
     public static void PlatformUIConfirmQuit()
 	{
-		if (!VR.VRDevice.isPresent)
+		if (!isHmdPresent)
 			return;
 
 		OVRPlugin.ShowUI(OVRPlugin.PlatformUI.ConfirmQuit);
@@ -434,7 +871,7 @@ public class OVRManager : MonoBehaviour
 
     public static void PlatformUIGlobalMenu()
 	{
-		if (!VR.VRDevice.isPresent)
+		if (!isHmdPresent)
 			return;
 
 		OVRPlugin.ShowUI(OVRPlugin.PlatformUI.GlobalMenu);

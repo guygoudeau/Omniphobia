@@ -11,13 +11,13 @@ public class ZipLine : MonoBehaviour {
         Active = false;
     }
 
-    void OnCollisionStay(Collision collisionInfo)
-    {
-        if (collisionInfo.gameObject == player && OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.A))
-        {
-            Active = true;
-        }
-    }
+    //void OnCollisionStay(Collision collisionInfo)
+    //{
+    //    if (collisionInfo.gameObject == player && OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.A))
+    //    {
+    //        Active = true;
+    //    }
+    //}
 
     // Update is called once per frame
     void Update () {
