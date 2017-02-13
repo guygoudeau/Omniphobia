@@ -42,17 +42,17 @@ public class GameManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-    if (OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.B))
-        {
-            Debug.Log(Spider.value);
-        }
-        if (OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.A))
-        {
+	//void Update () {
+ //   if (OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.B))
+ //       {
+ //           Debug.Log(Spider.value);
+ //       }
+ //       if (OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.A))
+ //       {
 
-            Spider.value++;
-            Checkup();
-        }
+ //           Spider.value++;
+ //           Checkup();
+ //       }
 
-    }
+ //   }
 }
