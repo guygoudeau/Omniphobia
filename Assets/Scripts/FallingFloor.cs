@@ -30,7 +30,7 @@ public class FallingFloor : MonoBehaviour {
             obj.AddComponent<Rigidbody>();
             obj.GetComponent<Rigidbody>().isKinematic = false;
             obj.GetComponent<Rigidbody>().useGravity = true;
-            obj.GetComponent<Rigidbody>().rotation = new Quaternion(0, 20, 10, 0);
+            obj.GetComponent<Rigidbody>().AddTorque(25, 0, 25);
             yield return new WaitForSeconds(speed / 10);
         }
     }
