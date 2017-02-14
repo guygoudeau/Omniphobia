@@ -16,7 +16,7 @@ public class FallingFloor : MonoBehaviour {
 
     void Update()
     {
-        if (player.transform.rotation.x < -75 && first)
+        if (player.transform.rotation.x < 75 && first)
         {
             StartCoroutine(Fall());
             first = false;
@@ -30,6 +30,7 @@ public class FallingFloor : MonoBehaviour {
             obj.AddComponent<Rigidbody>();
             obj.GetComponent<Rigidbody>().isKinematic = false;
             obj.GetComponent<Rigidbody>().useGravity = true;
+            obj.GetComponent<Rigidbody>().AddTorque(25, 0, 25);
             yield return new WaitForSeconds(speed / 10);
         }
     }
