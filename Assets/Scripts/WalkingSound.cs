@@ -11,7 +11,11 @@ public class WalkingSound : MonoBehaviour {
         {
             foreach(GameObject go in FindObjectsOfType<GameObject>())
             {
-                if (go.name == "First Person Controller")
+                if (go.name == "OVRPlayerController")
+                {
+                    _player = go;
+                }
+                else if(go.name == "First Person Controller")
                 {
                     _player = go;
                 }
@@ -22,18 +26,21 @@ public class WalkingSound : MonoBehaviour {
             }
         }
         _prevPosition = _player.transform.position;
-        transform.position = _player.transform.position;
+        transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y - 1.05f, _player.transform.position.z);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = _player.transform.position;
+        transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y - 1.05f, _player.transform.position.z);
 
         if(_prevPosition != _player.transform.position)
         {
-            if (!(_self.GetComponent<AudioSource>().isPlaying))
+            if (_player.GetComponent<CharacterController>().isGrounded)
             {
-                _self.GetComponent<AudioSource>().Play();
+                if (!(_self.GetComponent<AudioSource>().isPlaying))
+                {
+                    _self.GetComponent<AudioSource>().Play();
+                }
             }
             _prevPosition = _player.transform.position;
         }
