@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WalkingSound : MonoBehaviour {
     GameObject _player;
     GameObject _self;
     Vector3 _prevPosition;
+    List<AudioSource> steps;
+    
 	// Use this for initialization
 	void Start () {
         if(_player == null)
@@ -27,6 +30,10 @@ public class WalkingSound : MonoBehaviour {
         }
         _prevPosition = _player.transform.position;
         transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y - 1.05f, _player.transform.position.z);
+        //foreach(AudioSource AS in _self.GetComponents<AudioSource>())
+        //{
+        //    steps.Add(AS);
+        //}
 	}
 	
 	// Update is called once per frame
@@ -44,13 +51,44 @@ public class WalkingSound : MonoBehaviour {
             }
             _prevPosition = _player.transform.position;
         }
-
-        //else if(_prevPosition == _player.transform.position)
-        //{
-        //    if (this.GetComponent<AudioSource>().isPlaying)
-        //    {
-        //        this.GetComponent<AudioSource>().Stop();
-        //    }
-        //}
 	}
+
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.name == "WoodCreaking")
+    //    {
+    //        if (_prevPosition != other.transform.position)
+    //        {
+    //            if (_player.GetComponent<CharacterController>().isGrounded)
+    //            {
+    //                if (!(steps[1].isPlaying))
+    //                {
+    //                    steps[1].Play();
+    //                    Debug.Log("Player Stepped On Me");
+    //                }
+    //            }
+    //            _prevPosition = other.transform.position;
+    //        }
+    //    }
+    //}
+
+    //void OnTriggerStay(Collider other)
+    //{
+    //    if (other.name == "WoodCreaking")
+    //    {
+    //        Debug.Log("Steppin on the planks");
+    //        if (_prevPosition != other.transform.position)
+    //        {
+    //            if (_player.GetComponent<CharacterController>().isGrounded)
+    //            {
+    //                if (!(steps[1].isPlaying))
+    //                {
+    //                    steps[1].Play();
+    //                    Debug.Log("Player Is Stepping On Me");
+    //                }
+    //            }
+    //            _prevPosition = other.transform.position;
+    //        }
+    //    }
+    //}
 }
