@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: 8f9d3ba06d5527847b88b3336ad60049
-timeCreated: 1486571778
+guid: 18f030c6f20e8a14caaa3cf76129c370
+timeCreated: 1487176367
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: desk
-    100002: //RootNode
-    400000: desk
-    400002: //RootNode
-    2300000: desk
-    3300000: desk
-    4300000: desk
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: polySurface1
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -70,7 +69,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
