@@ -2,14 +2,14 @@
 
 Copyright   :   Copyright 2014 Oculus VR, LLC. All Rights reserved.
 
-Licensed under the Oculus VR Rift SDK License Version 3.2 (the "License");
+Licensed under the Oculus VR Rift SDK License Version 3.3 (the "License");
 you may not use the Oculus VR Rift SDK except in compliance with the License,
 which is provided at the time of installation or download, or which
 otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
 
-http://www.oculusvr.com/licenses/LICENSE-3.2
+http://www.oculus.com/licenses/LICENSE-3.3
 
 Unless required by applicable law or agreed to in writing, the Oculus VR SDK
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -107,30 +107,60 @@ public class OVRDisplay
 	}
 
 	/// <summary>
-	/// Gets the current acceleration of the head.
+	/// Gets the current linear acceleration of the head.
 	/// </summary>
 	public Vector3 acceleration
 	{
 		get {			
-			if (!VR.VRDevice.isPresent)
+			if (!OVRManager.isHmdPresent)
 				return Vector3.zero;
 
             OVRPose ret = OVRPlugin.GetEyeAcceleration(OVRPlugin.Eye.None).ToOVRPose();
-            return -ret.position;
+            return ret.position;
 		}
 	}
+
+    /// <summary>
+    /// Gets the current angular acceleration of the head.
+    /// </summary>
+    public Quaternion angularAcceleration
+    {
+        get
+        {
+            if (!OVRManager.isHmdPresent)
+                return Quaternion.identity;
+
+            OVRPose ret = OVRPlugin.GetEyeAcceleration(OVRPlugin.Eye.None).ToOVRPose();
+            return ret.orientation;
+        }
+    }
+
+    /// <summary>
+    /// Gets the current linear velocity of the head.
+    /// </summary>
+    public Vector3 velocity
+    {
+        get
+        {
+            if (!OVRManager.isHmdPresent)
+                return Vector3.zero;
+
+            OVRPose ret = OVRPlugin.GetEyeVelocity(OVRPlugin.Eye.None).ToOVRPose();
+            return ret.position;
+        }
+    }
 	
 	/// <summary>
 	/// Gets the current angular velocity of the head.
 	/// </summary>
-	public Vector3 angularVelocity
+	public Quaternion angularVelocity
 	{
 		get {
-			if (!VR.VRDevice.isPresent)
-				return Vector3.zero;
+			if (!OVRManager.isHmdPresent)
+				return Quaternion.identity;
 
 			OVRPose ret = OVRPlugin.GetEyeVelocity(OVRPlugin.Eye.None).ToOVRPose();
-			return ret.orientation.eulerAngles;
+			return ret.orientation;
 		}
 	}
 
@@ -148,7 +178,7 @@ public class OVRDisplay
 	public LatencyData latency
 	{
 		get {
-			if (!VR.VRDevice.isPresent)
+			if (!OVRManager.isHmdPresent)
 				return new LatencyData();
 
             string latency = OVRPlugin.latency;
@@ -169,6 +199,22 @@ public class OVRDisplay
 		}
 	}
 
+	/// <summary>
+	/// Gets the recommended MSAA level for optimal quality/performance the current device.
+	/// </summary>
+	public int recommendedMSAALevel
+	{
+		get
+		{
+			int result = OVRPlugin.recommendedMSAALevel;
+
+			if (result == 1)
+				result = 0;
+			
+			return result;
+		}
+	}
+
 	private void UpdateTextures()
 	{
 		ConfigureEyeDesc(VR.VRNode.LeftEye);
@@ -177,7 +223,7 @@ public class OVRDisplay
 
     private void ConfigureEyeDesc(VR.VRNode eye)
 	{
-		if (!VR.VRDevice.isPresent)
+		if (!OVRManager.isHmdPresent)
 			return;
 
 		OVRPlugin.Sizei size = OVRPlugin.GetEyeTextureSize((OVRPlugin.Eye)eye);
