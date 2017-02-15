@@ -282,6 +282,61 @@ ModelImporter:
     4300104: BridgeRope_Bottom02
     4300106: BridgeRope_Top01
     4300108: BridgeRope_Top02
+    6400000: BridgePlank001
+    6400002: BridgePlank0014
+    6400004: BridgePlank002
+    6400006: BridgePlank003
+    6400008: BridgePlank004
+    6400010: BridgePlank005
+    6400012: BridgePlank006
+    6400014: BridgePlank007
+    6400016: BridgePlank008
+    6400018: BridgePlank009
+    6400020: BridgePlank010
+    6400022: BridgePlank011
+    6400024: BridgePlank012
+    6400026: BridgePlank013
+    6400028: BridgePlank015
+    6400030: BridgePlank016
+    6400032: BridgePlank017
+    6400034: BridgePlank018
+    6400036: BridgePlank019
+    6400038: BridgePlank020
+    6400040: BridgePlank021
+    6400042: BridgePlank022
+    6400044: BridgePlank023
+    6400046: BridgePlank024
+    6400048: BridgePlank025
+    6400050: BridgePlank026
+    6400052: BridgePlank027
+    6400054: BridgePlank028
+    6400056: BridgePlank029
+    6400058: BridgePlank_Crack001_01
+    6400060: BridgePlank_Crack001_02
+    6400062: BridgePlank_Crack002_01
+    6400064: BridgePlank_Crack002_02
+    6400066: BridgePlank_Crack003_01
+    6400068: BridgePlank_Crack003_02
+    6400070: BridgePlank_Crack004_01
+    6400072: BridgePlank_Crack004_02
+    6400074: BridgePlank_Crack005_01
+    6400076: BridgePlank_Crack005_02
+    6400078: BridgePlank_Crack006_01
+    6400080: BridgePlank_Crack006_02
+    6400082: BridgePlank_Crack007_01
+    6400084: BridgePlank_Crack007_02
+    6400086: BridgePlank_Crack008_01
+    6400088: BridgePlank_Crack008_02
+    6400090: BridgePlank_Crack009_01
+    6400092: BridgePlank_Crack009_02
+    6400094: BridgePlank_Crack010_01
+    6400096: BridgePlank_Crack010_02
+    6400098: BridgePlank_Crack011_01
+    6400100: BridgePlank_Crack011_02
+    6400102: BridgeRope_Bottom01
+    6400104: BridgeRope_Bottom02
+    6400106: BridgeRope_Top01
+    6400108: BridgeRope_Top02
   materials:
     importMaterials: 1
     materialName: 0
