@@ -16,13 +16,13 @@ public class Sway : MonoBehaviour {
 	void Update () {
 
         Quaternion Q = startPos;
-        Vector3 V = transform.position;
+        //Vector3 V = transform.position;
         Q.w += Delta * Mathf.Sin(Time.fixedTime * speed);
         Q.x += Delta  * Mathf.Sin(Time.fixedTime * speed);
         Q.z += Delta  * Mathf.Cos(Time.fixedTime * speed);
         Q.y += Delta * Mathf.Sin(Time.fixedTime * speed);
-        V.y += (Delta * Mathf.Sin(Time.fixedTime * speed));
-        transform.position = V;
+        //V.y += (Delta * Mathf.Sin(Time.fixedTime * speed));
+        //transform.position = V;
         transform.rotation = Q;
     }
 }
