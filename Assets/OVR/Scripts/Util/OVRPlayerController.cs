@@ -33,6 +33,9 @@ public class OVRPlayerController : MonoBehaviour
 	/// </summary>
 	public float Acceleration = 0.1f;
 
+    // used for testing only. if the Oculus is not attache it make the camera spawn near the eyes, istead of on the floor.
+    public bool NotUsingOVC = false;
+    
 	/// <summary>
 	/// The rate of damping on movement.
 	/// </summary>
@@ -161,7 +164,12 @@ public class OVRPlayerController : MonoBehaviour
 			var p = CameraRig.transform.localPosition;
 			if (OVRManager.instance.trackingOriginType == OVRManager.TrackingOrigin.EyeLevel)
 			{
-				p.y = OVRManager.profile.eyeHeight - (0.5f * Controller.height) + Controller.center.y;
+                if (NotUsingOVC == true)
+                {
+                    p.y = 1;
+                }
+                else 
+				    p.y = OVRManager.profile.eyeHeight - (0.5f * Controller.height) + Controller.center.y;
 			}
 			else if (OVRManager.instance.trackingOriginType == OVRManager.TrackingOrigin.FloorLevel)
 			{
