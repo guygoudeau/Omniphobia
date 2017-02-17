@@ -5,6 +5,7 @@ public class InteractiveLook : MonoBehaviour {
 
     private GameObject _player;
     private Transform _self;
+    public bool Sitting = false;
 
     // Use this for initialization
     void Start () {
@@ -33,11 +34,11 @@ public class InteractiveLook : MonoBehaviour {
 	void Update () {
         Vector3 fwd = _player.transform.TransformDirection(Vector3.forward);
         transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y + .05f, _player.transform.position.z);
+
         RaycastHit hit;
-        if(Physics.Raycast(_self.position,fwd, out hit,1.5f))
+        if(Physics.Raycast(_self.position,fwd, out hit,.5f))
         {
             Debug.DrawLine(_self.position, hit.point);
-            Debug.Log(hit.collider.name);
             if(hit.collider.name.Contains("Door") )
             {
                 if(Input.GetKeyDown("e"))
@@ -56,6 +57,26 @@ public class InteractiveLook : MonoBehaviour {
                     }
                     SceneChanger.ChangeScene(_player, _sceneNum);
                     //Needs modification, items are not destroyed on loading a new scene.
+                }
+            }
+            if(hit.collider.name.Contains("Chair"))
+            {
+                if (!Sitting)
+                {
+                    if (Input.GetKeyDown("e"))
+                    {
+                        _player.transform.position = new Vector3(hit.collider.transform.position.x, _player.transform.position.y, hit.collider.transform.position.z);
+                        _player.transform.rotation = hit.collider.transform.rotation;
+                        Sitting = true;
+                    }
+                }
+                else if (Sitting)
+                {
+                    if (Input.GetKeyDown("e"))
+                    {
+                        _player.transform.Translate(transform.forward);
+                        Sitting = false;
+                    }
                 }
             }
         }
