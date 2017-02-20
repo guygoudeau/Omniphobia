@@ -3,14 +3,12 @@ using System.Collections;
 
 public class stuff : MonoBehaviour {
 
-    [SerializeField]
-    GameObject player;
+    public int CurrentScene = 0;
 
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown("x"))
-        {
-            SceneChanger.ChangeScene(player, 2);
-        }
-	}
+    // Update is called once per frame
+    void Start() {
+        SceneChanger.LoadFirstScene(1);
+        CurrentScene++;
+    }
+
 }

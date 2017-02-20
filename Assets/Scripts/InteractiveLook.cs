@@ -36,7 +36,7 @@ public class InteractiveLook : MonoBehaviour {
         transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y + .05f, _player.transform.position.z);
 
         RaycastHit hit;
-        if(Physics.Raycast(_self.position,fwd, out hit,.5f))
+        if(Physics.Raycast(_self.position,fwd, out hit,1f))
         {
             Debug.DrawLine(_self.position, hit.point);
             if(hit.collider.name.Contains("Door") )
@@ -56,7 +56,7 @@ public class InteractiveLook : MonoBehaviour {
                             enumeration++;
                     }
                     SceneChanger.ChangeScene(_player, _sceneNum);
-                    //Needs modification, items are not destroyed on loading a new scene.
+                    FindObjectOfType<stuff>().CurrentScene++;
                 }
             }
             if(hit.collider.name.Contains("Chair"))
@@ -80,5 +80,10 @@ public class InteractiveLook : MonoBehaviour {
                 }
             }
         }
+    }
+
+    void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
     }
 }
