@@ -12,6 +12,12 @@ ModelImporter:
     100008: pCube3
     100010: pCube4
     100012: SeatLowPoly1:RoadKillOut
+    100014: Chiar:pCube2_group1
+    100016: group1_ChairLowPolyObjExport3:RoadKillOut
+    100018: group1_pCube2
+    100020: group1_pCube3
+    100022: group1_pCube4
+    100024: group1_SeatLowPoly1:RoadKillOut
     400000: ChairLowPolyObjExport3:RoadKillOut
     400002: Chiar:pCube2
     400004: //RootNode
@@ -19,24 +25,48 @@ ModelImporter:
     400008: pCube3
     400010: pCube4
     400012: SeatLowPoly1:RoadKillOut
+    400014: Chiar:pCube2_group1
+    400016: group1_ChairLowPolyObjExport3:RoadKillOut
+    400018: group1_pCube2
+    400020: group1_pCube3
+    400022: group1_pCube4
+    400024: group1_SeatLowPoly1:RoadKillOut
     2300000: ChairLowPolyObjExport3:RoadKillOut
     2300002: Chiar:pCube2
     2300004: pCube2
     2300006: pCube3
     2300008: pCube4
     2300010: SeatLowPoly1:RoadKillOut
+    2300012: Chiar:pCube2_group1
+    2300014: group1_ChairLowPolyObjExport3:RoadKillOut
+    2300016: group1_pCube2
+    2300018: group1_pCube3
+    2300020: group1_pCube4
+    2300022: group1_SeatLowPoly1:RoadKillOut
     3300000: ChairLowPolyObjExport3:RoadKillOut
     3300002: Chiar:pCube2
     3300004: pCube2
     3300006: pCube3
     3300008: pCube4
     3300010: SeatLowPoly1:RoadKillOut
+    3300012: Chiar:pCube2_group1
+    3300014: group1_ChairLowPolyObjExport3:RoadKillOut
+    3300016: group1_pCube2
+    3300018: group1_pCube3
+    3300020: group1_pCube4
+    3300022: group1_SeatLowPoly1:RoadKillOut
     4300000: ChairLowPolyObjExport3:RoadKillOut
     4300002: Chiar:pCube2
     4300004: pCube2
     4300006: pCube3
     4300008: pCube4
     4300010: SeatLowPoly1:RoadKillOut
+    4300012: Chiar:pCube2_group1
+    4300014: group1_ChairLowPolyObjExport3:RoadKillOut
+    4300016: group1_pCube2
+    4300018: group1_pCube3
+    4300020: group1_pCube4
+    4300022: group1_SeatLowPoly1:RoadKillOut
   materials:
     importMaterials: 1
     materialName: 0

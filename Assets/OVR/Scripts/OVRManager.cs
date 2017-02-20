@@ -36,12 +36,14 @@ using VR = UnityEngine.VR;
 /// </summary>
 public class OVRManager : MonoBehaviour
 {
+
+    
 	public enum TrackingOrigin
 	{
 		EyeLevel   = OVRPlugin.TrackingOrigin.EyeLevel,
 		FloorLevel = OVRPlugin.TrackingOrigin.FloorLevel,
 	}
-
+    
 	public enum EyeTextureFormat
 	{
 		Default = OVRPlugin.EyeTextureFormat.Default,
@@ -456,8 +458,10 @@ public class OVRManager : MonoBehaviour
 
 			return OVRPlugin.powerSaving;
 		}
-	}
-
+	}
+
+
+
 	/// <summary>
 	/// Gets or sets the eye texture format.
 	/// This feature is only for UNITY_5_6_OR_NEWER
