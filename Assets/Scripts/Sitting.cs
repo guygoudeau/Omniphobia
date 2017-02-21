@@ -28,7 +28,7 @@ public class Sitting : MonoBehaviour {
         {
             if (other.name == "First Person Controller")
             {
-                other.transform.position = new Vector3(_parentPos.x, _parentPos.y + 1.06f, _parentPos.z);
+                other.transform.position = new Vector3(_parentPos.x, _parentPos.y + .61f, _parentPos.z);
             }
         }
     }

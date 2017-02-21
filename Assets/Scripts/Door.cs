@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour {
 
@@ -8,6 +9,6 @@ public class Door : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneChanger.ChangeScene(player, sceneNumber);
+        SceneManager.LoadScene(sceneNumber);
     }
 }
