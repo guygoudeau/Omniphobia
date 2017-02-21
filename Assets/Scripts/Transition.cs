@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Transition : MonoBehaviour {
 
@@ -10,6 +11,6 @@ public class Transition : MonoBehaviour {
 	void OnTriggerEnter(Collider obj)
     {
         player.transform.position = newPosition;
-        SceneChanger.ChangeScene(player, SceneNumber);
+        SceneManager.LoadScene(SceneNumber);
     }
 }
