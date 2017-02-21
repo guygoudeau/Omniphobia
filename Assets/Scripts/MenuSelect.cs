@@ -16,7 +16,7 @@ public class MenuSelect : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Play"))
         {
-            SceneManager.LoadScene("LibraryHub");
+            SceneManager.LoadScene("Library");
         }
     }
 
