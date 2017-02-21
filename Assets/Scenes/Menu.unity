@@ -1609,11 +1609,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Acceleration: 0.3
-  NotUsingOVC: 1
+  NotUsingOVC: 0
   Damping: 0.3
   BackAndSideDampen: 0.5
   JumpForce: 0.3
-  RotationAmount: 1.5
+  RotationAmount: 0
   RotationRatchet: 45
   HmdResetsY: 1
   HmdRotatesY: 1
