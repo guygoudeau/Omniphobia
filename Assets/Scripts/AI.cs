@@ -6,6 +6,7 @@ public class AI : MonoBehaviour {
     // Player player;
     //Vector3 position;
     public GameObject Target;
+    public Vector3 offSet;
     //public string Entity;
 
     void Update()
@@ -15,9 +16,9 @@ public class AI : MonoBehaviour {
 
     Vector3 Seek(Vector3 a, Vector3 b)
     {
-        if ((b != a))
+        if ((b != (a - offSet)))
         {
-            b = b + ((a - b) * Time.deltaTime);
+            b = b + (((a - offSet) - b) * Time.deltaTime);
         }
         return b;
     }
