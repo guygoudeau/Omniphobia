@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 8f9d3ba06d5527847b88b3336ad60049
-timeCreated: 1486571778
+guid: f4864fc6614d60c4c985d1576c0ff9d0
+timeCreated: 1487175405
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: desk
+    100000: Sofa
     100002: //RootNode
-    400000: desk
+    400000: Sofa
     400002: //RootNode
-    2300000: desk
-    3300000: desk
-    4300000: desk
+    2300000: Sofa
+    3300000: Sofa
+    4300000: Sofa
   materials:
     importMaterials: 1
     materialName: 0
