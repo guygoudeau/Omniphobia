@@ -6,7 +6,6 @@ public class InteractiveLook : MonoBehaviour {
     private GameObject _player;
     private Transform _self;
     public bool Sitting = false;
-    private IEnumerator _fadeIn;
 
     // Use this for initialization
     void Start () {
@@ -56,6 +55,7 @@ public class InteractiveLook : MonoBehaviour {
                         else
                             enumeration++;
                     }
+                    SceneChanger.ChangeScene(_player, _sceneNum);
                     FindObjectOfType<stuff>().CurrentScene++;
                 }
             }

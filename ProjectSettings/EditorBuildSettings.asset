@@ -10,12 +10,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Empty.unity
   - enabled: 0
+    path: Assets/Scenes/Austin.unity
+  - enabled: 0
     path: Assets/Scenes/thing.unity
   - enabled: 1
     path: Assets/Scenes/Menu.unity
   - enabled: 1
     path: Assets/Scenes/LibraryHub.unity
-  - enabled: 0
-    path: Assets/Scenes/Heights.unity
   - enabled: 1
-    path: Assets/Scenes/Austin.unity
+    path: Assets/Scenes/Heights.unity
