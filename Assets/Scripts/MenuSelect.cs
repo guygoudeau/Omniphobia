@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class MenuSelect : MonoBehaviour {
+public class MenuSelect : MonoBehaviour
+{
+    void Update()
+    {
+        if (OVRInput.GetDown(OVRInput.Button.One))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Play"))
+        {
+            SceneManager.LoadScene("LibraryHub");
+        }
+    }
+
+    
 }
