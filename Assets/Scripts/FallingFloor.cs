@@ -8,10 +8,25 @@ public class FallingFloor : MonoBehaviour {
     public GameObject player;
     public float speed;
     private bool first;
+    public GameObject BreakList;
 
     void Start()
     {
         first = true;
+        foreach (Transform child1 in transform)
+        {
+            if (child1.name == "Break")
+            {
+                BreakList = child1.gameObject;
+            }
+        }
+        foreach (Transform child2 in BreakList.GetComponentsInChildren<Transform>())
+        {
+            if (child2.name != "Break")
+            {
+                Tiles.Add(child2.gameObject);
+            }
+        }
     }
 
     void Update()
@@ -30,8 +45,9 @@ public class FallingFloor : MonoBehaviour {
             obj.AddComponent<Rigidbody>();
             obj.GetComponent<Rigidbody>().isKinematic = false;
             obj.GetComponent<Rigidbody>().useGravity = true;
-            obj.GetComponent<Rigidbody>().AddTorque(25, 0, 25);
-            yield return new WaitForSeconds(speed / 10);
+            Destroy(obj.GetComponent<BoxCollider>());
+            obj.GetComponent<Rigidbody>().AddTorque(56, 25, 140);
+            yield return new WaitForSeconds(speed/10);
         }
     }
 }
