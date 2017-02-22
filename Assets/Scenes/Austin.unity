@@ -619,6 +619,7 @@ MonoBehaviour:
   speed: 0.1
   door1: {fileID: 2026036017}
   door2: {fileID: 974131614}
+  Close: 1
 --- !u!65 &937588354
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -705,23 +706,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!95 &937588356
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 937588348}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f905d1e5ce53d224e87fe2d2270fcdae, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &941207401 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100014, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
@@ -813,7 +797,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.12
+      value: 3.63
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1031,6 +1015,10 @@ Prefab:
     - target: {fileID: 100094, guid: 44d8d92fa7126e443a806ba0f30ed80c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 44d8d92fa7126e443a806ba0f30ed80c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44d8d92fa7126e443a806ba0f30ed80c, type: 3}
@@ -1440,6 +1428,7 @@ MonoBehaviour:
   - {fileID: 697649379}
   player: {fileID: 1081983274}
   speed: 2
+  BreakList: {fileID: 0}
 --- !u!1 &2007213668 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100030, guid: 6bdf791f1055ed446a6a9407362c2ac7, type: 3}
