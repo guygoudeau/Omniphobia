@@ -15,14 +15,14 @@ public class FallingFloor : MonoBehaviour {
         first = true;
         foreach (Transform child1 in transform)
         {
-            if (child1.name == "Break")
+            if (child1.name == "Break" || child1.name == "Tile")
             {
                 BreakList = child1.gameObject;
             }
         }
         foreach (Transform child2 in BreakList.GetComponentsInChildren<Transform>())
         {
-            if (child2.name != "Break")
+            if (child2.name != "Break" && child2.name != "Tile")
             {
                 Tiles.Add(child2.gameObject);
             }
