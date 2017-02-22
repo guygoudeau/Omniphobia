@@ -22,7 +22,7 @@ public class FallingFloor : MonoBehaviour {
         }
         foreach (Transform child2 in BreakList.GetComponentsInChildren<Transform>())
         {
-            if (child2.name != "Break" || child2.name == "Tile")
+            if (child2.name != "Break" && child2.name != "Tile")
             {
                 Tiles.Add(child2.gameObject);
             }
