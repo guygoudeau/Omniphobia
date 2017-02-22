@@ -1,0 +1,626 @@
+fileFormatVersion: 2
+guid: 3133d54f63ed1c7478052bfd4a1194bd
+timeCreated: 1487782986
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BridgeRope001
+    100002: BridgeRope003
+    100004: joint1
+    100006: joint10
+    100008: joint10 1
+    100010: joint10 2
+    100012: joint11
+    100014: joint11 1
+    100016: joint11 2
+    100018: joint12
+    100020: joint12 1
+    100022: joint12 2
+    100024: joint13
+    100026: joint13 1
+    100028: joint13 2
+    100030: joint14
+    100032: joint14 1
+    100034: joint14 2
+    100036: joint15
+    100038: joint15 1
+    100040: joint15 2
+    100042: joint16
+    100044: joint17
+    100046: joint2
+    100048: joint2 1
+    100050: joint2 2
+    100052: joint3
+    100054: joint3 1
+    100056: joint3 2
+    100058: joint4
+    100060: joint4 1
+    100062: joint4 2
+    100064: joint5
+    100066: joint5 1
+    100068: joint5 2
+    100070: joint6
+    100072: joint6 1
+    100074: joint6 2
+    100076: joint7
+    100078: joint7 1
+    100080: joint7 2
+    100082: joint8
+    100084: joint8 1
+    100086: joint8 2
+    100088: joint9
+    100090: joint9 1
+    100092: joint9 2
+    100094: polySurface101
+    100096: polySurface103
+    100098: polySurface105
+    100100: polySurface107
+    100102: polySurface109
+    100104: polySurface111
+    100106: polySurface113
+    100108: polySurface115
+    100110: polySurface117
+    100112: polySurface119
+    100114: polySurface121
+    100116: polySurface123
+    100118: polySurface125
+    100120: polySurface127
+    100122: polySurface129
+    100124: polySurface131
+    100126: polySurface57
+    100128: polySurface59
+    100130: polySurface61
+    100132: polySurface63
+    100134: polySurface65
+    100136: polySurface67
+    100138: polySurface69
+    100140: polySurface71
+    100142: polySurface73
+    100144: polySurface75
+    100146: polySurface77
+    100148: polySurface79
+    100150: polySurface81
+    100152: polySurface83
+    100154: polySurface85
+    100156: polySurface87
+    100158: polySurface89
+    100160: polySurface91
+    100162: polySurface93
+    100164: polySurface95
+    100166: polySurface97
+    100168: polySurface99
+    100170: Rope001
+    100172: Rope002
+    100174: Rope003
+    100176: Rope004
+    100178: Rope005
+    100180: Rope006
+    100182: Rope007
+    100184: Rope008
+    100186: Rope009
+    100188: Rope010
+    100190: Rope011
+    100192: Rope012
+    100194: Rope013
+    100196: Rope014
+    100198: Rope015
+    100200: Rope016
+    100202: Rope017
+    100204: Rope018
+    100206: Rope019
+    100208: Rope020
+    100210: Rope021
+    100212: Rope022
+    100214: Rope023
+    100216: Rope024
+    100218: Rope025
+    100220: Rope026
+    100222: Rope027
+    100224: Rope028
+    100226: Rope029
+    100228: Rope030
+    100230: Rope031
+    100232: Rope032
+    100234: Rope033
+    100236: Rope034
+    100238: Rope035
+    100240: Rope036
+    100242: Rope037
+    100244: Rope038
+    100246: Rope039
+    100248: Rope040
+    100250: //RootNode
+    100252: RopeBridge_Block001:BridgePlank001
+    100254: RopeBridge_Block001:BridgePlank0014
+    100256: RopeBridge_Block001:BridgePlank002
+    100258: RopeBridge_Block001:BridgePlank003
+    100260: RopeBridge_Block001:BridgePlank004
+    100262: RopeBridge_Block001:BridgePlank005
+    100264: RopeBridge_Block001:BridgePlank006
+    100266: RopeBridge_Block001:BridgePlank007
+    100268: RopeBridge_Block001:BridgePlank008
+    100270: RopeBridge_Block001:BridgePlank009
+    100272: RopeBridge_Block001:BridgePlank010
+    100274: RopeBridge_Block001:BridgePlank011
+    100276: RopeBridge_Block001:BridgePlank012
+    100278: RopeBridge_Block001:BridgePlank013
+    100280: RopeBridge_Block001:BridgePlank015
+    100282: RopeBridge_Block001:BridgePlank016
+    100284: RopeBridge_Block001:BridgePlank017
+    100286: RopeBridge_Block001:BridgePlank018
+    100288: RopeBridge_Block001:BridgePlank019
+    100290: RopeBridge_Block001:BridgePlank020
+    100292: RopeBridge_Block001:BridgePlank021
+    100294: RopeBridge_Block001:BridgePlank022
+    100296: RopeBridge_Block001:BridgePlank023
+    100298: RopeBridge_Block001:BridgePlank024
+    100300: RopeBridge_Block001:BridgePlank025
+    100302: RopeBridge_Block001:BridgePlank026
+    100304: RopeBridge_Block001:BridgePlank027
+    100306: RopeBridge_Block001:BridgePlank028
+    100308: RopeBridge_Block001:BridgePlank029
+    100310: RopeBridge_Block001:BridgePlank_Crack001_01
+    100312: RopeBridge_Block001:BridgePlank_Crack001_02
+    100314: RopeBridge_Block001:BridgePlank_Crack002_01
+    100316: RopeBridge_Block001:BridgePlank_Crack002_02
+    100318: RopeBridge_Block001:BridgePlank_Crack003_01
+    100320: RopeBridge_Block001:BridgePlank_Crack003_02
+    100322: RopeBridge_Block001:BridgePlank_Crack004_01
+    100324: RopeBridge_Block001:BridgePlank_Crack004_02
+    100326: RopeBridge_Block001:BridgePlank_Crack005_01
+    100328: RopeBridge_Block001:BridgePlank_Crack005_02
+    100330: RopeBridge_Block001:BridgePlank_Crack006_01
+    100332: RopeBridge_Block001:BridgePlank_Crack006_02
+    100334: RopeBridge_Block001:BridgePlank_Crack007_01
+    100336: RopeBridge_Block001:BridgePlank_Crack007_02
+    100338: RopeBridge_Block001:BridgePlank_Crack008_01
+    100340: RopeBridge_Block001:BridgePlank_Crack008_02
+    100342: RopeBridge_Block001:BridgePlank_Crack009_01
+    100344: RopeBridge_Block001:BridgePlank_Crack009_02
+    100346: RopeBridge_Block001:BridgePlank_Crack010_01
+    100348: RopeBridge_Block001:BridgePlank_Crack010_02
+    100350: RopeBridge_Block001:BridgePlank_Crack011_01
+    100352: RopeBridge_Block001:BridgePlank_Crack011_02
+    100354: RopeBridge_Block001:BridgeRope_Bottom01
+    100356: RopeBridge_Block001:BridgeRope_Bottom02
+    100358: RopeBridge_Block001:BridgeRope_Top02
+    100360: RopeBridge_Block001:transform1
+    100362: RopeBridge_Block001:transform10
+    100364: RopeBridge_Block001:transform11
+    100366: RopeBridge_Block001:transform12
+    100368: RopeBridge_Block001:transform13
+    100370: RopeBridge_Block001:transform14
+    100372: RopeBridge_Block001:transform15
+    100374: RopeBridge_Block001:transform16
+    100376: RopeBridge_Block001:transform17
+    100378: RopeBridge_Block001:transform18
+    100380: RopeBridge_Block001:transform19
+    100382: RopeBridge_Block001:transform2
+    100384: RopeBridge_Block001:transform20
+    100386: RopeBridge_Block001:transform21
+    100388: RopeBridge_Block001:transform22
+    100390: RopeBridge_Block001:transform23
+    100392: RopeBridge_Block001:transform24
+    100394: RopeBridge_Block001:transform25
+    100396: RopeBridge_Block001:transform26
+    100398: RopeBridge_Block001:transform27
+    100400: RopeBridge_Block001:transform28
+    100402: RopeBridge_Block001:transform29
+    100404: RopeBridge_Block001:transform3
+    100406: RopeBridge_Block001:transform30
+    100408: RopeBridge_Block001:transform31
+    100410: RopeBridge_Block001:transform32
+    100412: RopeBridge_Block001:transform33
+    100414: RopeBridge_Block001:transform34
+    100416: RopeBridge_Block001:transform35
+    100418: RopeBridge_Block001:transform36
+    100420: RopeBridge_Block001:transform37
+    100422: RopeBridge_Block001:transform38
+    100424: RopeBridge_Block001:transform39
+    100426: RopeBridge_Block001:transform4
+    100428: RopeBridge_Block001:transform40
+    100430: RopeBridge_Block001:transform5
+    100432: RopeBridge_Block001:transform6
+    100434: RopeBridge_Block001:transform7
+    100436: RopeBridge_Block001:transform8
+    100438: RopeBridge_Block001:transform9
+    100440: RopeBridgeEnd001
+    100442: RopeBridgeEnd002
+    100444: RopeBridgeMiddle001
+    400000: BridgeRope001
+    400002: BridgeRope003
+    400004: joint1
+    400006: joint10
+    400008: joint10 1
+    400010: joint10 2
+    400012: joint11
+    400014: joint11 1
+    400016: joint11 2
+    400018: joint12
+    400020: joint12 1
+    400022: joint12 2
+    400024: joint13
+    400026: joint13 1
+    400028: joint13 2
+    400030: joint14
+    400032: joint14 1
+    400034: joint14 2
+    400036: joint15
+    400038: joint15 1
+    400040: joint15 2
+    400042: joint16
+    400044: joint17
+    400046: joint2
+    400048: joint2 1
+    400050: joint2 2
+    400052: joint3
+    400054: joint3 1
+    400056: joint3 2
+    400058: joint4
+    400060: joint4 1
+    400062: joint4 2
+    400064: joint5
+    400066: joint5 1
+    400068: joint5 2
+    400070: joint6
+    400072: joint6 1
+    400074: joint6 2
+    400076: joint7
+    400078: joint7 1
+    400080: joint7 2
+    400082: joint8
+    400084: joint8 1
+    400086: joint8 2
+    400088: joint9
+    400090: joint9 1
+    400092: joint9 2
+    400094: polySurface101
+    400096: polySurface103
+    400098: polySurface105
+    400100: polySurface107
+    400102: polySurface109
+    400104: polySurface111
+    400106: polySurface113
+    400108: polySurface115
+    400110: polySurface117
+    400112: polySurface119
+    400114: polySurface121
+    400116: polySurface123
+    400118: polySurface125
+    400120: polySurface127
+    400122: polySurface129
+    400124: polySurface131
+    400126: polySurface57
+    400128: polySurface59
+    400130: polySurface61
+    400132: polySurface63
+    400134: polySurface65
+    400136: polySurface67
+    400138: polySurface69
+    400140: polySurface71
+    400142: polySurface73
+    400144: polySurface75
+    400146: polySurface77
+    400148: polySurface79
+    400150: polySurface81
+    400152: polySurface83
+    400154: polySurface85
+    400156: polySurface87
+    400158: polySurface89
+    400160: polySurface91
+    400162: polySurface93
+    400164: polySurface95
+    400166: polySurface97
+    400168: polySurface99
+    400170: Rope001
+    400172: Rope002
+    400174: Rope003
+    400176: Rope004
+    400178: Rope005
+    400180: Rope006
+    400182: Rope007
+    400184: Rope008
+    400186: Rope009
+    400188: Rope010
+    400190: Rope011
+    400192: Rope012
+    400194: Rope013
+    400196: Rope014
+    400198: Rope015
+    400200: Rope016
+    400202: Rope017
+    400204: Rope018
+    400206: Rope019
+    400208: Rope020
+    400210: Rope021
+    400212: Rope022
+    400214: Rope023
+    400216: Rope024
+    400218: Rope025
+    400220: Rope026
+    400222: Rope027
+    400224: Rope028
+    400226: Rope029
+    400228: Rope030
+    400230: Rope031
+    400232: Rope032
+    400234: Rope033
+    400236: Rope034
+    400238: Rope035
+    400240: Rope036
+    400242: Rope037
+    400244: Rope038
+    400246: Rope039
+    400248: Rope040
+    400250: //RootNode
+    400252: RopeBridge_Block001:BridgePlank001
+    400254: RopeBridge_Block001:BridgePlank0014
+    400256: RopeBridge_Block001:BridgePlank002
+    400258: RopeBridge_Block001:BridgePlank003
+    400260: RopeBridge_Block001:BridgePlank004
+    400262: RopeBridge_Block001:BridgePlank005
+    400264: RopeBridge_Block001:BridgePlank006
+    400266: RopeBridge_Block001:BridgePlank007
+    400268: RopeBridge_Block001:BridgePlank008
+    400270: RopeBridge_Block001:BridgePlank009
+    400272: RopeBridge_Block001:BridgePlank010
+    400274: RopeBridge_Block001:BridgePlank011
+    400276: RopeBridge_Block001:BridgePlank012
+    400278: RopeBridge_Block001:BridgePlank013
+    400280: RopeBridge_Block001:BridgePlank015
+    400282: RopeBridge_Block001:BridgePlank016
+    400284: RopeBridge_Block001:BridgePlank017
+    400286: RopeBridge_Block001:BridgePlank018
+    400288: RopeBridge_Block001:BridgePlank019
+    400290: RopeBridge_Block001:BridgePlank020
+    400292: RopeBridge_Block001:BridgePlank021
+    400294: RopeBridge_Block001:BridgePlank022
+    400296: RopeBridge_Block001:BridgePlank023
+    400298: RopeBridge_Block001:BridgePlank024
+    400300: RopeBridge_Block001:BridgePlank025
+    400302: RopeBridge_Block001:BridgePlank026
+    400304: RopeBridge_Block001:BridgePlank027
+    400306: RopeBridge_Block001:BridgePlank028
+    400308: RopeBridge_Block001:BridgePlank029
+    400310: RopeBridge_Block001:BridgePlank_Crack001_01
+    400312: RopeBridge_Block001:BridgePlank_Crack001_02
+    400314: RopeBridge_Block001:BridgePlank_Crack002_01
+    400316: RopeBridge_Block001:BridgePlank_Crack002_02
+    400318: RopeBridge_Block001:BridgePlank_Crack003_01
+    400320: RopeBridge_Block001:BridgePlank_Crack003_02
+    400322: RopeBridge_Block001:BridgePlank_Crack004_01
+    400324: RopeBridge_Block001:BridgePlank_Crack004_02
+    400326: RopeBridge_Block001:BridgePlank_Crack005_01
+    400328: RopeBridge_Block001:BridgePlank_Crack005_02
+    400330: RopeBridge_Block001:BridgePlank_Crack006_01
+    400332: RopeBridge_Block001:BridgePlank_Crack006_02
+    400334: RopeBridge_Block001:BridgePlank_Crack007_01
+    400336: RopeBridge_Block001:BridgePlank_Crack007_02
+    400338: RopeBridge_Block001:BridgePlank_Crack008_01
+    400340: RopeBridge_Block001:BridgePlank_Crack008_02
+    400342: RopeBridge_Block001:BridgePlank_Crack009_01
+    400344: RopeBridge_Block001:BridgePlank_Crack009_02
+    400346: RopeBridge_Block001:BridgePlank_Crack010_01
+    400348: RopeBridge_Block001:BridgePlank_Crack010_02
+    400350: RopeBridge_Block001:BridgePlank_Crack011_01
+    400352: RopeBridge_Block001:BridgePlank_Crack011_02
+    400354: RopeBridge_Block001:BridgeRope_Bottom01
+    400356: RopeBridge_Block001:BridgeRope_Bottom02
+    400358: RopeBridge_Block001:BridgeRope_Top02
+    400360: RopeBridge_Block001:transform1
+    400362: RopeBridge_Block001:transform10
+    400364: RopeBridge_Block001:transform11
+    400366: RopeBridge_Block001:transform12
+    400368: RopeBridge_Block001:transform13
+    400370: RopeBridge_Block001:transform14
+    400372: RopeBridge_Block001:transform15
+    400374: RopeBridge_Block001:transform16
+    400376: RopeBridge_Block001:transform17
+    400378: RopeBridge_Block001:transform18
+    400380: RopeBridge_Block001:transform19
+    400382: RopeBridge_Block001:transform2
+    400384: RopeBridge_Block001:transform20
+    400386: RopeBridge_Block001:transform21
+    400388: RopeBridge_Block001:transform22
+    400390: RopeBridge_Block001:transform23
+    400392: RopeBridge_Block001:transform24
+    400394: RopeBridge_Block001:transform25
+    400396: RopeBridge_Block001:transform26
+    400398: RopeBridge_Block001:transform27
+    400400: RopeBridge_Block001:transform28
+    400402: RopeBridge_Block001:transform29
+    400404: RopeBridge_Block001:transform3
+    400406: RopeBridge_Block001:transform30
+    400408: RopeBridge_Block001:transform31
+    400410: RopeBridge_Block001:transform32
+    400412: RopeBridge_Block001:transform33
+    400414: RopeBridge_Block001:transform34
+    400416: RopeBridge_Block001:transform35
+    400418: RopeBridge_Block001:transform36
+    400420: RopeBridge_Block001:transform37
+    400422: RopeBridge_Block001:transform38
+    400424: RopeBridge_Block001:transform39
+    400426: RopeBridge_Block001:transform4
+    400428: RopeBridge_Block001:transform40
+    400430: RopeBridge_Block001:transform5
+    400432: RopeBridge_Block001:transform6
+    400434: RopeBridge_Block001:transform7
+    400436: RopeBridge_Block001:transform8
+    400438: RopeBridge_Block001:transform9
+    400440: RopeBridgeEnd001
+    400442: RopeBridgeEnd002
+    400444: RopeBridgeMiddle001
+    4300000: RopeBridge_Block001:BridgePlank015
+    4300002: RopeBridge_Block001:BridgePlank_Crack006_01
+    4300004: RopeBridge_Block001:BridgePlank016
+    4300006: RopeBridge_Block001:BridgePlank017
+    4300008: RopeBridge_Block001:BridgePlank_Crack005_01
+    4300010: RopeBridge_Block001:BridgePlank012
+    4300012: RopeBridge_Block001:BridgePlank0014
+    4300014: RopeBridge_Block001:BridgePlank013
+    4300016: RopeBridge_Block001:BridgePlank_Crack008_01
+    4300018: RopeBridge_Block001:BridgePlank_Crack007_01
+    4300020: RopeBridge_Block001:BridgePlank019
+    4300022: RopeBridge_Block001:BridgePlank021
+    4300024: RopeBridge_Block001:BridgePlank020
+    4300026: RopeBridge_Block001:BridgePlank_Crack003_01
+    4300028: RopeBridge_Block001:BridgePlank008
+    4300030: RopeBridge_Block001:BridgePlank009
+    4300032: RopeBridge_Block001:BridgePlank_Crack002_01
+    4300034: RopeBridge_Block001:BridgePlank004
+    4300036: RopeBridge_Block001:BridgePlank006
+    4300038: RopeBridge_Block001:BridgePlank005
+    4300040: RopeBridge_Block001:BridgePlank_Crack010_01
+    4300042: RopeBridge_Block001:BridgePlank_Crack009_01
+    4300044: RopeBridge_Block001:BridgePlank022
+    4300046: RopeBridge_Block001:BridgePlank024
+    4300048: RopeBridge_Block001:BridgePlank023
+    4300050: RopeBridge_Block001:BridgePlank001
+    4300052: RopeBridge_Block001:BridgePlank002
+    4300054: RopeBridge_Block001:BridgePlank003
+    4300056: RopeBridge_Block001:BridgePlank_Crack001_01
+    4300058: RopeBridge_Block001:BridgePlank026
+    4300060: RopeBridge_Block001:BridgePlank027
+    4300062: RopeBridge_Block001:BridgePlank028
+    4300064: RopeBridge_Block001:BridgePlank_Crack011_01
+    4300066: RopeBridge_Block001:BridgePlank025
+    4300068: RopeBridge_Block001:BridgePlank018
+    4300070: RopeBridge_Block001:BridgePlank_Crack004_01
+    4300072: RopeBridge_Block001:BridgePlank010
+    4300074: RopeBridge_Block001:BridgePlank011
+    4300076: RopeBridge_Block001:BridgePlank007
+    4300078: RopeBridge_Block001:BridgeRope_Bottom01
+    4300080: RopeBridge_Block001:BridgePlank029
+    4300082: RopeBridge_Block001:BridgeRope_Bottom02
+    4300084: RopeBridge_Block001:BridgePlank_Crack006_02
+    4300086: RopeBridge_Block001:BridgePlank_Crack005_02
+    4300088: RopeBridge_Block001:BridgePlank_Crack008_02
+    4300090: RopeBridge_Block001:BridgePlank_Crack007_02
+    4300092: RopeBridge_Block001:BridgePlank_Crack003_02
+    4300094: RopeBridge_Block001:BridgePlank_Crack002_02
+    4300096: RopeBridge_Block001:BridgePlank_Crack010_02
+    4300098: RopeBridge_Block001:BridgePlank_Crack009_02
+    4300100: RopeBridge_Block001:BridgePlank_Crack004_02
+    4300102: RopeBridge_Block001:BridgePlank_Crack001_02
+    4300104: RopeBridge_Block001:BridgePlank_Crack011_02
+    4300106: BridgeRope003
+    9500000: //RootNode
+    13700000: BridgeRope003
+    13700002: RopeBridge_Block001:BridgePlank001
+    13700004: RopeBridge_Block001:BridgePlank0014
+    13700006: RopeBridge_Block001:BridgePlank002
+    13700008: RopeBridge_Block001:BridgePlank003
+    13700010: RopeBridge_Block001:BridgePlank004
+    13700012: RopeBridge_Block001:BridgePlank005
+    13700014: RopeBridge_Block001:BridgePlank006
+    13700016: RopeBridge_Block001:BridgePlank007
+    13700018: RopeBridge_Block001:BridgePlank008
+    13700020: RopeBridge_Block001:BridgePlank009
+    13700022: RopeBridge_Block001:BridgePlank010
+    13700024: RopeBridge_Block001:BridgePlank011
+    13700026: RopeBridge_Block001:BridgePlank012
+    13700028: RopeBridge_Block001:BridgePlank013
+    13700030: RopeBridge_Block001:BridgePlank015
+    13700032: RopeBridge_Block001:BridgePlank016
+    13700034: RopeBridge_Block001:BridgePlank017
+    13700036: RopeBridge_Block001:BridgePlank018
+    13700038: RopeBridge_Block001:BridgePlank019
+    13700040: RopeBridge_Block001:BridgePlank020
+    13700042: RopeBridge_Block001:BridgePlank021
+    13700044: RopeBridge_Block001:BridgePlank022
+    13700046: RopeBridge_Block001:BridgePlank023
+    13700048: RopeBridge_Block001:BridgePlank024
+    13700050: RopeBridge_Block001:BridgePlank025
+    13700052: RopeBridge_Block001:BridgePlank026
+    13700054: RopeBridge_Block001:BridgePlank027
+    13700056: RopeBridge_Block001:BridgePlank028
+    13700058: RopeBridge_Block001:BridgePlank029
+    13700060: RopeBridge_Block001:BridgePlank_Crack001_01
+    13700062: RopeBridge_Block001:BridgePlank_Crack001_02
+    13700064: RopeBridge_Block001:BridgePlank_Crack002_01
+    13700066: RopeBridge_Block001:BridgePlank_Crack002_02
+    13700068: RopeBridge_Block001:BridgePlank_Crack003_01
+    13700070: RopeBridge_Block001:BridgePlank_Crack003_02
+    13700072: RopeBridge_Block001:BridgePlank_Crack004_01
+    13700074: RopeBridge_Block001:BridgePlank_Crack004_02
+    13700076: RopeBridge_Block001:BridgePlank_Crack005_01
+    13700078: RopeBridge_Block001:BridgePlank_Crack005_02
+    13700080: RopeBridge_Block001:BridgePlank_Crack006_01
+    13700082: RopeBridge_Block001:BridgePlank_Crack006_02
+    13700084: RopeBridge_Block001:BridgePlank_Crack007_01
+    13700086: RopeBridge_Block001:BridgePlank_Crack007_02
+    13700088: RopeBridge_Block001:BridgePlank_Crack008_01
+    13700090: RopeBridge_Block001:BridgePlank_Crack008_02
+    13700092: RopeBridge_Block001:BridgePlank_Crack009_01
+    13700094: RopeBridge_Block001:BridgePlank_Crack009_02
+    13700096: RopeBridge_Block001:BridgePlank_Crack010_01
+    13700098: RopeBridge_Block001:BridgePlank_Crack010_02
+    13700100: RopeBridge_Block001:BridgePlank_Crack011_01
+    13700102: RopeBridge_Block001:BridgePlank_Crack011_02
+    13700104: RopeBridge_Block001:BridgeRope_Bottom01
+    13700106: RopeBridge_Block001:BridgeRope_Bottom02
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
