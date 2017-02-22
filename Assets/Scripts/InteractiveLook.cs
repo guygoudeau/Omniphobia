@@ -6,6 +6,7 @@ public class InteractiveLook : MonoBehaviour {
     private GameObject _player;
     private Transform _self;
     public bool Sitting = false;
+    private IEnumerator _fadeIn;
 
     // Use this for initialization
     void Start () {
@@ -32,31 +33,40 @@ public class InteractiveLook : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 fwd = _player.transform.TransformDirection(Vector3.forward);
-        transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y + .05f, _player.transform.position.z);
+        Vector3 fwd = new Vector3(0, 0, 0);
+        if (_player != null)
+        {
+            fwd = _player.transform.TransformDirection(Vector3.forward);
+            transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y + .05f, _player.transform.position.z);
+        }
 
         RaycastHit hit;
         if(Physics.Raycast(_self.position,fwd, out hit,1f))
         {
             Debug.DrawLine(_self.position, hit.point);
-            if(hit.collider.name.Contains("Door") )
+            //Debug.Log(hit.collider.transform.parent.name);
+            if (hit.collider.transform.parent != null)
             {
-                if(Input.GetKeyDown("e"))
+                if (hit.collider.name.Contains("Door"))
                 {
-                    int _sceneNum = 0;
-                    int enumeration = 0;
-                    while(_sceneNum == 0)
+                    Debug.Log(hit.collider.transform.parent.name);
+                    if (Input.GetKeyDown("e"))
                     {
-                        if (hit.collider.name.Contains(enumeration.ToString()))
+                        hit.collider.transform.parent.GetComponent<OpenDoor>().ChangeDoorState();
+                        int _sceneNum = 0;
+                        int enumeration = 0;
+                        while (_sceneNum == 0)
                         {
-                            _sceneNum = enumeration;
-                            break;
+                            if (hit.collider.name.Contains(enumeration.ToString()))
+                            {
+                                _sceneNum = enumeration;
+                                break;
+                            }
+                            else
+                                enumeration++;
                         }
-                        else
-                            enumeration++;
+                        StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(_sceneNum));
                     }
-                    SceneChanger.ChangeScene(_player, _sceneNum);
-                    FindObjectOfType<stuff>().CurrentScene++;
                 }
             }
             if(hit.collider.name.Contains("Chair"))

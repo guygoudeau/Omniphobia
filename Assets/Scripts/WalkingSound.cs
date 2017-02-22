@@ -2,27 +2,32 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class WalkingSound : MonoBehaviour {
+public class WalkingSound : MonoBehaviour
+{
     GameObject _player;
     GameObject _self;
     Vector3 _prevPosition;
     List<AudioSource> steps;
-    
-	// Use this for initialization
-	void Start () {
-        if(_player == null)
+    public GameObject GlassPrefab;
+    public bool GlassReady;
+    public float Timer = 5;
+
+    // Use this for initialization
+    void Start()
+    {
+        if (_player == null)
         {
-            foreach(GameObject go in FindObjectsOfType<GameObject>())
+            foreach (GameObject go in FindObjectsOfType<GameObject>())
             {
                 if (go.name == "OVRPlayerController")
                 {
                     _player = go;
                 }
-                else if(go.name == "First Person Controller")
+                else if (go.name == "First Person Controller")
                 {
                     _player = go;
                 }
-                else if(go.name == "Footsteps")
+                else if (go.name == "Footsteps")
                 {
                     _self = go;
                 }
@@ -34,24 +39,40 @@ public class WalkingSound : MonoBehaviour {
         //{
         //    steps.Add(AS);
         //}
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //Part of the Timer
+        if (GlassReady != true)
+        {
+            Timer -= Time.deltaTime;
+            if (Timer <= 0)
+            {
+                GlassReady = true;
+                Timer = 5;
+            }
+        }
         transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y - 1.05f, _player.transform.position.z);
 
-        if(_prevPosition != _player.transform.position)
+        if (_prevPosition != _player.transform.position && _player.GetComponent<CharacterController>().isGrounded)
         {
-            if (_player.GetComponent<CharacterController>().isGrounded)
+            if (!(_self.GetComponent<AudioSource>().isPlaying))
             {
-                if (!(_self.GetComponent<AudioSource>().isPlaying))
+                _self.GetComponent<AudioSource>().Play();
+                //Part of the Timer
+                if (Timer == 5)
                 {
-                    _self.GetComponent<AudioSource>().Play();
+                    GameObject NewBreak = Instantiate(GlassPrefab, _player.transform) as GameObject;
+                    NewBreak.transform.parent = null;
+                    NewBreak.transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y - 1.05f, _player.transform.position.z);
+                    GlassReady = false;
                 }
             }
             _prevPosition = _player.transform.position;
         }
-	}
+    }
 
     //void OnTriggerEnter(Collider other)
     //{
