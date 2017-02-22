@@ -145,3 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24000505034fa14fad17b1151bf0e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GlassPrefab: {fileID: 1000012263435950, guid: e4bc2cb43bd20e745a0f3418ee2b02f4,
+    type: 2}
+  GlassReady: 0
+  Timer: 5
