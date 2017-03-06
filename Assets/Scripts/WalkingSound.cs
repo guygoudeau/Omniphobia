@@ -11,6 +11,7 @@ public class WalkingSound : MonoBehaviour
     public GameObject GlassPrefab;
     public bool GlassReady;
     public float Timer = 5;
+    public float Distance;
 
     // Use this for initialization
     void Start()
@@ -60,18 +61,24 @@ public class WalkingSound : MonoBehaviour
         {
             if (!(_self.GetComponent<AudioSource>().isPlaying))
             {
-                _self.GetComponent<AudioSource>().Play();
-                //Part of the Timer
-                if (Timer == 5)
+                if (Distance >= 1)
                 {
-                    GameObject NewBreak = Instantiate(GlassPrefab, _player.transform) as GameObject;
-                    NewBreak.transform.parent = null;
-                    NewBreak.transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y - 1.05f, _player.transform.position.z);
-                    GlassReady = false;
+                    _self.GetComponent<AudioSource>().Play();
+                    //Part of the Timer
+                    if (Timer == 5)
+                    {
+                        GameObject NewBreak = Instantiate(GlassPrefab, _player.transform) as GameObject;
+                        NewBreak.transform.parent = null;
+                        NewBreak.transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y - 1.05f, _player.transform.position.z);
+                        GlassReady = false;
+                    }
+                    Distance = 0;
                 }
             }
+            Distance += Mathf.Abs(_player.transform.position.magnitude - _prevPosition.magnitude);
             _prevPosition = _player.transform.position;
         }
+        //Distance = _player.transform.position.magnitude - _prevPosition.magnitude;
     }
 
     //void OnTriggerEnter(Collider other)
