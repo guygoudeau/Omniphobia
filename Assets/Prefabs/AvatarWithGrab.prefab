@@ -150,6 +150,7 @@ GameObject:
   - 114: {fileID: 114000011016607138}
   - 82: {fileID: 82000013803982708}
   - 114: {fileID: 114000013260605240}
+  - 114: {fileID: 114000012003919354}
   m_Layer: 0
   m_Name: AvatarWithGrab
   m_TagString: Untagged
@@ -1021,6 +1022,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53b07ad62d980a4da9fffff0b05fd2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000012003919354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011215266724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028e17de98960da498864baebb5f291e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftHand: {fileID: 0}
+  LeftHandAvatar: {fileID: 0}
 --- !u!114 &114000012022053400
 MonoBehaviour:
   m_ObjectHideFlags: 1
