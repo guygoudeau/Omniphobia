@@ -50,7 +50,7 @@ public class InteractiveLook : MonoBehaviour {
                 if (hit.collider.name.Contains("Door"))
                 {
                     Debug.Log(hit.collider.transform.parent.name);
-                    if (Input.GetKeyDown("e"))
+                    if (OVRInput.GetDown(OVRInput.Button.One))
                     {
                         hit.collider.transform.parent.GetComponent<OpenDoor>().ChangeDoorState();
                         int _sceneNum = 0;
@@ -73,7 +73,7 @@ public class InteractiveLook : MonoBehaviour {
             {
                 if (!Sitting)
                 {
-                    if (Input.GetKeyDown("e"))
+                    if (OVRInput.GetDown(OVRInput.Button.One))
                     {
                         _player.transform.position = new Vector3(hit.collider.transform.position.x, _player.transform.position.y, hit.collider.transform.position.z);
                         _player.transform.rotation = hit.collider.transform.rotation;
@@ -82,7 +82,7 @@ public class InteractiveLook : MonoBehaviour {
                 }
                 else if (Sitting)
                 {
-                    if (Input.GetKeyDown("e"))
+                    if (OVRInput.GetDown(OVRInput.Button.One))
                     {
                         _player.transform.Translate(transform.forward);
                         Sitting = false;
