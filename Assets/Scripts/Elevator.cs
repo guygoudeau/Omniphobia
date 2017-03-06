@@ -7,9 +7,22 @@ public class Elevator : MonoBehaviour {
     public float speed;
     public GameObject door1;
     public GameObject door2;
+    public bool Close;
+
+    void Start()
+    {
+        if (Close)
+        {
+            StartCoroutine(OpenDoor(1));
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
+        if (Close)
+        {
+            StartCoroutine(OpenDoor(0));
+        }
         StartCoroutine(Lerp(other.gameObject));
     }
 
@@ -39,6 +52,17 @@ public class Elevator : MonoBehaviour {
                 yield return 0;
             }
         }
-        GetComponent<Animator>().enabled = true;
+        StartCoroutine(OpenDoor(1));
+    }
+
+    private IEnumerator OpenDoor(int Direction)
+    {
+        Vector3 newDest = new Vector3(door1.transform.localPosition.x - 0.00345033f, door1.transform.localPosition.y, door1.transform.localPosition.z) * Direction;
+        while (door1.transform.localPosition != newDest)
+        {
+            door1.transform.localPosition += ((newDest - door1.transform.localPosition) * Time.deltaTime);
+            door2.transform.localPosition -= ((newDest - door1.transform.localPosition) * Time.deltaTime);
+            yield return 0;
+        }
     }
 }
