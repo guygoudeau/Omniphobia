@@ -9,6 +9,7 @@ public class FallingFloor : MonoBehaviour {
     public float speed;
     private bool first;
     public GameObject BreakList;
+    public bool IsTouching;
 
     void Start()
     {
@@ -28,14 +29,24 @@ public class FallingFloor : MonoBehaviour {
             }
         }
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "OVRPlayerController")
+        {
+            IsTouching = true;
+        }
+    }
     void Update()
     {
-        if (player.transform.rotation.x < 75 && first)
+        if (IsTouching == true)
         {
-            StartCoroutine(Fall());
-            first = false;
+            if (player.transform.rotation.x < 75 && first)
+                    {
+                        StartCoroutine(Fall());
+                        first = false;
+                    }
         }
+        
     }
 
     public IEnumerator Fall()

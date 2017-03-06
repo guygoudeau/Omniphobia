@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
+    public static GameManager instance = null;
+    public GameObject Player;
+    public Transform Checkpoint;
     public struct Fear
     {
         public int value;
@@ -34,25 +37,25 @@ public class GameManager : MonoBehaviour {
         return FList[0].name;
 
     }
-
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+
+       
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
 
     }
-	
-	// Update is called once per frame
-	//void Update () {
- //   if (OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.B))
- //       {
- //           Debug.Log(Spider.value);
- //       }
- //       if (OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.A))
- //       {
-
- //           Spider.value++;
- //           Checkup();
- //       }
-
- //   }
 }
