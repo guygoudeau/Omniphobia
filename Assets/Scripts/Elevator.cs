@@ -5,6 +5,7 @@ public class Elevator : MonoBehaviour {
 
     public Vector3 Destination;
     public float speed;
+    public float doorSpeed;
     public GameObject door1;
     public GameObject door2;
     public bool Open;
@@ -55,17 +56,17 @@ public class Elevator : MonoBehaviour {
         StartCoroutine(OpenDoor(1));
     }
 
-    private IEnumerator OpenDoor(int Direction)
+    private IEnumerator OpenDoor(float Direction)
     {
         if (GetComponent<Animator>() != null)
         {
             GetComponent<Animator>();
         }
-        Vector3 newDest = new Vector3(door1.transform.localPosition.x - 0.00345033f, door1.transform.localPosition.y, door1.transform.localPosition.z) * Direction;
-        while (door1.transform.localPosition != newDest)
+        Vector3 newDest = new Vector3(door1.transform.localPosition.x - 0.00345033f, 0, 0) * Direction;
+        while (door1.transform.localPosition.x != newDest.x)
         {
-            door1.transform.localPosition += ((newDest - door1.transform.localPosition) * Time.deltaTime);
-            door2.transform.localPosition -= ((newDest - door1.transform.localPosition) * Time.deltaTime);
+            door1.transform.localPosition += new Vector3(newDest.x - door1.transform.localPosition.x, 0, 0) * doorSpeed * Time.deltaTime;
+            door2.transform.localPosition -= new Vector3(newDest.x - door1.transform.localPosition.x, 0, 0) * doorSpeed * Time.deltaTime;
             yield return 0;
         }
     }
