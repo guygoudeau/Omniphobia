@@ -78,5 +78,6 @@ public class GameManager : MonoBehaviour {
     {
         Player.transform.position = Checkpoint;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PlayerStateSystem.OnPlayerDeath.AddListener(PlayerDied);
     }
 }
