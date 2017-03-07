@@ -6,7 +6,7 @@ public class MenuSelect : MonoBehaviour
 {
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.One))
+        if (OVRInput.GetDown(OVRInput.Button.Start))
         {
             SceneManager.LoadScene("Menu");
         }
@@ -16,7 +16,7 @@ public class MenuSelect : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Play"))
         {
-            SceneManager.LoadScene("LibraryHub");
+            StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(1));
         }
     }
 
