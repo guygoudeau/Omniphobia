@@ -3,7 +3,8 @@ using System.Collections;
 
 public class AudioClipTrigger : MonoBehaviour {
 
-    private GameObject footsteps = new GameObject();
+    private GameObject _footsteps;
+    private int _type = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -11,9 +12,18 @@ public class AudioClipTrigger : MonoBehaviour {
         {
             if (go.name == "Footsteps")
             {
-                footsteps = go;
+                _footsteps = go;
             }
         }
+
+        if (name.Contains("Regular"))
+            _type = 0;
+
+        else if (name.Contains("Wood"))
+            _type = 1;
+
+        else if (name.Contains("Glass"))
+            _type = 2;
     }
 	
 	// Update is called once per frame
@@ -23,6 +33,9 @@ public class AudioClipTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-
+        if(other.name == "OVRPlayerController")
+        {
+            _footsteps.GetComponent<WalkingSound>().CurrentClip = _type;
+        }
     }
 }

@@ -64,20 +64,24 @@ public class WalkingSound : MonoBehaviour
         //Debug.Log(steps[CurrentClip].clip);
         if (_prevPosition != _player.transform.position && _player.GetComponent<CharacterController>().isGrounded)
         {
-            if (!(steps[CurrentClip].isPlaying))
+            if (!(_player.GetComponent<CharacterController>().velocity.x == 0) && !(_player.GetComponent<CharacterController>().velocity.z == 0))
             {
-                if (Distance >= 1)
+                if (!(steps[CurrentClip].isPlaying))
                 {
-                    steps[CurrentClip].Play();
-                    //Part of the Timer
-                    if (Timer == 5)
+                    if (Distance >= 1)
                     {
-                        GameObject NewBreak = Instantiate(GlassPrefab, _player.transform) as GameObject;
-                        NewBreak.transform.parent = null;
-                        NewBreak.transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y - 1.05f, _player.transform.position.z);
-                        GlassReady = false;
+                        steps[CurrentClip].Play();
+                        //Part of the Timer
+                        if (Timer == 5 && CurrentClip == 2)
+                        {
+                            GameObject NewBreak = Instantiate(GlassPrefab, _player.transform) as GameObject;
+                            NewBreak.transform.parent = null;
+                            NewBreak.transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y - 1.05f, _player.transform.position.z);
+                            steps[3].Play();
+                            GlassReady = false;
+                        }
+                        Distance = 0;
                     }
-                    Distance = 0;
                 }
             }
             Distance += Mathf.Abs(_player.transform.position.magnitude - _prevPosition.magnitude);
