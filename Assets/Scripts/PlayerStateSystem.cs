@@ -6,12 +6,16 @@ public class EventPlayerDeath : UnityEvent
 {
 
 }
+public class EventPlayerWin : UnityEvent
+{
+
+}
 public class PlayerStateSystem : MonoBehaviour {
     public static EventPlayerDeath OnPlayerDeath;
-
+    public static EventPlayerWin OnPlayerWin;
     private void Awake()
     {
-
+        OnPlayerWin = new EventPlayerWin();
         OnPlayerDeath = new EventPlayerDeath();
     }
 

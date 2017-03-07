@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Checkpoint : MonoBehaviour {
 
-
+    bool win;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "OVRPlayerController")
