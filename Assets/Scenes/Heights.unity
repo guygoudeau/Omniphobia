@@ -539,7 +539,7 @@ MonoBehaviour:
   speed: 4
   door1: {fileID: 572143544}
   door2: {fileID: 573610684}
-  Close: 0
+  Open: 0
 --- !u!95 &386847384
 Animator:
   serializedVersion: 3
@@ -630,6 +630,7 @@ GameObject:
   - 4: {fileID: 401486983}
   - 33: {fileID: 401486985}
   - 23: {fileID: 401486984}
+  - 64: {fileID: 401486986}
   m_Layer: 0
   m_Name: Elevator004:polySurface10
   m_TagString: Untagged
@@ -687,6 +688,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 401486982}
+  m_Mesh: {fileID: 4300008, guid: 44d8d92fa7126e443a806ba0f30ed80c, type: 3}
+--- !u!64 &401486986
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 401486982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300008, guid: 44d8d92fa7126e443a806ba0f30ed80c, type: 3}
 --- !u!1 &462891777 stripped
 GameObject:
@@ -1861,6 +1874,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!1 &1187695910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1187695913}
+  - 65: {fileID: 1187695912}
+  - 114: {fileID: 1187695911}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1187695911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187695910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d80e32d02d1c5744b18002cc87c5333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CPoint: {x: -155, y: 0.3, z: 0}
+--- !u!65 &1187695912
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187695910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1187695913
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187695910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -155.42, y: 0.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
 --- !u!1 &1200282199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,6 +2322,20 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
   m_PrefabInternal: {fileID: 117083864}
+--- !u!114 &1412547682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1412547676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd01e2d7af8ba1644bbef0f1d6e35fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1412547676}
+  Checkpoint: {x: 0, y: 0, z: 0}
+  Death: 0
 --- !u!1001 &1420554897
 Prefab:
   m_ObjectHideFlags: 0
@@ -2552,7 +2633,7 @@ MonoBehaviour:
   speed: 4
   door1: {fileID: 769079167}
   door2: {fileID: 1027844746}
-  Close: 0
+  Open: 0
 --- !u!64 &1617630018
 MeshCollider:
   m_ObjectHideFlags: 0

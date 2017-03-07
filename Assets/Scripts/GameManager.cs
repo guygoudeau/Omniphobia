@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
     public GameObject Player;
-    public Transform Checkpoint;
+    public Vector3 Checkpoint;
+    public bool Death = false;
     public struct Fear
     {
         public int value;
@@ -44,18 +46,34 @@ public class GameManager : MonoBehaviour {
         {
             instance = this;
         }
+        else
+        {
+            
+        }
     }
     // Use this for initialization
     void Start ()
     {
-
+        
        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Player.transform.position.y <= -200)
+        {
+            Death = true;
+        }
 
 
+        if (Death == true)
+                {
+                    Player.transform.position = Checkpoint;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    Death = false;
+                    
+                    
+                }
     }
 }
