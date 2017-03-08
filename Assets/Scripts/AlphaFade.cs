@@ -64,6 +64,8 @@ public class AlphaFade : MonoBehaviour {
 
     void Awake()
     {
+        if (FindObjectOfType(typeof(AlphaFade)) == this)
+            return;
         DontDestroyOnLoad(transform.parent);
     }
 }
