@@ -71,7 +71,8 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000001, guid: 9e9b4ff544560eb4393d9ad4868cc899,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
 NavMeshSettings:
@@ -116,7 +117,7 @@ Light:
   serializedVersion: 7
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.33
+  m_Intensity: 1.61
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -135,7 +136,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ShadowRadius: 0
@@ -192,6 +193,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4b2cf2a0c66789e4ca8bcea962378cda, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b2cf2a0c66789e4ca8bcea962378cda, type: 3}
   m_IsPrefabParent: 0
@@ -245,6 +250,14 @@ Prefab:
     - target: {fileID: 400000, guid: 12347aaabcd1f2348b01ecd8507a8296, type: 3}
       propertyPath: m_LocalScale.z
       value: 2.6855505
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 12347aaabcd1f2348b01ecd8507a8296, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 12347aaabcd1f2348b01ecd8507a8296, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12347aaabcd1f2348b01ecd8507a8296, type: 3}
@@ -367,7 +380,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -442,6 +455,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 104.741005
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 67d3dd62ccf75be448fc7fe783c1576f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67d3dd62ccf75be448fc7fe783c1576f, type: 3}
   m_IsPrefabParent: 0
@@ -471,12 +488,12 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 1
+  m_Intensity: 5.27
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -551,6 +568,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -144.26001
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4bb82b152d3809c48b1217b06e8cf317, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bb82b152d3809c48b1217b06e8cf317, type: 3}
   m_IsPrefabParent: 0
@@ -593,6 +614,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5f25f4c0d3b28bc4cbb1fd1656b8c026, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f25f4c0d3b28bc4cbb1fd1656b8c026, type: 3}
   m_IsPrefabParent: 0
@@ -612,7 +637,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1994728885
 MeshRenderer:
@@ -706,7 +731,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
