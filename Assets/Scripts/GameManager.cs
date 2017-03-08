@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public ScriptableFearList scriptableFears;
     public GameObject Player;
     public Vector3 Checkpoint;
+    public int level;
 
     Fear Spider = new Fear(0, "Spider");
     Fear Snake = new Fear(0, "Snake");
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    int level;
+
     void Start()
     {
         level = 0;
@@ -101,15 +102,11 @@ public class GameManager : MonoBehaviour
     void NextLevel()
     {
         level++;
-        Debug.Log("nextlvl " + level);
         if (level > 3)
+        {
             level = 0;
+        }
 
         SceneManager.LoadScene(level);
-
-
-
-
-
     }
 }
