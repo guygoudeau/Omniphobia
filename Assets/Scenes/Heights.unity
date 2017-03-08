@@ -1558,7 +1558,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1562601544}
     - target: {fileID: 114000010672621576, guid: 2ccf542ffaee4bd4ea767a3b3cfe6bbe,
         type: 2}
       propertyPath: speed
@@ -2124,7 +2124,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1562601544}
     - target: {fileID: 4000013876483850, guid: 2ccf542ffaee4bd4ea767a3b3cfe6bbe, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
@@ -2175,7 +2175,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1562601544}
     - target: {fileID: 4000013733611472, guid: cf4150f2b17a2d54bbd6aa60be37d510, type: 2}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -2855,6 +2855,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1179388642}
   m_RootOrder: 6
+--- !u!1 &1562601544 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013853919370, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a,
+    type: 2}
+  m_PrefabInternal: {fileID: 400262645}
 --- !u!1 &1571818917
 GameObject:
   m_ObjectHideFlags: 0
