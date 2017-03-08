@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class PlayerStateSystem : MonoBehaviour
 {
@@ -18,15 +17,16 @@ public class PlayerStateSystem : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (OVRInput.GetDown(OVRInput.Button.Four))
         {
             Events.PlayerForceScene.Invoke();
+            return;
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Win"))
+        if (other.gameObject.CompareTag("Win"))
         {
             Events.PlayerWin.Invoke();
         }
