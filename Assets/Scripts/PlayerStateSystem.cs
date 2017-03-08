@@ -18,7 +18,7 @@ public class PlayerStateSystem : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (OVRInput.GetDown(OVRInput.Button.Four))
         {
             Events.PlayerForceScene.Invoke();
         }
