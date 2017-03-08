@@ -86,7 +86,8 @@ public class GameManager : MonoBehaviour
 
     void PlayerWon()
     {
-        StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(3));
+        //StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(3));
+        SceneManager.LoadScene("Win");
     }
 
     void PlayerDied()

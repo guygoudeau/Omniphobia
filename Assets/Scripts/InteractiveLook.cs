@@ -8,7 +8,6 @@ public class InteractiveLook : MonoBehaviour {
     public bool Sitting = false;
     private IEnumerator _fadeIn;
 
-    // Use this for initialization
     void Start () {
         if (_player == null)
         {
@@ -31,7 +30,6 @@ public class InteractiveLook : MonoBehaviour {
         transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y + .05f, _player.transform.position.z);
     }
 	
-	// Update is called once per frame
 	void Update () {
         Vector3 fwd = new Vector3(0, 0, 0);
         if (_player != null)
@@ -44,12 +42,10 @@ public class InteractiveLook : MonoBehaviour {
         if(Physics.Raycast(_self.position,fwd, out hit,1f))
         {
             Debug.DrawLine(_self.position, hit.point);
-            //Debug.Log(hit.collider.transform.parent.name);
             if (hit.collider.transform.parent != null)
             {
                 if (hit.collider.name.Contains("Door"))
                 {
-                    Debug.Log(hit.collider.transform.parent.name);
                     if (OVRInput.GetDown(OVRInput.Button.One))
                     {
                         hit.collider.transform.parent.GetComponent<OpenDoor>().ChangeDoorState();
