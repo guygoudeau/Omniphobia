@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+
 [System.Serializable]
 public class Fear
 {
@@ -13,14 +14,15 @@ public class Fear
         this.value = value;
     }
 }
-public class GameManager : MonoBehaviour {
-    public ScriptableFearList scriptableFears;
+
+public class GameManager : MonoBehaviour
+{
     public static GameManager instance = null;
+    public ScriptableFearList scriptableFears;
     public GameObject Player;
     public Vector3 Checkpoint;
-    public bool Death = false;
-  
-    Fear Spider = new Fear(0,"Spider");
+
+    Fear Spider = new Fear(0, "Spider");
     Fear Snake = new Fear(0, "Snake");
     Fear Clown = new Fear(2, "Clown");
     Fear Height = new Fear(0, "Height");
@@ -38,8 +40,8 @@ public class GameManager : MonoBehaviour {
         FList.Add(Doll);
         FList.Sort();
         return FList[0].name;
-
     }
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -48,15 +50,19 @@ public class GameManager : MonoBehaviour {
             instance = this;
         }
         else if (instance != this)
-
-            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+        {
             Destroy(gameObject);
+        }
     }
-       
-    // Use this for initialization
-    void Start ()
+    int level;
+    void Start()
     {
-        PlayerStateSystem.OnPlayerDeath.AddListener(PlayerDied);
+        level = 0;
+        Events.PlayerWin.AddListener(PlayerWon);
+        Events.PlayerDeath.AddListener(PlayerDied);
+        Events.PlayerReloadScene.AddListener(PlayerReloaded);
+        Events.PlayerForceScene.AddListener(NextLevel);
+
         List<Fear> FList = new List<Fear>();
         FList.Add(Spider);
         FList.Add(Snake);
@@ -64,20 +70,46 @@ public class GameManager : MonoBehaviour {
         FList.Add(Height);
         FList.Add(Claustrophobia);
         FList.Add(Doll);
-        FList.Sort();
+        FList.Sort((a,b)=> a.value.CompareTo(b.value));
         scriptableFears.Create(FList);
-     
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            level = 0;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-   
+
     }
+
+    void PlayerWon()
+    {
+        StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(3));
+    }
+
     void PlayerDied()
     {
-        Player.transform.position = Checkpoint;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        PlayerStateSystem.OnPlayerDeath.AddListener(PlayerDied);
+    }
+
+    void PlayerReloaded()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void NextLevel()
+    {
+        level++;
+        Debug.Log("nextlvl " + level);
+        if (level > 3)
+            level = 0;
+
+        SceneManager.LoadScene(level);
+
+
+
+
+
     }
 }

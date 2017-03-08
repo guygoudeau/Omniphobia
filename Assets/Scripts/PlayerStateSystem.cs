@@ -1,36 +1,34 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
-using UnityEngine.Events;
 
-public class EventPlayerDeath : UnityEvent
+public class PlayerStateSystem : MonoBehaviour
 {
-
-}
-public class EventPlayerWin : UnityEvent
-{
-
-}
-public class PlayerStateSystem : MonoBehaviour {
-    public static EventPlayerDeath OnPlayerDeath;
-    public static EventPlayerWin OnPlayerWin;
-    private void Awake()
-    {
-        OnPlayerWin = new EventPlayerWin();
-        OnPlayerDeath = new EventPlayerDeath();
-    }
-
 	void Update ()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (SceneManager.GetActiveScene().name == "Heights" && transform.position.y <= -200)
         {
-            OnPlayerDeath.Invoke();
-
+            Events.PlayerDeath.Invoke();
+            return;
         }
-        if (transform.position.y <= -200)
+
+        if (OVRInput.GetDown(OVRInput.Button.Start))
         {
-            OnPlayerDeath.Invoke();
+            Events.PlayerReloadScene.Invoke();
+            return;
         }
-        
 
-}
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Events.PlayerForceScene.Invoke();
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Win"))
+        {
+            Events.PlayerWin.Invoke();
+        }
+    }
 }

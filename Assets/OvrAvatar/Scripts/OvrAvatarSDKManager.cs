@@ -101,6 +101,7 @@ public class OvrAvatarSDKManager : MonoBehaviour {
                     HashSet<specificationCallback> callbackSet;
                     if (!specificationCallbacks.TryGetValue(spec.oculusUserID, out callbackSet))
                     {
+                        //ToDo:: need dis b/c i don't know why right now, Matthew
                         throw new Exception("Error, got an avatar specification callback from a user id we don't have a record for.");
                     }
                     foreach (var callback in callbackSet)
