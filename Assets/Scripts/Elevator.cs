@@ -3,34 +3,48 @@ using System.Collections;
 
 public class Elevator : MonoBehaviour {
 
+    // The vector we will be moving towards.
     public Vector3 Destination;
+    // The speed we will be going towards the destination.
     public float speed;
+    // The speed the door opens at.
     public float doorSpeed;
+    // The first door object.
     public GameObject door1;
+    // The second door object.
     public GameObject door2;
+    // Used to determine which elevator it is.
     public bool Open;
 
+    // Gets called first.
     void Start()
     {
+        // Checks what elevator it is and opens the door if it is the second elevator.
         if (Open)
         {
             StartCoroutine(OpenDoor(1));
         }
     }
 
+    // Gets called when the player goes in the elevator.
     void OnTriggerEnter(Collider other)
     {
+        // Close the door if its open.
         if (Open)
         {
             StartCoroutine(OpenDoor(0));
         }
+        // Start moving.
         StartCoroutine(Lerp(other.gameObject));
     }
 
+    // Moves the elevator and player in it to the set Destination.
     private IEnumerator Lerp(GameObject player)
     {
+        // Choses if we are going up or down.
         if (Destination.y / Mathf.Abs(Destination.y) == 1)
         {
+            // Changes player and elevator y position over deltaTime times speed.
             while (transform.position.y <= Destination.y)
             {
                 Vector3 temp;
@@ -43,6 +57,7 @@ public class Elevator : MonoBehaviour {
         }
         else if (Destination.y / Mathf.Abs(Destination.y) == -1)
         {
+            // Changes player and elevator y position over deltaTime times speed.
             while (transform.position.y >= Destination.y)
             {
                 Vector3 temp;
@@ -56,13 +71,12 @@ public class Elevator : MonoBehaviour {
         StartCoroutine(OpenDoor(1));
     }
 
+    // Makes the doors open or close depending on the value passed. 1 = Open, 0 = Close, -1 = Invert
     private IEnumerator OpenDoor(float Direction)
     {
-        if (GetComponent<Animator>() != null)
-        {
-            GetComponent<Animator>();
-        }
+        // This will be the vector we move on. This vector is also multipled by the passed in direction.
         Vector3 newDest = new Vector3(door1.transform.localPosition.x - 0.00345033f, 0, 0) * Direction;
+        // Coroutine moves doors in to place over deltaTime times the doorSpeed.
         while (door1.transform.localPosition.x != newDest.x)
         {
             door1.transform.localPosition += new Vector3(newDest.x - door1.transform.localPosition.x, 0, 0) * doorSpeed * Time.deltaTime;
