@@ -91,9 +91,4 @@ public class InteractiveLook : MonoBehaviour {
             }
         }
     }
-
-    void Awake()
-    {
-        DontDestroyOnLoad(transform.gameObject);
-    }
 }
