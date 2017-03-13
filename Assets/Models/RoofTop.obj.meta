@@ -1,0 +1,153 @@
+fileFormatVersion: 2
+guid: ba55673f77e6454498716b0636770536
+timeCreated: 1489434614
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bridgeZip003:pCube4_bridgeZip003:polySurface136_bridgeZip003:polySurface140_polySurface237
+    100002: bridgeZip003:polySurface132_bridgeZip003:polySurface138_bridgeZip003:polySurface140_polySurface237
+    100004: bridgeZip003:polySurface132_bridgeZip003:polySurface139_bridgeZip003:polySurface140_polySurface237
+    100006: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface141_polySurface237
+    100008: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface142_polySurface237
+    100010: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface143_polySurface237
+    100012: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface144_polySurface237
+    100014: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface145_polySurface237
+    100016: dish
+    100018: ladder
+    100020: pCube36_towerDoor1
+    100022: pCube36_towerDoor2
+    100024: powerBox
+    100026: roofRoom_pCube36
+    100028: //RootNode
+    100030: satellites
+    100032: zipRope
+    400000: bridgeZip003:pCube4_bridgeZip003:polySurface136_bridgeZip003:polySurface140_polySurface237
+    400002: bridgeZip003:polySurface132_bridgeZip003:polySurface138_bridgeZip003:polySurface140_polySurface237
+    400004: bridgeZip003:polySurface132_bridgeZip003:polySurface139_bridgeZip003:polySurface140_polySurface237
+    400006: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface141_polySurface237
+    400008: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface142_polySurface237
+    400010: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface143_polySurface237
+    400012: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface144_polySurface237
+    400014: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface145_polySurface237
+    400016: dish
+    400018: ladder
+    400020: pCube36_towerDoor1
+    400022: pCube36_towerDoor2
+    400024: powerBox
+    400026: roofRoom_pCube36
+    400028: //RootNode
+    400030: satellites
+    400032: zipRope
+    2300000: bridgeZip003:pCube4_bridgeZip003:polySurface136_bridgeZip003:polySurface140_polySurface237
+    2300002: bridgeZip003:polySurface132_bridgeZip003:polySurface138_bridgeZip003:polySurface140_polySurface237
+    2300004: bridgeZip003:polySurface132_bridgeZip003:polySurface139_bridgeZip003:polySurface140_polySurface237
+    2300006: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface141_polySurface237
+    2300008: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface142_polySurface237
+    2300010: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface143_polySurface237
+    2300012: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface144_polySurface237
+    2300014: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface145_polySurface237
+    2300016: dish
+    2300018: ladder
+    2300020: pCube36_towerDoor1
+    2300022: pCube36_towerDoor2
+    2300024: powerBox
+    2300026: roofRoom_pCube36
+    2300028: satellites
+    2300030: zipRope
+    3300000: bridgeZip003:pCube4_bridgeZip003:polySurface136_bridgeZip003:polySurface140_polySurface237
+    3300002: bridgeZip003:polySurface132_bridgeZip003:polySurface138_bridgeZip003:polySurface140_polySurface237
+    3300004: bridgeZip003:polySurface132_bridgeZip003:polySurface139_bridgeZip003:polySurface140_polySurface237
+    3300006: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface141_polySurface237
+    3300008: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface142_polySurface237
+    3300010: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface143_polySurface237
+    3300012: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface144_polySurface237
+    3300014: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface145_polySurface237
+    3300016: dish
+    3300018: ladder
+    3300020: pCube36_towerDoor1
+    3300022: pCube36_towerDoor2
+    3300024: powerBox
+    3300026: roofRoom_pCube36
+    3300028: satellites
+    3300030: zipRope
+    4300000: bridgeZip003:pCube4_bridgeZip003:polySurface136_bridgeZip003:polySurface140_polySurface237
+    4300002: bridgeZip003:polySurface132_bridgeZip003:polySurface138_bridgeZip003:polySurface140_polySurface237
+    4300004: bridgeZip003:polySurface132_bridgeZip003:polySurface139_bridgeZip003:polySurface140_polySurface237
+    4300006: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface141_polySurface237
+    4300008: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface142_polySurface237
+    4300010: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface143_polySurface237
+    4300012: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface144_polySurface237
+    4300014: bridgeZip003:polySurface132_bridgeZip003:polySurface140_bridgeZip003:polySurface145_polySurface237
+    4300016: dish
+    4300018: ladder
+    4300020: pCube36_towerDoor1
+    4300022: pCube36_towerDoor2
+    4300024: powerBox
+    4300026: roofRoom_pCube36
+    4300028: satellites
+    4300030: zipRope
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

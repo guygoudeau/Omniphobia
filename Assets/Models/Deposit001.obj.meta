@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: 03bf00d17ed972947836cff7c86c5405
-timeCreated: 1487695162
+guid: 3ea03b2c4d2c9c24093490348f6f4088
+timeCreated: 1489433147
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: depositFrame_pCube1
+    100004: depositWheel
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: building2
-    9500000: //RootNode
+    400002: depositFrame_pCube1
+    400004: depositWheel
+    2300000: depositFrame_pCube1
+    2300002: depositWheel
+    3300000: depositFrame_pCube1
+    3300002: depositWheel
+    4300000: depositFrame_pCube1
+    4300002: depositWheel
   materials:
     importMaterials: 1
     materialName: 0
@@ -35,7 +41,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.001
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -69,7 +75,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

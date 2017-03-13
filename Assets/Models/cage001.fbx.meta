@@ -1,15 +1,22 @@
 fileFormatVersion: 2
-guid: 03bf00d17ed972947836cff7c86c5405
-timeCreated: 1487695162
+guid: 2f6d5fe1a7b22f647b472a1240fa9579
+timeCreated: 1489433147
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: building2
+    100000: cage
+    100002: //RootNode
+    100004: cageDoor
+    400000: cage
+    400002: //RootNode
+    400004: cageDoor
+    2300000: cage
+    2300002: cageDoor
+    3300000: cage
+    3300002: cageDoor
+    4300000: cageDoor
+    4300002: cage
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -35,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.001
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
