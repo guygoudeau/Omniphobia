@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Elevator : MonoBehaviour {
 
@@ -32,6 +33,7 @@ public class Elevator : MonoBehaviour {
         // Close the door if its open.
         if (Open)
         {
+            StopCoroutine(OpenDoor(1));
             StartCoroutine(OpenDoor(0));
         }
         // Start moving.
@@ -75,12 +77,14 @@ public class Elevator : MonoBehaviour {
     private IEnumerator OpenDoor(float Direction)
     {
         // This will be the vector we move on. This vector is also multipled by the passed in direction.
-        Vector3 newDest = new Vector3(door1.transform.localPosition.x - 0.00345033f, 0, 0) * Direction;
+        Vector3 newDest = new Vector3(door1.transform.localPosition.x - 0.003450f, 0, 0) * Direction;
         // Coroutine moves doors in to place over deltaTime times the doorSpeed.
         while (door1.transform.localPosition.x != newDest.x)
         {
             door1.transform.localPosition += new Vector3(newDest.x - door1.transform.localPosition.x, 0, 0) * doorSpeed * Time.deltaTime;
             door2.transform.localPosition -= new Vector3(newDest.x - door1.transform.localPosition.x, 0, 0) * doorSpeed * Time.deltaTime;
+            //Math.Round(door1.transform.localPosition.x, 5, MidpointRounding.ToEven);
+            Debug.Log(Direction);
             yield return 0;
         }
     }
