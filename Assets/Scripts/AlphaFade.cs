@@ -6,13 +6,31 @@ using UnityEngine.SceneManagement;
 public class AlphaFade : MonoBehaviour {
 
     private Image _brightLight;
-    private IEnumerator _fO;
     private bool _fadingOut = false;
     public int Alpha = 0;
 
 	// Use this for initialization
 	void Start () {
         _brightLight = transform.gameObject.GetComponent<Image>();
+        foreach(Camera ca in FindObjectsOfType<Camera>())
+        {
+            int Count = 0;
+
+            foreach (AlphaFade af in FindObjectsOfType<AlphaFade>())
+                Count++;
+
+            if (Count >= 2)
+                DestroyObject(transform.parent.gameObject);
+            else
+                DontDestroyOnLoad(transform.parent);
+
+            if(ca.name == "CenterEyeAnchor")
+            {
+                transform.parent.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+                transform.parent.GetComponent<Canvas>().worldCamera = ca;
+                transform.parent.GetComponent<Canvas>().planeDistance = 0.101f;
+            }
+        }
 	}
 	
 	// Update is called once per frame
@@ -31,25 +49,13 @@ public class AlphaFade : MonoBehaviour {
         {
             Alpha = (int)i;
             _brightLight.color = new Color(255,255,255,i/255);
-            //Alpha = (int)i;
-            //Debug.Log(_brightLight.color.a);
             if(i >= 255)
             {
-                //_fadingOut = true;
                 SceneManager.LoadScene(sceneNum);
                 _fadingOut = true;
             }
             yield return null;
         }
-        //if (_brightLight.color.a >= 255)
-        //{
-        //    _fadingOut = true;
-        //    SceneChanger.ChangeScene(FindObjectOfType<CharacterController>().transform.gameObject, sceneNum);
-        //}
-        //SceneChanger.ChangeScene(FindObjectOfType<CharacterController>().transform.gameObject, sceneNum);
-        //_fO = this.FadeOut();
-        //StartCoroutine(_fO);
-        //yield return null;
     }
 
     public IEnumerator FadeOut()
@@ -59,13 +65,5 @@ public class AlphaFade : MonoBehaviour {
             _brightLight.color = new Color(255, 255, 255, i/255);
             yield return null;
         }
-        //yield return null;
-    }
-
-    void Awake()
-    {
-        if (FindObjectOfType(typeof(AlphaFade)) == this)
-            return;
-        DontDestroyOnLoad(transform.parent);
     }
 }

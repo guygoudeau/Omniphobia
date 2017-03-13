@@ -9,25 +9,17 @@ public class InteractiveLook : MonoBehaviour {
     private IEnumerator _fadeIn;
 
     void Start () {
+
+        _player = GameObject.Find("OVRPlayerController");
+        _self = GameObject.Find("Interact").transform;
+
         if (_player == null)
         {
-            foreach (GameObject go in FindObjectsOfType<GameObject>())
-            {
-                if (go.name == "OVRPlayerController")
-                {
-                    _player = go;
-                }
-                else if (go.name == "First Person Controller")
-                {
-                    _player = go;
-                }
-                else if (go.name == "Interact")
-                {
-                    _self = go.transform;
-                }
-            }
+            Debug.LogError("OVRPlayerController not found.");
+            this.enabled = false;
         }
-        transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y + .05f, _player.transform.position.z);
+        else
+            transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y + .05f, _player.transform.position.z);
     }
 	
 	void Update () {
@@ -46,21 +38,16 @@ public class InteractiveLook : MonoBehaviour {
             {
                 if (hit.collider.name.Contains("Door"))
                 {
-                    if (OVRInput.GetDown(OVRInput.Button.One))
+                    if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown("r"))
                     {
                         hit.collider.transform.parent.GetComponent<OpenDoor>().ChangeDoorState();
                         int _sceneNum = 0;
-                        int enumeration = 0;
-                        while (_sceneNum == 0)
+                        while (!hit.collider.name.Contains(_sceneNum.ToString()))
                         {
-                            if (hit.collider.name.Contains(enumeration.ToString()))
-                            {
-                                _sceneNum = enumeration;
-                                break;
-                            }
-                            else
-                                enumeration++;
+                            _sceneNum++;
                         }
+
+                        FindObjectOfType<OpenDoor>().open = true;
                         StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(_sceneNum));
                     }
                 }
@@ -69,7 +56,7 @@ public class InteractiveLook : MonoBehaviour {
             {
                 if (!Sitting)
                 {
-                    if (OVRInput.GetDown(OVRInput.Button.One))
+                    if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown("r"))
                     {
                         _player.transform.position = new Vector3(hit.collider.transform.position.x, _player.transform.position.y, hit.collider.transform.position.z);
                         _player.transform.rotation = hit.collider.transform.rotation;
@@ -78,7 +65,7 @@ public class InteractiveLook : MonoBehaviour {
                 }
                 else if (Sitting)
                 {
-                    if (OVRInput.GetDown(OVRInput.Button.One))
+                    if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown("r"))
                     {
                         _player.transform.Translate(transform.forward);
                         Sitting = false;
