@@ -1,20 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+[System.Serializable]
+public class Fear
+{
+    public int value;
+    public string name;
 
-    public struct Fear
+    public Fear(int value, string name)
     {
-        public int value;
-        public string name;
-
-        public Fear(int value, string name)
-        {
-            this.name = name;
-            this.value = value;
-        }
+        this.name = name;
+        this.value = value;
     }
-    Fear Spider = new Fear(0,"Spider");
+}
+
+public class GameManager : MonoBehaviour
+{
+    public static GameManager instance = null;
+    public ScriptableFearList scriptableFears;
+    public GameObject Player;
+    public Vector3 Checkpoint;
+    public int level;
+
+    Fear Spider = new Fear(0, "Spider");
     Fear Snake = new Fear(0, "Snake");
     Fear Clown = new Fear(2, "Clown");
     Fear Height = new Fear(0, "Height");
@@ -32,27 +41,73 @@ public class GameManager : MonoBehaviour {
         FList.Add(Doll);
         FList.Sort();
         return FList[0].name;
+    }
+
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Start()
+    {
+        level = 0;
+        Events.PlayerWin.AddListener(PlayerWon);
+        Events.PlayerDeath.AddListener(PlayerDied);
+        Events.PlayerReloadScene.AddListener(PlayerReloaded);
+        Events.PlayerForceScene.AddListener(NextLevel);
+
+        List<Fear> FList = new List<Fear>();
+        FList.Add(Spider);
+        FList.Add(Snake);
+        FList.Add(Clown);
+        FList.Add(Height);
+        FList.Add(Claustrophobia);
+        FList.Add(Doll);
+        FList.Sort((a,b)=> a.value.CompareTo(b.value));
+        scriptableFears.Create(FList);
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            level = 0;
+        }
+    }
+
+    void Update()
+    {
 
     }
 
-    // Use this for initialization
-    void Start () {
-
-
+    void PlayerWon()
+    {
+        //StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(3));
+        SceneManager.LoadScene("Win");
     }
-	
-	// Update is called once per frame
-	//void Update () {
- //   if (OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.B))
- //       {
- //           Debug.Log(Spider.value);
- //       }
- //       if (OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.A))
- //       {
 
- //           Spider.value++;
- //           Checkup();
- //       }
+    void PlayerDied()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
- //   }
+    void PlayerReloaded()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void NextLevel()
+    {
+        level++;
+        if (level > 3)
+        {
+            level = 0;
+        }
+
+        SceneManager.LoadScene(level);
+    }
 }

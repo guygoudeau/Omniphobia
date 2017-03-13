@@ -166,7 +166,7 @@ public class OVRPlayerController : MonoBehaviour
 			{
                 if (NotUsingOVC == true)
                 {
-                    p.y = 1;
+                    p.y = 0.7f;
                 }
                 else 
 				    p.y = OVRManager.profile.eyeHeight - (0.5f * Controller.height) + Controller.center.y;
@@ -175,7 +175,11 @@ public class OVRPlayerController : MonoBehaviour
 			{
 				p.y = - (0.5f * Controller.height) + Controller.center.y;
 			}
-			CameraRig.transform.localPosition = p;
+            if (NotUsingOVC == true)
+            {
+                p.y = 0.7f;
+            }
+            CameraRig.transform.localPosition = p;
 		}
 		else if (InitialPose != null)
 		{
