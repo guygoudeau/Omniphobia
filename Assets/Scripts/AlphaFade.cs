@@ -14,8 +14,19 @@ public class AlphaFade : MonoBehaviour {
         _brightLight = transform.gameObject.GetComponent<Image>();
         foreach(Camera ca in FindObjectsOfType<Camera>())
         {
+            int Count = 0;
+
+            foreach (AlphaFade af in FindObjectsOfType<AlphaFade>())
+                Count++;
+
+            if (Count >= 2)
+                DestroyObject(transform.parent.gameObject);
+            else
+                DontDestroyOnLoad(transform.parent);
+
             if(ca.name == "CenterEyeAnchor")
             {
+                transform.parent.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
                 transform.parent.GetComponent<Canvas>().worldCamera = ca;
                 transform.parent.GetComponent<Canvas>().planeDistance = 0.101f;
             }
@@ -54,12 +65,5 @@ public class AlphaFade : MonoBehaviour {
             _brightLight.color = new Color(255, 255, 255, i/255);
             yield return null;
         }
-    }
-
-    void Awake()
-    {
-        if (FindObjectOfType(typeof(AlphaFade)) == this)
-            return;
-        DontDestroyOnLoad(transform.parent);
     }
 }
