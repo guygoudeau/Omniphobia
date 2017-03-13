@@ -42,11 +42,12 @@ public class InteractiveLook : MonoBehaviour {
         if(Physics.Raycast(_self.position,fwd, out hit,1f))
         {
             Debug.DrawLine(_self.position, hit.point);
+            Debug.Log(hit.collider.name);
             if (hit.collider.transform.parent != null)
             {
                 if (hit.collider.name.Contains("Door"))
                 {
-                    if (OVRInput.GetDown(OVRInput.Button.One))
+                    if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown("r"))
                     {
                         hit.collider.transform.parent.GetComponent<OpenDoor>().ChangeDoorState();
                         int _sceneNum = 0;
@@ -69,7 +70,7 @@ public class InteractiveLook : MonoBehaviour {
             {
                 if (!Sitting)
                 {
-                    if (OVRInput.GetDown(OVRInput.Button.One))
+                    if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown("r"))
                     {
                         _player.transform.position = new Vector3(hit.collider.transform.position.x, _player.transform.position.y, hit.collider.transform.position.z);
                         _player.transform.rotation = hit.collider.transform.rotation;
@@ -78,7 +79,7 @@ public class InteractiveLook : MonoBehaviour {
                 }
                 else if (Sitting)
                 {
-                    if (OVRInput.GetDown(OVRInput.Button.One))
+                    if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown("r"))
                     {
                         _player.transform.Translate(transform.forward);
                         Sitting = false;
