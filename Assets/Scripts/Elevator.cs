@@ -81,10 +81,9 @@ public class Elevator : MonoBehaviour {
         // Coroutine moves doors in to place over deltaTime times the doorSpeed.
         while (door1.transform.localPosition.x != newDest.x)
         {
-            door1.transform.localPosition += new Vector3(newDest.x - door1.transform.localPosition.x, 0, 0) * doorSpeed * Time.deltaTime;
-            door2.transform.localPosition -= new Vector3(newDest.x - door1.transform.localPosition.x, 0, 0) * doorSpeed * Time.deltaTime;
-            //Math.Round(door1.transform.localPosition.x, 5, MidpointRounding.ToEven);
-            Debug.Log(Direction);
+            Vector3 Delta = new Vector3(newDest.x - door1.transform.localPosition.x, 0, 0) * doorSpeed * Time.deltaTime;
+            door1.transform.localPosition += Delta;
+            door2.transform.localPosition -= Delta;
             yield return 0;
         }
     }
