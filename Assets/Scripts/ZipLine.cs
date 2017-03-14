@@ -3,12 +3,29 @@ using System.Collections;
 
 public class ZipLine : MonoBehaviour {
 
-    private bool Active;
+
+    public Vector3 Destination;
+    public float speed = 3;
     public GameObject player;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other == player.GetComponent<Collider>())
+        {
+            Debug.LogError("boop");
+            Zip();
+        }
+    }
+
+    void Zip()
+    {
+        
+    }
+
 
     void Start()
     {
-        Active = false;
+        
     }
 
     //void OnCollisionStay(Collision collisionInfo)
@@ -20,7 +37,15 @@ public class ZipLine : MonoBehaviour {
     //}
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
+        while (transform.position.y >= Destination.y)
+        {
+            Vector3 temp;
+            temp = Destination;
+            temp *= speed;
+            gameObject.transform.position = transform.position + (temp * Time.deltaTime);
+        }
+    }
 
-	}
 }
