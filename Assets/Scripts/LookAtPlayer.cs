@@ -15,10 +15,9 @@ public class LookAtPlayer : MonoBehaviour {
 	void Update () {
         if(this.gameObject.GetComponent<MeshRenderer>().isVisible)
         {
-            Quaternion PreviousRot = transform.localRotation;
-            transform.LookAt(_player.transform);
-            Quaternion TargetRot = transform.localRotation;
-            transform.localRotation = Quaternion.Slerp(PreviousRot, TargetRot, Time.deltaTime);
+            var PosDiff = transform.position - _player.transform.position;
+            Quaternion TargetRot = Quaternion.LookRotation(PosDiff);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0, TargetRot.y, 0, TargetRot.w), Time.deltaTime * 0.5f);
         }
         else
         {
