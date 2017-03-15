@@ -5,47 +5,32 @@ public class TightRope : MonoBehaviour {
 
     public OVRPlayerController Player;
     public bool active;
-    private float RotationAmount;
     private float Changes;
-    public float direction;
+    public GameObject L_Hand;
+    public GameObject R_Hand;
 
     void Start()
     {
         active = false;
-        direction = -1;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == Player.gameObject)
-        {
             active = true;
-        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == Player.gameObject)
-        {
             active = false;
-        }
     }
 
     void Update()
     {
         if (active)
         {
-            Changes = 0.1f * Time.deltaTime * direction;
+            Changes = 0.1f /** Time.deltaTime*/ * ((L_Hand.transform.position.y - R_Hand.transform.position.y) /*+ 0.4f*/);
 
-            if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick) != new Vector2(0, 0))
-            {
-                Changes *= OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
-            }
-
-            if (Player.gameObject.transform.rotation.z != 0)
-            {
-                direction = Player.gameObject.transform.rotation.z / Mathf.Abs(Player.gameObject.transform.rotation.z);
-            }
+            Mathf.Clamp(Changes, 0, 0.8f);
 
             Player.gameObject.transform.rotation = 
                 new Quaternion(Player.gameObject.transform.rotation.x,
