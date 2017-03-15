@@ -201,8 +201,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 1071175928}
   offSet: {x: 2, y: -1, z: 2}
-  offSetDis: 2.5
+  offSetDis: 2
   current: {x: 0, y: 0, z: 0}
+  speed: 1
   a: {x: 10, y: 0, z: -10}
   b: {x: 10, y: 0, z: 10}
   c: {x: -10, y: 0, z: 10}
