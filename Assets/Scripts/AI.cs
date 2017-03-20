@@ -7,9 +7,10 @@ public class AI : MonoBehaviour {
     //Vector3 position;
     public GameObject Target;
     public Vector3 offSet;
-    public float offSetDis;
-    public Vector3 current;
+    public uint offSetDis;
+    public Vector3 LastCheckpoint;
     float Distance;
+    public float speed;
     public Vector3 a;
     public Vector3 b;
     public Vector3 c;
@@ -21,8 +22,9 @@ public class AI : MonoBehaviour {
     // Gets called every frame.
     void Update()
     {
-        // Changes position to the return value of seek.
+        
         transform.position = WayPoint(transform.position);
+        // Changes position to the return value of seek.
         //transform.position = Seek(Target.transform.position, transform.position);
     }
 
@@ -35,77 +37,83 @@ public class AI : MonoBehaviour {
         }
         return AIPos;
     }
-    Vector3 RoundPos(Vector3 Target, Vector3 CurrentPos)
+    Vector3 RoundPos(Vector3 NewTarget, Vector3 CurrentPos, Vector3 Target)
     {
-        Distance = ((CurrentPos.x + CurrentPos.y + CurrentPos.z) / 3);
-        if (Distance <= (Distance - offSetDis) && Distance >= (Distance + offSetDis))
+        //gets the distance from This object to the Target location.
+        Distance = ((Target.x + Target.y + Target.z) / 3);
+        //makes sure that distance is positive.
+        if (Distance <= 0)
         {
-            return Target;
+            Distance = -Distance;
+        }
+        //checks if this object is close to its target.
+        if (Distance <= (offSetDis))
+        {
+            return NewTarget;
         }
         else
         return CurrentPos;
     }
     Vector3 WayPoint(Vector3 Pos)
-    { 
-        if (current == a)
+    {
+        if (LastCheckpoint == a)
         {
             if (Pos != b)
             {
-                Pos = Pos + ((b - Pos) * Time.deltaTime);
-                RoundPos(b, transform.position);
+                Pos = Pos + ((b - Pos) * Time.deltaTime * speed);
+                Pos = RoundPos(b, Pos, transform.position);
             }
             else
             {
-                current = b;
-                //offSetDis = ((offSet.x + offSet.y + offSet.z)/3);
+                LastCheckpoint = b;
             }
 
             return Pos;
         }
-        else if (current == b)
+        if (LastCheckpoint == b)
         {
             if (Pos != c)
             {
-                Pos = Pos + (((c - offSet) - Pos) * Time.deltaTime);
-                RoundPos(c, transform.position);
+                Pos = Pos + ((c - Pos) * Time.deltaTime * speed);
+                Pos = RoundPos(c, Pos, transform.position);
             }
             else
             {
-                current = c;
-                //offSetDis = ((offSet.x + offSet.y + offSet.z) / 3);
+                LastCheckpoint = c;
             }
 
             return Pos;
         }
-        else if (current == c)
+        if (LastCheckpoint == c)
         {
-            if (Pos != (d - offSet))
+            if (Pos != d)
             {
-                Pos = Pos + (((d - offSet) - Pos) * Time.deltaTime);
-                RoundPos(d, transform.position);
+                Pos = Pos + ((d - Pos) * Time.deltaTime * speed);
+                Pos = RoundPos(d, Pos, transform.position);
             }
             else
             {
-                current = d;
-                //offSetDis = ((offSet.x + offSet.y + offSet.z) / 3);
+                LastCheckpoint = d;
             }
 
             return Pos;
         }
-        else
+        if (LastCheckpoint == d)
         {
-            if (Pos != (a - offSet))
+            if (Pos != a)
             {
-                Pos = Pos + (((a - offSet) - Pos) * Time.deltaTime);
-                RoundPos(a, transform.position);
+                Pos = Pos + ((a - Pos) * Time.deltaTime * speed);
+                Pos = RoundPos(a, Pos, transform.position);
             }
             else
             {
-                current = a;
-                //offSetDis = ((offSet.x + offSet.y + offSet.z) / 3);
+                LastCheckpoint = a;
             }
 
             return Pos;
         }
+        //Keeps LastChecpoint from being null
+        LastCheckpoint = a;
+        return Pos;
     }
 }
