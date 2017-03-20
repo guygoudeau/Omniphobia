@@ -2739,6 +2739,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 818284665}
   - 54: {fileID: 818284664}
+  - 114: {fileID: 818284666}
   m_Layer: 0
   m_Name: Doll (8)
   m_TagString: Untagged
@@ -2781,6 +2782,17 @@ Transform:
   - {fileID: 413316382}
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!114 &818284666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818284663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1148ffded1505204596960d2ae6fa0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &825385439
 GameObject:
   m_ObjectHideFlags: 0
@@ -3672,6 +3684,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1058972420}
   - 54: {fileID: 1058972419}
+  - 114: {fileID: 1058972421}
   m_Layer: 0
   m_Name: Doll (6)
   m_TagString: Untagged
@@ -3714,6 +3727,17 @@ Transform:
   - {fileID: 1386970529}
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &1058972421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1058972418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1148ffded1505204596960d2ae6fa0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1062594931
 GameObject:
   m_ObjectHideFlags: 0
@@ -4067,6 +4091,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1177133835}
   - 54: {fileID: 1177133834}
+  - 114: {fileID: 1177133836}
   m_Layer: 0
   m_Name: Doll (3)
   m_TagString: Untagged
@@ -4109,6 +4134,17 @@ Transform:
   - {fileID: 1094636655}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &1177133836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1177133833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1148ffded1505204596960d2ae6fa0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1202721016
 GameObject:
   m_ObjectHideFlags: 0
@@ -4290,6 +4326,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1238536456}
   - 54: {fileID: 1238536455}
+  - 114: {fileID: 1238536457}
   m_Layer: 0
   m_Name: Doll (7)
   m_TagString: Untagged
@@ -4332,6 +4369,17 @@ Transform:
   - {fileID: 554297520}
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &1238536457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1238536454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1148ffded1505204596960d2ae6fa0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1244265668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4592,6 +4640,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1318158262}
   - 54: {fileID: 1318158261}
+  - 114: {fileID: 1318158263}
   m_Layer: 0
   m_Name: Doll (9)
   m_TagString: Untagged
@@ -4634,6 +4683,17 @@ Transform:
   - {fileID: 1800843321}
   m_Father: {fileID: 0}
   m_RootOrder: 10
+--- !u!114 &1318158263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1318158260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1148ffded1505204596960d2ae6fa0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1339818197
 GameObject:
   m_ObjectHideFlags: 0
@@ -6444,6 +6504,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1715397407}
   - 54: {fileID: 1715397406}
+  - 114: {fileID: 1715397408}
   m_Layer: 0
   m_Name: Doll (5)
   m_TagString: Untagged
@@ -6486,6 +6547,17 @@ Transform:
   - {fileID: 1460142793}
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!114 &1715397408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1715397405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1148ffded1505204596960d2ae6fa0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1775505458
 GameObject:
   m_ObjectHideFlags: 0
