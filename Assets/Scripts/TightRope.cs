@@ -21,7 +21,7 @@ public class TightRope : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
-            active = false;
+        active = false;
     }
 
     void Update()
