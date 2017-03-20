@@ -4,20 +4,29 @@ using System.Collections;
 public class LookAtPlayer : MonoBehaviour {
 
     private GameObject _player;
+    private Transform _targetTransform;
     public bool IsVisible = false;
 
 	// Use this for initialization
 	void Start () {
         _player = GameObject.Find("OVRPlayerController");
+        foreach(Transform tf in transform.parent.GetComponentInChildren<Transform>())
+        {
+            if(tf.name == "Target")
+            {
+                _targetTransform = tf;
+                break;
+            }
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(this.gameObject.GetComponent<MeshRenderer>().isVisible)
+        _targetTransform.LookAt(_player.transform);
+        if (this.gameObject.GetComponent<MeshRenderer>().isVisible)
         {
-            var PosDiff = transform.position - _player.transform.position;
-            Quaternion TargetRot = Quaternion.LookRotation(PosDiff);
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0, TargetRot.y, 0, TargetRot.w), Time.deltaTime * 0.5f);
+            Quaternion TargetRot = _targetTransform.localRotation;
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0, TargetRot.y, 0, TargetRot.w), Time.deltaTime * 0.9f);
         }
         else
         {
