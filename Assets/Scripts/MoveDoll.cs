@@ -4,15 +4,24 @@ using System.Collections.Generic;
 
 public class MoveDoll : MonoBehaviour {
 
-    private bool _playerLooked = false;
+    private List<DollPosition> _possiblePositions;
     private DollPosition _currentPos;
-    public List<DollPosition> _possiblePositions;
+
+    private bool _playerLooked = false;
+    private bool _timerRun = false;
+
     private float _posAmount = 0;
+    private float _timer = 0;
 
 	// Use this for initialization
 	void Start () {
+        _timer = 0;
+        _timerRun = false;
+        _possiblePositions = new List<DollPosition>();
+
         foreach (DollPosition dp in FindObjectsOfType<DollPosition>())
-        { if (dp.transform.position == transform.position)
+        {
+            if (dp.transform.position == transform.position)
             {
                 _currentPos = dp;
                 _currentPos.IsOccupied = true;
@@ -30,11 +39,19 @@ public class MoveDoll : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(_timerRun)
+        {
+            _timer += Time.deltaTime;
+        }
+
         if(this.gameObject.GetComponentInChildren<MeshRenderer>().isVisible)
         {
             _playerLooked = true;
+            _timerRun = true;
+            _timer = 0;
         }
-        else if(_playerLooked)
+        else if(_playerLooked && _timer >= 10)
         {
             int NewPos = (int)Random.Range(0, _posAmount);
             while(_possiblePositions[NewPos] == _currentPos)
@@ -44,6 +61,8 @@ public class MoveDoll : MonoBehaviour {
             _currentPos.IsOccupied = true;
             transform.position = _currentPos.transform.position;
             _playerLooked = false;
+            _timer = 0;
+            _timerRun = false;
         }
 	}
 }
