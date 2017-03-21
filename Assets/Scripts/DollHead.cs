@@ -33,7 +33,7 @@ public class DollHead : MonoBehaviour {
             if (this.gameObject.GetComponent<MeshRenderer>().isVisible)
             {
                 Quaternion TargetRot = _targetTransform.localRotation;
-                transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0, TargetRot.y, 0, TargetRot.w), Time.deltaTime * 0.9f);
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, TargetRot, Time.deltaTime * 0.9f);
             }
             else
             {
@@ -49,7 +49,7 @@ public class DollHead : MonoBehaviour {
             else
             {
                 Quaternion TargetRot = _targetTransform.localRotation;
-                transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0, TargetRot.y, 0, TargetRot.w), Time.deltaTime);
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, TargetRot, Time.deltaTime);
             }
         }
     }
