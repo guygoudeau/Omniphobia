@@ -9,10 +9,12 @@ public class MoveDoll : MonoBehaviour {
     //The current position the Doll is occupying.
     private DollPosition _currentPos;
 
+    private GameObject _player;
+
     //A boolean to know if the Doll entered the camera view or not.
     private bool _playerLooked = false;
     //A boolean to know if the time should be incremented.
-    private bool _timerRun = false;
+    public bool _timerRun = false;
 
     //The number of positions that are available to the Doll for occupation.
     private float _posAmount = 0;
@@ -24,6 +26,7 @@ public class MoveDoll : MonoBehaviour {
         _time = 0;
         _timerRun = false;
         _possiblePositions = new List<DollPosition>();
+        _player = GameObject.Find("OVRPlayerController");
 
         //A foreach loop to find all the DollPositions and determines which ones are available to occupy.
         foreach (DollPosition dp in FindObjectsOfType<DollPosition>())
@@ -35,8 +38,7 @@ public class MoveDoll : MonoBehaviour {
                 _possiblePositions.Add(dp);
                 _posAmount++;
             }
-            //Checks to see if the Unity unit distance between the Doll and the DollPosition is less than or equal to 1 Unity unit.
-            else if (Mathf.Abs(dp.transform.position.magnitude - transform.position.magnitude) <= 1)
+            else
             {
                 _possiblePositions.Add(dp);
                 _posAmount++;
@@ -57,12 +59,15 @@ public class MoveDoll : MonoBehaviour {
         //Checks to see if the Doll entered the Camera view.
         if(this.gameObject.GetComponentInChildren<MeshRenderer>().isVisible)
         {
-            _playerLooked = true;
-            _timerRun = true;
-            _time = 0;
+            if (Mathf.Abs(transform.position.magnitude - _player.transform.position.magnitude) <= 1)
+            {
+                _playerLooked = true;
+                _timerRun = true;
+                _time = 0;
+            }
         }
         //Checks to see if more than ten seconds have passed since the Doll has left the Camera view.
-        else if(_playerLooked && _time >= 10)
+        else if(_playerLooked && _time >= 5)
         {
             int NewPos = (int)Random.Range(0, _posAmount);
             //A while loop that makes sure that the position the Doll is moved to is not already the current position.
