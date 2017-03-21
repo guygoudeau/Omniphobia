@@ -111,6 +111,7 @@ public class AI : MonoBehaviour {
         //Pos = Pos + ((VCurrent - Pos) * Time.deltaTime);
         float distTraveled = (dest - Pos).magnitude;
         Vector3 displacement = (dest - Pos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(VCurrent - transform.position), 3.0f * Time.deltaTime);
         Pos += displacement * Time.deltaTime * speed;
         return Pos;
     }
