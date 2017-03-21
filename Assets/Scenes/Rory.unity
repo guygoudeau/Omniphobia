@@ -232,55 +232,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!1001 &1003107196
+--- !u!1001 &987135863
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 400152, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
+    - target: {fileID: 400148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 12.45
       objectReference: {fileID: 0}
-    - target: {fileID: 400152, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
+    - target: {fileID: 400148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -6.507747e-18
       objectReference: {fileID: 0}
-    - target: {fileID: 400152, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
+    - target: {fileID: 400148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 7.06
       objectReference: {fileID: 0}
-    - target: {fileID: 400152, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
+    - target: {fileID: 400148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400152, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
+    - target: {fileID: 400148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400152, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
+    - target: {fileID: 400148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400152, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
+    - target: {fileID: 400148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 400152, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
+    - target: {fileID: 400148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 400152, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
+    - target: {fileID: 100148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
+      propertyPath: m_Name
+      value: GiantSpiderBody
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
+    - target: {fileID: 9500000, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 876ee130acbfd6b4798d4815679129d4, type: 2}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
+  m_ParentPrefab: {fileID: 100100000, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &1071175928 stripped
 GameObject:
@@ -301,16 +301,16 @@ MonoBehaviour:
   Player: {fileID: 0}
   Checkpoint: {x: 0, y: 0, z: 0}
   level: 0
---- !u!1 &1564889080 stripped
+--- !u!1 &1093766002 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 100152, guid: 778ac2c0c70ba2745bc63c89e6e08e17, type: 3}
-  m_PrefabInternal: {fileID: 1003107196}
---- !u!114 &1564889081
+  m_PrefabParentObject: {fileID: 100148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
+  m_PrefabInternal: {fileID: 987135863}
+--- !u!114 &1093766005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1564889080}
+  m_GameObject: {fileID: 1093766002}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5858036d40b495f4296dadb33490c23f, type: 3}
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 1071175928}
   offSet: {x: 2, y: -1, z: 2}
-  offSetDis: 1
+  offSetDis: 2
   LastCheckpoint: {x: 0, y: 0, z: 0}
   speed: 1
   Waypoints: []
