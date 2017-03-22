@@ -16,6 +16,8 @@ public class AI : MonoBehaviour {
     public Transform a, b, c, d, e, f;
     public object OCurrent;
     public Transform VCurrent;
+    GameObject Points;
+    public GameObject Maze;
     int index;
     bool Reverse;
 
@@ -23,12 +25,18 @@ public class AI : MonoBehaviour {
     {
         //Waypoints = new SortedList();
         Waypoints = new List<Transform>();
-        Waypoints.Add(a);
-        Waypoints.Add(b);
-        Waypoints.Add(c);
-        Waypoints.Add(d);
-        Waypoints.Add(e);
-        Waypoints.Add(f);
+        foreach (Transform a in Maze.transform)
+        {
+            if (a.name == "Points")
+            {
+                Points = a.gameObject;
+            }
+        }
+        foreach (Transform b in Points.GetComponentsInChildren<Transform>())
+        {
+             Waypoints.Add(b.transform);
+        }
+
         OCurrent = Waypoints[0];
         Time.timeScale = .5f;
         index = 0;
@@ -90,13 +98,13 @@ public class AI : MonoBehaviour {
         }
         if ((Transform)OCurrent == Waypoints[4])
         {
-            VCurrent = e;
-            dest = e.position;
+            VCurrent = Waypoints[4];
+            dest = Waypoints[4].position;
         }
         if ((Transform)OCurrent == Waypoints[5])
         {
-            VCurrent = f;
-            dest = f.position;
+            VCurrent = Waypoints[5];
+            dest = Waypoints[5].position;
         }
 
         //changes the target when close enough
@@ -115,7 +123,7 @@ public class AI : MonoBehaviour {
             {
                 index--;
             }
-            if (index < 0)
+            if (index <= 0)
             {
                 Reverse = false;
             }
@@ -125,7 +133,7 @@ public class AI : MonoBehaviour {
         float distTraveled = (dest - Pos).magnitude;
         Vector3 displacement = (dest - Pos);
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(VCurrent.position - transform.position), 3.0f * Time.deltaTime);
-        Pos += displacement * Time.deltaTime * speed;
+        Pos += displacement * (Time.deltaTime +(0.01f)) * speed;
         return Pos;
     }
 }
