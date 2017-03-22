@@ -26,9 +26,11 @@ public class TightRope : MonoBehaviour {
 
     void Update()
     {
+        float HandDifference = L_Hand.transform.position.y - R_Hand.transform.position.y;
+
         if (active)
         {
-            Changes = 0.1f /** Time.deltaTime*/ * ((L_Hand.transform.position.y - R_Hand.transform.position.y) /*+ 0.4f*/);
+            Changes = 0.1f /** Time.deltaTime*/ * (HandDifference /*+ 0.4f*/);
 
             Mathf.Clamp(Changes, 0, 0.8f);
 
