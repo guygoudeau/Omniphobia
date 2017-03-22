@@ -21,6 +21,8 @@ public class MoveDoll : MonoBehaviour {
     //The number of seconds passed since the Doll entered the camera view.
     private float _time = 0;
 
+    private int _pos = 0;
+
 	// Use this for initialization
 	void Start () {
         _time = 0;
@@ -29,7 +31,7 @@ public class MoveDoll : MonoBehaviour {
         _player = GameObject.Find("OVRPlayerController");
 
         //A foreach loop to find all the DollPositions and determines which ones are available to occupy.
-        foreach (DollPosition dp in FindObjectsOfType<DollPosition>())
+        foreach (DollPosition dp in GameObject.Find("Positions").GetComponentsInChildren<DollPosition>())
         {
             if (dp.transform.position == transform.position)
             {
@@ -43,7 +45,7 @@ public class MoveDoll : MonoBehaviour {
                 _possiblePositions.Add(dp);
                 _posAmount++;
             }
-
+            Debug.Log(dp.name);
         }
     }
 	
@@ -59,24 +61,28 @@ public class MoveDoll : MonoBehaviour {
         //Checks to see if the Doll entered the Camera view.
         if(this.gameObject.GetComponentInChildren<MeshRenderer>().isVisible)
         {
-            if (Mathf.Abs(transform.position.magnitude - _player.transform.position.magnitude) <= 1)
-            {
-                _playerLooked = true;
-                _timerRun = true;
-                _time = 0;
-            }
+            _playerLooked = true;
+        }
+        else if (((int)Vector3.Distance(transform.position, _player.transform.position) <= 3) && _playerLooked)
+        {
+            _timerRun = true;
+            _time = 0;
         }
         //Checks to see if more than ten seconds have passed since the Doll has left the Camera view.
-        else if(_playerLooked && _time >= 5)
+        else if(_playerLooked && _time >= 2)
         {
-            int NewPos = (int)Random.Range(0, _posAmount);
-            //A while loop that makes sure that the position the Doll is moved to is not already the current position.
-            while(_possiblePositions[NewPos] == _currentPos)
-                NewPos = (int)Random.Range(0, _posAmount);
+            _pos++;
+
+            if (_pos >= _possiblePositions.Count)
+                _pos = 0;
+
             _currentPos.IsOccupied = false;
-            _currentPos = _possiblePositions[NewPos];
+            _currentPos = _possiblePositions[_pos];
             _currentPos.IsOccupied = true;
+
             transform.position = _currentPos.transform.position;
+            transform.rotation = _currentPos.transform.rotation;
+
             _playerLooked = false;
             _time = 0;
             _timerRun = false;

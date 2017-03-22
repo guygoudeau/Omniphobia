@@ -16,6 +16,7 @@ public class Elevator : MonoBehaviour {
     public GameObject door2;
     // Used to determine which elevator it is.
     public bool Open;
+    private Coroutine co;
 
     // Gets called first.
     void Start()
@@ -23,7 +24,7 @@ public class Elevator : MonoBehaviour {
         // Checks what elevator it is and opens the door if it is the second elevator.
         if (Open)
         {
-            StartCoroutine(OpenDoor(1));
+            co = StartCoroutine(OpenDoor(1));
         }
     }
 
@@ -33,8 +34,8 @@ public class Elevator : MonoBehaviour {
         // Close the door if its open.
         if (Open)
         {
-            StopCoroutine(OpenDoor(1));
-            StartCoroutine(OpenDoor(0));
+            StopCoroutine(co);
+            co = StartCoroutine(OpenDoor(0));
         }
         // Start moving.
         StartCoroutine(Lerp(other.gameObject));
@@ -69,6 +70,10 @@ public class Elevator : MonoBehaviour {
                 player.transform.position = player.transform.position + temp;
                 yield return 0;
             }
+        }
+        if (co != null)
+        {
+            StopCoroutine(co);
         }
         StartCoroutine(OpenDoor(1));
     }
