@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Play
   - Win
+  - Generator
   layers:
   - Default
   - TransparentFX

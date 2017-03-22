@@ -7,6 +7,9 @@ public class ZipLine : MonoBehaviour {
     public Vector3 Destination;
     public float speed = 3;
     public GameObject player;
+    public GameObject L_Hand;
+    public GameObject R_Hand;
+    private bool active;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,33 +22,27 @@ public class ZipLine : MonoBehaviour {
 
     void Zip()
     {
-        
+        active = true;
     }
 
 
     void Start()
     {
-        
+        active = false;
     }
-
-    //void OnCollisionStay(Collision collisionInfo)
-    //{
-    //    if (collisionInfo.gameObject == player && OVRGamepadController.GPC_GetButtonDown(OVRGamepadController.Button.A))
-    //    {
-    //        Active = true;
-    //    }
-    //}
 
     // Update is called once per frame
     void Update()
     {
-        while (transform.position.y >= Destination.y)
+        if (L_Hand.transform.position.y > 1 && R_Hand.transform.position.y > 1)
         {
-            Vector3 temp;
-            temp = Destination;
-            temp *= speed;
-            gameObject.transform.position = transform.position + (temp * Time.deltaTime);
+            if (transform.position.y >= Destination.y && active)
+            {
+                Vector3 temp;
+                temp = Destination;
+                temp *= speed;
+                gameObject.transform.position = transform.position + (temp * Time.deltaTime);
+            }
         }
     }
-
 }
