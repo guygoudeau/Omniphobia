@@ -13,10 +13,11 @@ public class AI : MonoBehaviour {
     float Distance;
     public float speed;
     public List<Transform> Waypoints = new List<Transform>();
-    public Transform a, b, c, d;
+    public Transform a, b, c, d, e, f;
     public object OCurrent;
     public Transform VCurrent;
     int index;
+    bool Reverse;
 
     private void Start()
     {
@@ -26,8 +27,12 @@ public class AI : MonoBehaviour {
         Waypoints.Add(b);
         Waypoints.Add(c);
         Waypoints.Add(d);
+        Waypoints.Add(e);
+        Waypoints.Add(f);
         OCurrent = Waypoints[0];
         Time.timeScale = .5f;
+        index = 0;
+        Reverse = false;
     }
     //public string Entity;
 
@@ -36,7 +41,7 @@ public class AI : MonoBehaviour {
     {
         
         transform.position = WayPoint(transform.position);
-        Debug.DrawLine(transform.position, Waypoints[index]);
+        Debug.DrawLine(transform.position, Waypoints[index].position);
         // Changes position to the return value of seek.
         //transform.position = Seek(Target.transform.position, transform.position);
     }
@@ -83,14 +88,36 @@ public class AI : MonoBehaviour {
             VCurrent = d;
             dest = d.position;
         }
+        if ((Transform)OCurrent == Waypoints[4])
+        {
+            VCurrent = e;
+            dest = e.position;
+        }
+        if ((Transform)OCurrent == Waypoints[5])
+        {
+            VCurrent = f;
+            dest = f.position;
+        }
 
         //changes the target when close enough
         if (RoundPos(transform.position, VCurrent.position) == true)
         {
-            index++;
+            if (Reverse == false)
+            {
+                index++;
+            }
+            
             if (index >= Waypoints.Count)
             {
-                index = 0;
+                Reverse = true;
+            }
+            if (Reverse == true)
+            {
+                index--;
+            }
+            if (index < 0)
+            {
+                Reverse = false;
             }
         }
         //updates the position of the player.
