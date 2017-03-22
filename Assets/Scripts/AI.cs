@@ -12,25 +12,27 @@ public class AI : MonoBehaviour {
     public Vector3 LastCheckpoint;
     float Distance;
     public float speed;
-    public List<Vector3> Waypoints = new List<Vector3>();
-    public Vector3 a;
-    public Vector3 b;
-    public Vector3 c;
-    public Vector3 d;
+    public List<Transform> Waypoints = new List<Transform>();
+    public Transform a, b, c, d, e, f;
     public object OCurrent;
-    public Vector3 VCurrent;
+    public Transform VCurrent;
     int index;
+    bool Reverse;
 
     private void Start()
     {
         //Waypoints = new SortedList();
-        Waypoints = new List<Vector3>();
+        Waypoints = new List<Transform>();
         Waypoints.Add(a);
         Waypoints.Add(b);
         Waypoints.Add(c);
         Waypoints.Add(d);
+        Waypoints.Add(e);
+        Waypoints.Add(f);
         OCurrent = Waypoints[0];
         Time.timeScale = .5f;
+        index = 0;
+        Reverse = false;
     }
     //public string Entity;
 
@@ -39,7 +41,7 @@ public class AI : MonoBehaviour {
     {
         
         transform.position = WayPoint(transform.position);
-        Debug.DrawLine(transform.position, Waypoints[index]);
+        Debug.DrawLine(transform.position, Waypoints[index].position);
         // Changes position to the return value of seek.
         //transform.position = Seek(Target.transform.position, transform.position);
     }
@@ -60,58 +62,69 @@ public class AI : MonoBehaviour {
             return true;
         }
         return false;
-        /*
-        //gets the distance from This object to the Target location.
-        Distance = ((Mathf.Abs(Target.x) + Mathf.Abs(Target.y) + Mathf.Abs(Target.z)) / 3)
-            - (Mathf.Abs(CurrentPos.x) + Mathf.Abs(CurrentPos.y) + Mathf.Abs(CurrentPos.z)/3);
-        //makes sure that distance is positive.
-        //checks if this object is close to its target.
-        if (Distance <= (offSetDis /2))
-        {
-            return true;
-        }
-        
-        return false;*/
+  
     }
     Vector3 WayPoint(Vector3 Pos)
     {
         OCurrent = Waypoints[index];
         var dest = Vector3.zero;
-        if ((Vector3)OCurrent == Waypoints[0])
+        if ((Transform)OCurrent == Waypoints[0])
         {
             VCurrent = a;
-            dest = a;
+            dest = a.position;
         }
-        if ((Vector3)OCurrent == Waypoints[1])
+        if ((Transform)OCurrent == Waypoints[1])
         {
             VCurrent = b;
-            dest = b;
+            dest = b.position;
         }
-        if ((Vector3)OCurrent == Waypoints[2])
+        if ((Transform)OCurrent == Waypoints[2])
         {
             VCurrent = c;
-            dest = c;
+            dest = c.position;
         }
-        if ((Vector3)OCurrent == Waypoints[3])
+        if ((Transform)OCurrent == Waypoints[3])
         {
             VCurrent = d;
-            dest = d;
+            dest = d.position;
+        }
+        if ((Transform)OCurrent == Waypoints[4])
+        {
+            VCurrent = e;
+            dest = e.position;
+        }
+        if ((Transform)OCurrent == Waypoints[5])
+        {
+            VCurrent = f;
+            dest = f.position;
         }
 
         //changes the target when close enough
-        if (RoundPos(transform.position, VCurrent) == true)
+        if (RoundPos(transform.position, VCurrent.position) == true)
         {
-            index++;
+            if (Reverse == false)
+            {
+                index++;
+            }
+            
             if (index >= Waypoints.Count)
             {
-                index = 0;
+                Reverse = true;
+            }
+            if (Reverse == true)
+            {
+                index--;
+            }
+            if (index < 0)
+            {
+                Reverse = false;
             }
         }
         //updates the position of the player.
         //Pos = Pos + ((VCurrent - Pos) * Time.deltaTime);
         float distTraveled = (dest - Pos).magnitude;
         Vector3 displacement = (dest - Pos);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(VCurrent - transform.position), 3.0f * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(VCurrent.position - transform.position), 3.0f * Time.deltaTime);
         Pos += displacement * Time.deltaTime * speed;
         return Pos;
     }
