@@ -32,6 +32,7 @@ public class AlphaFade : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //If statement to start the FadeOut coroutine, activated once the FadeIn coroutine ends
         if (_fadingOut)
         {
             StartCoroutine(FadeOut());
@@ -59,6 +60,7 @@ public class AlphaFade : MonoBehaviour {
 
     public IEnumerator FadeOut()
     {
+        //For loop that decreases the alpha of the image
         for (float i = 255f; i >= 0; i--)
         {
             _brightLight.color = new Color(255, 255, 255, i/255);

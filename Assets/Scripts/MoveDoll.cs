@@ -74,6 +74,7 @@ public class MoveDoll : MonoBehaviour {
             _time = 0;
         }
         //Checks to see if more than ten seconds have passed since the Doll has left the Camera view.
+        //If true the Doll is moved to the next waypoint
         else if(_playerLooked && _time >= 2)
         {
             _pos++;
@@ -85,6 +86,8 @@ public class MoveDoll : MonoBehaviour {
             _currentPos = _possiblePositions[_pos];
             _currentPos.IsOccupied = true;
 
+            //Code that needs to be run in order to properly change the render mode of a material through code
+            //This changes it to Fade mode
             foreach (Renderer r in GetComponentsInChildren<Renderer>())
             {
                 r.material.SetFloat("_Mode", 2.0f);
@@ -108,12 +111,13 @@ public class MoveDoll : MonoBehaviour {
             _time = 0;
             _timerRun = false;
 
+            //If statement that changes the behavior of the Doll when it reaches the last waypoint
             if(_pos == 9)
             {
                 transform.LookAt(_player.transform);
                 transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>().enabled = true;
-                transform.gameObject.GetComponentInChildren<PopDoll>()._force = (transform.forward * 5) + (transform.up * 6.5f);
+                transform.gameObject.GetComponentInChildren<PopDoll>()._force = (transform.forward * 5) + (transform.up * 4f);
                 this.GetComponent<MoveDoll>().enabled = false;
             }
         }
@@ -129,6 +133,9 @@ public class MoveDoll : MonoBehaviour {
                 Color tempColor = r.material.color;
                 tempColor.a = i;
                 r.material.color = tempColor;
+
+                //Code that needs to be run in order to properly change the render mode of a material through code
+                //This changes it to Standard mode
                 if (i >= 255f)
                 {
                     r.material.SetFloat("_Mode", 0.0f);
