@@ -15,6 +15,8 @@ public class MoveDoll : MonoBehaviour {
     private bool _playerLooked = false;
     //A boolean to know if the time should be incremented.
     public bool _timerRun = false;
+    //A boolean to know if the movement between waypoints is over or not
+    private bool _movementOver = false;
 
     //The number of positions that are available to the Doll for occupation.
     private float _posAmount = 0;
@@ -64,7 +66,7 @@ public class MoveDoll : MonoBehaviour {
         }
 
         //Checks to see if the Doll entered the Camera view.
-        if(this.gameObject.GetComponentInChildren<MeshRenderer>().isVisible)
+        if (this.gameObject.GetComponentInChildren<MeshRenderer>().isVisible && !_movementOver)
         {
             _playerLooked = true;
         }
@@ -75,7 +77,7 @@ public class MoveDoll : MonoBehaviour {
         }
         //Checks to see if more than ten seconds have passed since the Doll has left the Camera view.
         //If true the Doll is moved to the next waypoint
-        else if(_playerLooked && _time >= 2)
+        else if (_playerLooked && _time >= 2)
         {
             _pos++;
 
@@ -112,16 +114,17 @@ public class MoveDoll : MonoBehaviour {
             _timerRun = false;
 
             //If statement that changes the behavior of the Doll when it reaches the last waypoint
-            if(_pos == 9)
+            if (_pos == 9)
             {
-                transform.LookAt(_player.transform);
                 transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>()._force = (transform.forward * 5) + (transform.up * 4f);
-                this.GetComponent<MoveDoll>().enabled = false;
+                _movementOver = true;
             }
         }
-	}
+        else if (_pos == 9)
+        { transform.LookAt(_player.transform); }
+    }
 
     public IEnumerator FadeIn()
     {
