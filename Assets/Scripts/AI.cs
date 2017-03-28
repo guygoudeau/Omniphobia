@@ -16,6 +16,10 @@ public class AI : MonoBehaviour {
     public GameObject Maze;
     int index;
     NavMeshAgent Spider;
+    public bool Pursuit = false;
+    float Ptimer = 5;
+    float Stimer = 2;
+    public bool Stop;
 
     private void Start()
     {
@@ -42,11 +46,23 @@ public class AI : MonoBehaviour {
     // Gets called every frame.
     void Update()
     {
-        
+        if (Stop == true)
+        {
+            Stimer -= Time.deltaTime;
+            if (Stimer <= 0)
+            {
+                Stimer = 2;
+                Stop = false;
+            }
+        }
+
         Spider.destination = WayPoint(transform.position);
         // Changes position to the return value of seek.
-        //transform.position = Seek(Target.transform.position, transform.position);
+
     }
+
+
+
 
     // Does cool math that moves the enemy toward the target object with an offSet.
     bool RoundPos(Vector3 CurrentPos, Vector3 Target)
@@ -60,6 +76,22 @@ public class AI : MonoBehaviour {
     }
     Vector3 WayPoint(Vector3 Pos)
     {
+        if (Pursuit == true)
+        {
+            Ptimer -= Time.deltaTime;
+            if (Ptimer <= 0)
+            {
+                Ptimer = 5;
+                Pursuit = false;
+            }
+            if (Vector3.Distance(transform.position,Target.transform.position) <= 2.5f)
+            {
+                Stop = true;
+                return transform.position;
+            }
+            else
+            return Target.transform.position;
+        }
         Destination = Waypoints[index];
         //changes the target when close enough
         if (RoundPos(transform.position, Destination.position) == true)
