@@ -1,22 +1,18 @@
 fileFormatVersion: 2
-guid: 3d41bb1f4b872d1448784d6fd0952929
-timeCreated: 1487632571
+guid: 5369eafe9754f5948bb281941787b1c5
+timeCreated: 1490797110
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: FirePlace2_polySurface14
-    100004: FirePlace2_Fireplace
+    100002: FirePlace2
     400000: //RootNode
-    400002: FirePlace2_polySurface14
-    400004: FirePlace2_Fireplace
-    2300000: FirePlace2_polySurface14
-    2300002: FirePlace2_Fireplace
-    3300000: FirePlace2_polySurface14
-    3300002: FirePlace2_Fireplace
-    4300000: FirePlace2_polySurface14
-    4300002: FirePlace2_Fireplace
+    400002: FirePlace2
+    2300000: FirePlace2
+    3300000: FirePlace2
+    4300000: FirePlace2
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -46,7 +42,7 @@ ModelImporter:
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -75,7 +71,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
