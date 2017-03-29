@@ -11,6 +11,10 @@ public class MoveDoll : MonoBehaviour {
 
     private GameObject _player;
 
+    private Transform _targetTransform;
+
+    private Transform _dollBody;
+
     //A boolean to know if the Doll entered the camera view or not.
     private bool _playerLooked = false;
     //A boolean to know if the time should be incremented.
@@ -38,8 +42,8 @@ public class MoveDoll : MonoBehaviour {
             r.material = Resources.Load("DollTempMat") as Material;
         }
 
-            //A foreach loop to find all the DollPositions and determines which ones are available to occupy.
-            foreach (DollPosition dp in GameObject.Find("Positions").GetComponentsInChildren<DollPosition>())
+        //A foreach loop to find all the DollPositions and determines which ones are available to occupy.
+        foreach (DollPosition dp in GameObject.Find("Positions").GetComponentsInChildren<DollPosition>())
         {
             if (dp.transform.position == transform.position)
             {
@@ -52,6 +56,19 @@ public class MoveDoll : MonoBehaviour {
             {
                 _possiblePositions.Add(dp);
                 _posAmount++;
+            }
+        }
+
+        //Finds the Target child in the gameObject
+        foreach (Transform tf in transform.GetComponentInChildren<Transform>())
+        {
+            if (tf.name == "Target")
+            {
+                _targetTransform = tf;
+            }
+            else if(tf.name == "Body")
+            {
+                _dollBody = tf;
             }
         }
     }
@@ -123,7 +140,11 @@ public class MoveDoll : MonoBehaviour {
             }
         }
         else if (_pos == 9)
-        { transform.LookAt(_player.transform); }
+        {
+            Quaternion TargetRot = _targetTransform.localRotation;
+            _dollBody.localRotation = new Quaternion(0, TargetRot.y, 0, TargetRot.w);
+            _targetTransform.localRotation = _dollBody.localRotation;
+        }
     }
 
     public IEnumerator FadeIn()

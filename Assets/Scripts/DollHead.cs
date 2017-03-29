@@ -9,7 +9,7 @@ public class DollHead : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        _player = GameObject.Find("TrackingSpace");
+        _player = GameObject.Find("CenterEyeAnchor");
 
         //Finds a specific child of the parent gameObject to set as the target transform.
         foreach(Transform tf in transform.parent.GetComponentInChildren<Transform>())
@@ -52,5 +52,6 @@ public class DollHead : MonoBehaviour {
                 transform.localRotation = Quaternion.Slerp(transform.localRotation, TargetRot, Time.deltaTime);
             }
         }
+        Debug.DrawLine(transform.position, _player.transform.position, Color.red);
     }
 }
