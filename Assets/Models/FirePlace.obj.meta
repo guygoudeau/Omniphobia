@@ -7,11 +7,16 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: FirePlace2_polySurface14
+    100004: FirePlace2_Fireplace
     400000: //RootNode
     400002: FirePlace2_polySurface14
+    400004: FirePlace2_Fireplace
     2300000: FirePlace2_polySurface14
+    2300002: FirePlace2_Fireplace
     3300000: FirePlace2_polySurface14
+    3300002: FirePlace2_Fireplace
     4300000: FirePlace2_polySurface14
+    4300002: FirePlace2_Fireplace
   materials:
     importMaterials: 1
     materialName: 0
