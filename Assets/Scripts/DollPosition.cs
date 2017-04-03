@@ -1,4 +1,7 @@
-﻿//A fairly empty class made to allow the MoveDoll script have an easier time referencing the Doll waypoints
+﻿///<summary>
+///A fairly empty class made to allow the MoveDoll script have an easier time referencing the Doll waypoints
+///Needs to be attached to an empty GameObject that is a child of a GameObject called "Positions"
+///</summary>
 using UnityEngine;
 using System.Collections;
 
