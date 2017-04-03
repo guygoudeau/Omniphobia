@@ -52,6 +52,5 @@ public class DollHead : MonoBehaviour {
                 transform.localRotation = Quaternion.Slerp(transform.localRotation, TargetRot, Time.deltaTime);
             }
         }
-        Debug.DrawLine(transform.position, _player.transform.position, Color.red);
     }
 }
