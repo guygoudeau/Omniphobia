@@ -1,7 +1,16 @@
-﻿using UnityEngine;
+﻿///<summary>
+/// -Attach to object that will be following the waypoints.
+/// -ensure that a Nav Mesh agent to the object and turn off auto breaking.
+/// -create a terrain and open the Navigation window, from the windows tab in unity.
+/// -click on the terrain while looking in the navigation window and turn on the navigation static box, and set it to walkable.
+/// -Attach the GameObject of the terrain that the object will be traversing to the variable labeled.
+/// -Create an Empty game object, and call it "Points"
+/// -Add empty game objects and position their transform at the waypoints that the object is supposed to walk to.
+/// </summary>
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+[RequireComponent(typeof(NavMeshAgent))]
 public class AI : MonoBehaviour {
 
     // Player player;
@@ -13,7 +22,7 @@ public class AI : MonoBehaviour {
     public Transform a, b, c, d, e, f;
     public Transform Destination;
     GameObject Points;
-    public GameObject Maze;
+    public GameObject Terrain;
     int index;
     NavMeshAgent Spider;
     public bool Pursuit = false;
@@ -25,7 +34,7 @@ public class AI : MonoBehaviour {
     {
         //Waypoints = new SortedList();
         Waypoints = new List<Transform>();
-        foreach (Transform a in Maze.transform)
+        foreach (Transform a in Terrain.transform)
         {
             if (a.name == "Points")
             {
@@ -39,7 +48,7 @@ public class AI : MonoBehaviour {
 
         index = 0;
         Spider = GetComponent<NavMeshAgent>();
-        Spider.speed = 6;
+
     }
     //public string Entity;
 
