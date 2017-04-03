@@ -1524,15 +1524,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 11
+      value: 27.67
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.4
+      value: 4.27
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -10238,7 +10238,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 896226668}
   m_LocalRotation: {x: 0, y: 0.55846924, z: 0, w: 0.82952523}
-  m_LocalPosition: {x: 45.08, y: -23.21, z: -32.54}
+  m_LocalPosition: {x: 45.29, y: -23.46, z: -32.45}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_LocalEulerAnglesHint: {x: 0, y: 67.9, z: 0}
   m_Children:
@@ -11351,7 +11351,7 @@ Prefab:
     - target: {fileID: 114000011461662268, guid: 99c66a83ba4072c4f85122515e5c50da,
         type: 2}
       propertyPath: Destination.y
-      value: -23
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 114000011461662268, guid: 99c66a83ba4072c4f85122515e5c50da,
         type: 2}
@@ -21040,8 +21040,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1935382787}
   - 33: {fileID: 1935382786}
-  - 64: {fileID: 1935382785}
   - 23: {fileID: 1935382784}
+  - 114: {fileID: 1935382788}
+  - 65: {fileID: 1935382785}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -21078,8 +21079,8 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &1935382785
-MeshCollider:
+--- !u!65 &1935382785
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -21088,8 +21089,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 10, y: 0.03, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1935382786
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -21110,6 +21111,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!114 &1935382788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1935382783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8235df5e1d8053046b3a2925b3e361c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1412547676}
 --- !u!1001 &1944959960
 Prefab:
   m_ObjectHideFlags: 0
