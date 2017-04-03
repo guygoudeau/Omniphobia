@@ -14,13 +14,12 @@ public class PopDoll : MonoBehaviour {
         _player = GameObject.Find("OVRPlayerController");
         //The script needs to be applied to a child object for the purpose having a separate collider for the trigger
         _parent = transform.parent.gameObject;
-        _force = _parent.transform.forward * 8;
+        _force = _parent.transform.forward * 8 + _parent.transform.up * 1;
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+    }
 
     private void OnTriggerEnter(Collider other)
     {
