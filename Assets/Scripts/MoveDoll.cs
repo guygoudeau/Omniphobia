@@ -135,17 +135,20 @@ public class MoveDoll : MonoBehaviour {
             {
                 transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>().enabled = true;
-                transform.gameObject.GetComponentInChildren<PopDoll>()._force = (transform.forward * 5) + (transform.up * 4f);
+                transform.gameObject.GetComponentInChildren<PopDoll>()._force = (_dollBody.forward * 5) + (_dollBody.up * 4f);
                 transform.gameObject.GetComponentInChildren<DollHead>().enabled = false;
                 _movementOver = true;
             }
         }
+
+        //Updates the Doll's body's rotation and the force that will be used to pop the Doll
         else if (_pos == 9)
         {
             _targetTransform.LookAt(_player.transform);
             Quaternion TargetRot = _targetTransform.localRotation;
             _dollBody.localRotation = new Quaternion(0, TargetRot.y, 0, TargetRot.w);
-            _targetTransform.localRotation = _dollBody.localRotation;
+
+            transform.gameObject.GetComponentInChildren<PopDoll>()._force = (_dollBody.forward * 5) + (_dollBody.up * 4f);
         }
     }
 

@@ -1,4 +1,11 @@
-﻿using UnityEngine;
+﻿///<summary>
+///This script moves the Doll's head, turning it towards the player either when it is not in camera view or when it is in camera view.
+///This script must be attached to the Doll's head which should be separate from the Doll Body.
+///This script requires the player to exist with a GameObject called CenterEyeAnchor, and requires a GameObject that shares the same parent as the Doll head called Target.
+///The Target GameObject is required to use the Transform.LookAt function to retrieve a Target Rotation for the Quaternion.Slerp function that will be used to
+///     turn the Doll's head.
+///</summary>
+using UnityEngine;
 using System.Collections;
 
 public class DollHead : MonoBehaviour {
@@ -52,6 +59,5 @@ public class DollHead : MonoBehaviour {
                 transform.localRotation = Quaternion.Slerp(transform.localRotation, TargetRot, Time.deltaTime);
             }
         }
-        Debug.DrawLine(transform.position, _player.transform.position, Color.red);
     }
 }
