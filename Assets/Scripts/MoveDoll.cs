@@ -11,10 +11,16 @@ public class MoveDoll : MonoBehaviour {
 
     private GameObject _player;
 
+    private Transform _targetTransform;
+
+    private Transform _dollBody;
+
     //A boolean to know if the Doll entered the camera view or not.
     private bool _playerLooked = false;
     //A boolean to know if the time should be incremented.
     public bool _timerRun = false;
+    //A boolean to know if the movement between waypoints is over or not
+    private bool _movementOver = false;
 
     //The number of positions that are available to the Doll for occupation.
     private float _posAmount = 0;
@@ -36,8 +42,8 @@ public class MoveDoll : MonoBehaviour {
             r.material = Resources.Load("DollTempMat") as Material;
         }
 
-            //A foreach loop to find all the DollPositions and determines which ones are available to occupy.
-            foreach (DollPosition dp in GameObject.Find("Positions").GetComponentsInChildren<DollPosition>())
+        //A foreach loop to find all the DollPositions and determines which ones are available to occupy.
+        foreach (DollPosition dp in GameObject.Find("Positions").GetComponentsInChildren<DollPosition>())
         {
             if (dp.transform.position == transform.position)
             {
@@ -52,6 +58,19 @@ public class MoveDoll : MonoBehaviour {
                 _posAmount++;
             }
         }
+
+        //Finds the Target child in the gameObject
+        foreach (Transform tf in transform.GetComponentInChildren<Transform>())
+        {
+            if (tf.name == "Target")
+            {
+                _targetTransform = tf;
+            }
+            else if(tf.name == "Body")
+            {
+                _dollBody = tf;
+            }
+        }
     }
 	
 	// Update is called once per frame
@@ -64,7 +83,7 @@ public class MoveDoll : MonoBehaviour {
         }
 
         //Checks to see if the Doll entered the Camera view.
-        if(this.gameObject.GetComponentInChildren<MeshRenderer>().isVisible)
+        if (this.gameObject.GetComponentInChildren<MeshRenderer>().isVisible && !_movementOver)
         {
             _playerLooked = true;
         }
@@ -74,7 +93,8 @@ public class MoveDoll : MonoBehaviour {
             _time = 0;
         }
         //Checks to see if more than ten seconds have passed since the Doll has left the Camera view.
-        else if(_playerLooked && _time >= 2)
+        //If true the Doll is moved to the next waypoint
+        else if (_playerLooked && _time >= 2)
         {
             _pos++;
 
@@ -85,6 +105,8 @@ public class MoveDoll : MonoBehaviour {
             _currentPos = _possiblePositions[_pos];
             _currentPos.IsOccupied = true;
 
+            //Code that needs to be run in order to properly change the render mode of a material through code
+            //This changes it to Fade mode
             foreach (Renderer r in GetComponentsInChildren<Renderer>())
             {
                 r.material.SetFloat("_Mode", 2.0f);
@@ -108,16 +130,24 @@ public class MoveDoll : MonoBehaviour {
             _time = 0;
             _timerRun = false;
 
-            if(_pos == 9)
+            //If statement that changes the behavior of the Doll when it reaches the last waypoint
+            if (_pos == 9)
             {
-                transform.LookAt(_player.transform);
                 transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>().enabled = true;
-                transform.gameObject.GetComponentInChildren<PopDoll>()._force = (transform.forward * 5) + (transform.up * 6.5f);
-                this.GetComponent<MoveDoll>().enabled = false;
+                transform.gameObject.GetComponentInChildren<PopDoll>()._force = (transform.forward * 5) + (transform.up * 4f);
+                transform.gameObject.GetComponentInChildren<DollHead>().enabled = false;
+                _movementOver = true;
             }
         }
-	}
+        else if (_pos == 9)
+        {
+            _targetTransform.LookAt(_player.transform);
+            Quaternion TargetRot = _targetTransform.localRotation;
+            _dollBody.localRotation = new Quaternion(0, TargetRot.y, 0, TargetRot.w);
+            _targetTransform.localRotation = _dollBody.localRotation;
+        }
+    }
 
     public IEnumerator FadeIn()
     {
@@ -129,6 +159,9 @@ public class MoveDoll : MonoBehaviour {
                 Color tempColor = r.material.color;
                 tempColor.a = i;
                 r.material.color = tempColor;
+
+                //Code that needs to be run in order to properly change the render mode of a material through code
+                //This changes it to Standard mode
                 if (i >= 255f)
                 {
                     r.material.SetFloat("_Mode", 0.0f);
