@@ -1524,15 +1524,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -168.67
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -69.94
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.03401184
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1556,7 +1556,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: NotUsingOVC
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: _trackingOriginType
@@ -11443,6 +11443,11 @@ Prefab:
       propertyPath: R_Hand
       value: 
       objectReference: {fileID: 1232215258}
+    - target: {fileID: 114000011493783128, guid: 1c101912622eead40be0795dde907105,
+        type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1412547680}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c101912622eead40be0795dde907105, type: 2}
   m_IsPrefabParent: 0
@@ -15312,6 +15317,12 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
   m_PrefabInternal: {fileID: 117083864}
+--- !u!114 &1412547680 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11400010, guid: ce816f2e6abb0504092c23ed9b970dfd,
+    type: 2}
+  m_PrefabInternal: {fileID: 117083864}
+  m_Script: {fileID: 11500000, guid: 0950df82e7936c84983497630bde5b54, type: 3}
 --- !u!1 &1424781884
 GameObject:
   m_ObjectHideFlags: 0
@@ -20089,7 +20100,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1895352106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.12, y: 1.89, z: -0.66}
+  m_LocalPosition: {x: 3.064, y: 2.741, z: -0.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -20119,6 +20130,7 @@ MonoBehaviour:
   player: {fileID: 1412547676}
   L_Hand: {fileID: 1232215259}
   R_Hand: {fileID: 1232215258}
+  active: 0
 --- !u!65 &1895352109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21159,6 +21171,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1412547676}
+    - target: {fileID: 114000013412834448, guid: cf4150f2b17a2d54bbd6aa60be37d510,
+        type: 2}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf4150f2b17a2d54bbd6aa60be37d510, type: 2}
   m_IsPrefabParent: 0
