@@ -1,12 +1,6 @@
-﻿///<summary>
-///This script causes the attached GameObject to be launched by a Force once the OVRPlayerController enters the Box Collider component of the attached GameObject.
-///This script requires to be attached to a GameObject with a BoxCollider to detect if the player enters the BoxCollider's area.
-///This script also requires to have the attached GameObject be parented to another GameObject.
-/// </summary>
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(BoxCollider))]
 public class PopDoll : MonoBehaviour {
 
     private GameObject _player;

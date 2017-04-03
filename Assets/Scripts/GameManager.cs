@@ -24,8 +24,10 @@ public class GameManager : MonoBehaviour
     public int level;
 
     Fear Spider = new Fear(0, "Spider");
+    Fear Snake = new Fear(0, "Snake");
     Fear Clown = new Fear(0, "Clown");
     Fear Height = new Fear(0, "Height");
+    Fear Claustrophobia = new Fear(0, "Claustrophobia");
     Fear Doll = new Fear(0, "Doll");
 
     void Awake()
@@ -52,8 +54,10 @@ public class GameManager : MonoBehaviour
 
         List<Fear> FList = new List<Fear>();
         FList.Add(Spider);
+        FList.Add(Snake);
         FList.Add(Clown);
         FList.Add(Height);
+        FList.Add(Claustrophobia);
         FList.Add(Doll);
         FList.Sort((a,b)=> a.value.CompareTo(b.value));
         scriptableFears.Create(FList);

@@ -1,14 +1,4 @@
-﻿///<summary>
-///This script moves the GameObject between different positions in an order when the player looks at the GameObject and has come within a certain distance of the GameObject.
-///This script also causes the GameObject to become invisible when moved and fade in quickly every time it changes position.
-///This script also ends the changing of positions once the GameObject reaches the last position. It then turns on the PopDoll script that should exist in a child
-///     of the GameObject. It updates the rotation of one of the GameObject's children called "Body" and updates the Force in the PopDoll script according to the new forward.
-///This script requires a GameObject called "Positions" with children that have a DollPosition script attached to them to exist in the scene.
-///This script requires a player GameObject called "OVRPlayerController" in the scene, a Material in the Resources folder called "DollTempMat" (subject to change),
-///     and requires three children parented to the GameObject called "Target" and "Body" and the third needs to have the DollHead script attached to it.
-///"Target" requires a BoxCollider and a PopDoll component.
-/// </summary>
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
