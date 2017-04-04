@@ -13,7 +13,7 @@ public class PlayerStateSystem : MonoBehaviour
 
         if (OVRInput.GetDown(OVRInput.Button.Start))
         {
-            Events.PlayerReloadScene.Invoke();
+            Events.PlayerDeath.Invoke();
             return;
         }
 
