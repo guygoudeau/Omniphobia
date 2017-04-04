@@ -1,4 +1,8 @@
-﻿using UnityEngine.Events;
+﻿///<summary>
+/// Before adding or removing any events ask Dylan
+/// </summary>
+
+using UnityEngine.Events;
 
 public static class Events
 {
