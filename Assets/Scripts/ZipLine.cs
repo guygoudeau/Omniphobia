@@ -16,8 +16,8 @@ public class ZipLine : MonoBehaviour {
     {
         //if (L_Hand.transform.position.y > 1 && R_Hand.transform.position.y > 1)
         //{
-            Debug.LogError("boop");
-        startPosition = player.transform.position;
+            //Debug.LogError("boop");
+        //startPosition = player.transform.position;
             Zip();
         //}
     }
@@ -38,8 +38,9 @@ public class ZipLine : MonoBehaviour {
     {
             if (active)
             {
-            transform.position = Vector3.Lerp(startPosition, Destination, speed * Time.deltaTime);
-            player.transform.position = Vector3.Lerp(startPosition, Destination, speed * Time.deltaTime);
+            //player.GetComponent<CharacterController>()
+            transform.position = Vector3.Lerp(transform.position, Destination, speed * Time.deltaTime);
+            player.transform.position = Vector3.Lerp(player.transform.position, Destination, speed * Time.deltaTime);
         }
     }
 }

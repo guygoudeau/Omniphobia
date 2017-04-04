@@ -1556,7 +1556,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: NotUsingOVC
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: _trackingOriginType
@@ -10238,7 +10238,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 896226668}
   m_LocalRotation: {x: 0, y: 0.55846924, z: 0, w: 0.82952523}
-  m_LocalPosition: {x: 45.29, y: -23.46, z: -32.45}
+  m_LocalPosition: {x: 45.29, y: -23, z: -32.45}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_LocalEulerAnglesHint: {x: 0, y: 67.9, z: 0}
   m_Children:
@@ -11351,7 +11351,7 @@ Prefab:
     - target: {fileID: 114000011461662268, guid: 99c66a83ba4072c4f85122515e5c50da,
         type: 2}
       propertyPath: Destination.y
-      value: -24
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 114000011461662268, guid: 99c66a83ba4072c4f85122515e5c50da,
         type: 2}
@@ -20125,8 +20125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4016cc569b3693468af208080a5a69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: {x: 27, y: -45, z: 22}
-  speed: 3
+  Destination: {x: 30, y: -45, z: 23}
+  speed: 5
   player: {fileID: 1412547676}
   L_Hand: {fileID: 1232215259}
   R_Hand: {fileID: 1232215258}
