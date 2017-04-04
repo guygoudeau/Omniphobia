@@ -337,9 +337,12 @@ MonoBehaviour:
   Destination: {fileID: 0}
   LastPoint: {fileID: 0}
   ClosestPoint: {fileID: 0}
+  VLastPos: {x: 0, y: 0, z: 0}
   Terrain: {fileID: 30900002}
   Pursuit: 0
   Stop: 0
+  Velocity: 0
+  m_anim: {fileID: 233864786}
 --- !u!195 &233864785
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -360,6 +363,11 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &233864786 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 9500000, guid: 6feed6c3b4f945a4eba7165c30669599,
+    type: 3}
+  m_PrefabInternal: {fileID: 1557294148}
 --- !u!4 &233864787 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
@@ -1442,10 +1450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd01e2d7af8ba1644bbef0f1d6e35fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptableFears: {fileID: 0}
-  Player: {fileID: 0}
   Checkpoint: {x: 0, y: 0, z: 0}
-  level: 0
+  scriptableFears: {fileID: 0}
+  fearList: []
 --- !u!4 &1071175935 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
@@ -1453,6 +1460,11 @@ Transform:
 --- !u!1 &1093766002 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
+  m_PrefabInternal: {fileID: 987135863}
+--- !u!95 &1093766003 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 9500000, guid: 6feed6c3b4f945a4eba7165c30669599,
+    type: 3}
   m_PrefabInternal: {fileID: 987135863}
 --- !u!4 &1093766004 stripped
 Transform:
@@ -1475,9 +1487,12 @@ MonoBehaviour:
   Destination: {fileID: 0}
   LastPoint: {fileID: 0}
   ClosestPoint: {fileID: 0}
+  VLastPos: {x: 0, y: 0, z: 0}
   Terrain: {fileID: 1906905628}
   Pursuit: 0
   Stop: 0
+  Velocity: 0
+  m_anim: {fileID: 1093766003}
 --- !u!195 &1093766006
 NavMeshAgent:
   m_ObjectHideFlags: 0
