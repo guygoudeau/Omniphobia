@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TightRope : MonoBehaviour {
 
-    public OVRPlayerController Player;
+    private OVRPlayerController Player;
     public bool active;
     private float Changes;
     public GameObject L_Hand;
@@ -16,7 +16,11 @@ public class TightRope : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Player")
+        {
+            Player = other.gameObject.GetComponent<OVRPlayerController>();
             active = true;
+        }
     }
 
     void OnTriggerExit(Collider other)

@@ -5,21 +5,20 @@ public class ZipLine : MonoBehaviour {
 
 
     public Vector3 Destination;
-    private Vector3 startPosition;
+    //private Vector3 startPosition;
     public float speed = 3;
-    public GameObject player;
+    private GameObject player;
     public GameObject L_Hand;
     public GameObject R_Hand;
     public bool active;
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (L_Hand.transform.position.y > 1 && R_Hand.transform.position.y > 1)
-        //{
-            Debug.LogError("boop");
-        startPosition = player.transform.position;
+        if (other.gameObject.tag == "Player")
+        {
+            player = other.gameObject;
             Zip();
-        //}
+        }
     }
 
     void Zip()
@@ -38,8 +37,9 @@ public class ZipLine : MonoBehaviour {
     {
             if (active)
             {
-            transform.position = Vector3.Lerp(startPosition, Destination, speed * Time.deltaTime);
-            player.transform.position = Vector3.Lerp(startPosition, Destination, speed * Time.deltaTime);
+            //player.GetComponent<CharacterController>()
+            transform.position = Vector3.Lerp(transform.position, Destination, speed * Time.deltaTime);
+            player.transform.position = Vector3.Lerp(player.transform.position, Destination, speed * Time.deltaTime);
         }
     }
 }
