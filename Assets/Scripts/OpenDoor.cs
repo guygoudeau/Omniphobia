@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(BoxCollider))]
 public class OpenDoor : MonoBehaviour {
 
     public bool open = false;
@@ -17,6 +18,7 @@ public class OpenDoor : MonoBehaviour {
     public void ChangeDoorState()
     {
         open = !open;
+        Events.RoomHeightSelected.Invoke();
     }
 
 	// Update is called once per frame
