@@ -14,9 +14,9 @@ public class Fear
         this.isCompleted = false;
     }
 
-    public void Completed()
+    public void CompletedStatus(bool status)
     {
-        this.isCompleted = true;
+        this.isCompleted = status;
     }
 }
 
@@ -25,15 +25,14 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     public Vector3 Checkpoint;
     public ScriptableFearList scriptableFears;    
-    public int level;
-    public Fear currentFear = null;
+    private Fear currentFear = null;
 
     Fear Spider;
     Fear Clown;
     Fear Height;
     Fear Doll;
 
-    List<Fear> fearList;
+    public List<Fear> fearList;
 
     void Awake()
     {
@@ -50,11 +49,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        level = 0;
-
-        Events.PlayerWin.AddListener(PlayerWon);
         Events.PlayerDeath.AddListener(PlayerDied);
-        Events.PlayerForceScene.AddListener(NextLevel);
 
         Events.RoomCompleted.AddListener(RoomCompleted);
         Events.RoomHeightSelected.AddListener(HeightRoomSelected);
@@ -75,16 +70,15 @@ public class GameManager : MonoBehaviour
         this.fearList.Add(Clown);
         this.fearList.Add(Height);
         this.fearList.Add(Doll);        
-
-        if (SceneManager.GetActiveScene().name == "Menu")
-        {
-            level = 0;
-        }
     }
 
     void GameRestarted()
     {
         SceneManager.LoadScene("Menu");
+        foreach (var fear in this.fearList)
+        {
+            fear.CompletedStatus(false);
+        }
         currentFear = null;
     }
 
@@ -138,7 +132,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentFear != null)
         {
-            this.currentFear.Completed();
+            this.currentFear.CompletedStatus(true);
             this.currentFear = null;
         }
         if(!VictoryCheck())
@@ -147,25 +141,8 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Win");
     }
 
-    void PlayerWon()
-    {
-        //StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(3));
-        SceneManager.LoadScene("Win");
-    }
-
     void PlayerDied()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    void NextLevel()
-    {
-        level++;
-        if (level > 3)
-        {
-            level = 0;
-        }
-
-        SceneManager.LoadScene(level);
     }
 }
