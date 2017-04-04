@@ -1,4 +1,36 @@
-﻿using UnityEngine;
+﻿///<summary>
+/// The GameManager class is will manage the flow between scene transitions 
+/// it also keeps track of the number of rooms completed.
+/// 
+/// Listening to the following events
+/// RoomCompleted - Invokes the RoomComplted function
+/// RoomHeightSelected - Invokes the HeightRoomSelected function
+/// RoomSpiderSelected - Invokes the SpiderRoomSelected function
+/// RoomClownSelected - Invokes the ClownRoomSelected function
+/// RoomDollSelected - Invokes the DollRoomSelected function
+/// 
+/// PlayerDeath - Invokes the PlayerDied function
+/// 
+/// GameStarter - Invokes the RoomCompleted function
+/// GameRestarted - Invokes the GameRestarted function
+/// 
+/// The Fear class contains is what will let us know if a fear room
+/// has been completed or not. It also stores the name of the fear
+/// 
+/// How to add a new fear
+/// When adding a new fear create a new instance of the fear call
+/// the object must be the name of the fear for clarity
+/// In the Start function you will assign the fear its data
+/// The name should be the name of the scene the houses the fear room
+/// 
+/// Once all the fears have been generated we add the too a fear list
+/// we will iterate through this list after a room has been completed 
+/// once all the fears in the list are completed the game will transition
+/// to the victory screen
+/// 
+/// Any future updates to the game manager must be handled by Dylan
+/// </summary>
+using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
