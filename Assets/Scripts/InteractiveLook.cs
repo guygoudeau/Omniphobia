@@ -3,15 +3,13 @@ using System.Collections;
 
 public class InteractiveLook : MonoBehaviour {
 
-    private GameObject _player;
-    private Transform _self;
+    public GameObject _player;    
     public bool Sitting = false;
     private IEnumerator _fadeIn;
 
     void Start () {
 
-        _player = GameObject.Find("OVRPlayerController");
-        _self = GameObject.Find("Interact").transform;
+        _player = GameObject.FindObjectOfType<OVRPlayerController>().gameObject;
 
         if (_player == null)
         {
@@ -31,12 +29,12 @@ public class InteractiveLook : MonoBehaviour {
         }
 
         RaycastHit hit;
-        if(Physics.Raycast(_self.position,fwd, out hit,1f))
+        if(Physics.Raycast(this.gameObject.transform.position,fwd, out hit,1f))
         {
-            Debug.DrawLine(_self.position, hit.point);
+            Debug.DrawLine(this.gameObject.transform.position, hit.point);
             if (hit.collider.GetComponent<OpenDoor>() != null)
             {
-                if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown("r"))
+                if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown(KeyCode.T))
                 {
                     hit.collider.transform.GetComponent<OpenDoor>().ChangeDoorState();
                     //StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(_sceneNum));
