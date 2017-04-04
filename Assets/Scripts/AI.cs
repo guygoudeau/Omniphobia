@@ -21,6 +21,7 @@ public class AI : MonoBehaviour {
     public Transform Destination;
     public Transform LastPoint;
     public Transform ClosestPoint;
+    public Vector3 VLastPos = Vector3.zero;
     GameObject Points;
     public GameObject Terrain;
     int index;
@@ -29,6 +30,8 @@ public class AI : MonoBehaviour {
     float Ptimer = 10;
     float Stimer = 5;
     public bool Stop;
+    public float Velocity = 0;
+    public Animator m_anim;
 
 
     private void Start()
@@ -49,6 +52,7 @@ public class AI : MonoBehaviour {
 
         index = 0;
         Spider = GetComponent<NavMeshAgent>();
+
 
     }
     //public string Entity;
@@ -132,9 +136,12 @@ public class AI : MonoBehaviour {
             Destination = Waypoints[index];
 
         }
-
+        Velocity = (transform.position - VLastPos).magnitude*5;
+        m_anim.SetFloat("Speed", Velocity);
+        VLastPos = transform.position;
         LastPoint = Destination;
         return Destination.position;
     }
+    
 
 }
