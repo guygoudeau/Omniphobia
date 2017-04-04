@@ -17,18 +17,22 @@ public class AI : MonoBehaviour {
     //Vector3 position;
     public GameObject Target;
     public uint offSetDis;
-    public float speed;
     public List<Transform> Waypoints = new List<Transform>();
-    public Transform a, b, c, d, e, f;
     public Transform Destination;
+    public Transform LastPoint;
+    public Transform ClosestPoint;
+    public Vector3 VLastPos = Vector3.zero;
     GameObject Points;
     public GameObject Terrain;
     int index;
     NavMeshAgent Spider;
     public bool Pursuit = false;
-    float Ptimer = 5;
-    float Stimer = 2;
+    float Ptimer = 10;
+    float Stimer = 5;
     public bool Stop;
+    public float Velocity = 0;
+    public Animator m_anim;
+
 
     private void Start()
     {
@@ -49,6 +53,7 @@ public class AI : MonoBehaviour {
         index = 0;
         Spider = GetComponent<NavMeshAgent>();
 
+
     }
     //public string Entity;
 
@@ -62,7 +67,7 @@ public class AI : MonoBehaviour {
             {
                 Stimer = 2;
                 Stop = false;
-                Ptimer = 5;
+                Ptimer = 10;
                 Pursuit = true;
             }
         }
@@ -72,11 +77,8 @@ public class AI : MonoBehaviour {
 
     }
 
-
-
-
     // Does cool math that moves the enemy toward the target object with an offSet.
-    bool RoundPos(Vector3 CurrentPos, Vector3 Target)
+    public bool RoundPos(Vector3 CurrentPos, Vector3 Target)
     {
         if(Vector3.Distance(CurrentPos, Target) <= offSetDis)
         {
@@ -92,27 +94,54 @@ public class AI : MonoBehaviour {
             Ptimer -= Time.deltaTime;
             if (Ptimer <= 0)
             {
-                Ptimer = 5;
+                Ptimer = 10;
                 Pursuit = false;
             }
-            if (Vector3.Distance(transform.position,Target.transform.position) <= 2.5f)
+            if (Vector3.Distance(transform.position, Target.transform.position) <= 2.5f)
             {
                 Stop = true;
                 return transform.position;
             }
             else
-            return Target.transform.position;
+            {
+                return Target.transform.position;
+            }
         }
         Destination = Waypoints[index];
+        LastPoint = Destination;
         //changes the target when close enough
         if (RoundPos(transform.position, Destination.position) == true)
         {
-            index++;
-            if (index == Waypoints.Count - 1)
+            ClosestPoint = Destination;
+            int i=0;
+            foreach (Transform point in Waypoints)
             {
-                index = 0;
+                if (Vector3.Distance(Target.transform.position,point.position) <= Vector3.Distance(Target.transform.position,ClosestPoint.position))
+                {
+                    ClosestPoint = point;
+                    if (ClosestPoint == LastPoint)
+                    {
+                        index = Random.Range(0, Waypoints.Count - 1);
+                        Destination = Waypoints[index];
+                        return Destination.position;
+                    }
+                    index = i;
+                    Destination = Waypoints[i];
+                    return Destination.position;
+
+                }
+                i++;
             }
+            index = Random.Range(0, Waypoints.Count - 1);
+            Destination = Waypoints[index];
+
         }
+        Velocity = (transform.position - VLastPos).magnitude*5;
+        m_anim.SetFloat("Speed", Velocity);
+        VLastPos = transform.position;
+        LastPoint = Destination;
         return Destination.position;
     }
+    
+
 }

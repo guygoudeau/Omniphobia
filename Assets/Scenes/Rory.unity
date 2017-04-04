@@ -90,11 +90,6 @@ NavMeshSettings:
     cellSize: 0.33333334
     manualCellSize: 0
   m_NavMeshData: {fileID: 23800000, guid: 6b15adec5519d124cbbf53f8b9de69d4, type: 2}
---- !u!4 &11997258 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000012518530188, guid: e3871e80408a3df4ebe96914ee98994f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1766705452}
 --- !u!1 &17714366
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,18 +333,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 1071175928}
   offSetDis: 1
-  speed: 1
   Waypoints: []
-  a: {fileID: 396281924}
-  b: {fileID: 11997258}
-  c: {fileID: 1694015624}
-  d: {fileID: 530613758}
-  e: {fileID: 1510581995}
-  f: {fileID: 1838229319}
   Destination: {fileID: 0}
+  LastPoint: {fileID: 0}
+  ClosestPoint: {fileID: 0}
+  VLastPos: {x: 0, y: 0, z: 0}
   Terrain: {fileID: 30900002}
   Pursuit: 0
   Stop: 0
+  Velocity: 0
+  m_anim: {fileID: 233864786}
 --- !u!195 &233864785
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -370,6 +363,11 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &233864786 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 9500000, guid: 6feed6c3b4f945a4eba7165c30669599,
+    type: 3}
+  m_PrefabInternal: {fileID: 1557294148}
 --- !u!4 &233864787 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
@@ -781,11 +779,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
---- !u!4 &396281924 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000011207725952, guid: e3871e80408a3df4ebe96914ee98994f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1766705452}
 --- !u!1 &468663582
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,11 +937,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 481845175}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &530613758 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000012684267226, guid: e3871e80408a3df4ebe96914ee98994f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1766705452}
 --- !u!1 &577432418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,10 +1450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd01e2d7af8ba1644bbef0f1d6e35fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptableFears: {fileID: 0}
-  Player: {fileID: 0}
   Checkpoint: {x: 0, y: 0, z: 0}
-  level: 0
+  scriptableFears: {fileID: 0}
+  fearList: []
 --- !u!4 &1071175935 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
@@ -1473,6 +1460,11 @@ Transform:
 --- !u!1 &1093766002 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100148, guid: 6feed6c3b4f945a4eba7165c30669599, type: 3}
+  m_PrefabInternal: {fileID: 987135863}
+--- !u!95 &1093766003 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 9500000, guid: 6feed6c3b4f945a4eba7165c30669599,
+    type: 3}
   m_PrefabInternal: {fileID: 987135863}
 --- !u!4 &1093766004 stripped
 Transform:
@@ -1491,18 +1483,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 1071175928}
   offSetDis: 1
-  speed: 1
   Waypoints: []
-  a: {fileID: 396281924}
-  b: {fileID: 11997258}
-  c: {fileID: 1694015624}
-  d: {fileID: 530613758}
-  e: {fileID: 1510581995}
-  f: {fileID: 1838229319}
   Destination: {fileID: 0}
+  LastPoint: {fileID: 0}
+  ClosestPoint: {fileID: 0}
+  VLastPos: {x: 0, y: 0, z: 0}
   Terrain: {fileID: 1906905628}
   Pursuit: 0
   Stop: 0
+  Velocity: 0
+  m_anim: {fileID: 1093766003}
 --- !u!195 &1093766006
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1516,7 +1506,7 @@ NavMeshAgent:
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
+  m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 3
@@ -1777,11 +1767,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
---- !u!4 &1510581995 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000011067168506, guid: e3871e80408a3df4ebe96914ee98994f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1766705452}
 --- !u!1001 &1557294148
 Prefab:
   m_ObjectHideFlags: 0
@@ -1908,11 +1893,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1694015624 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000012055942662, guid: e3871e80408a3df4ebe96914ee98994f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1766705452}
 --- !u!1001 &1766705452
 Prefab:
   m_ObjectHideFlags: 0
@@ -1984,6 +1964,10 @@ Prefab:
     - target: {fileID: 1000010114731756, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013407131506, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
@@ -2067,11 +2051,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
---- !u!4 &1838229319 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000013407131506, guid: e3871e80408a3df4ebe96914ee98994f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1766705452}
 --- !u!1001 &1859286844
 Prefab:
   m_ObjectHideFlags: 0
