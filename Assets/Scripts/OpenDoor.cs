@@ -9,6 +9,7 @@ public class OpenDoor : MonoBehaviour {
     public float doorCloseAngle;
     public float smooth = 1f;
     public bool OpensAway;
+    public string loadsScene;
 
 	// Use this for initialization
 	void Start ()
@@ -24,7 +25,6 @@ public class OpenDoor : MonoBehaviour {
     public void ChangeDoorState()
     {
         open = !open;
-        Events.RoomHeightSelected.Invoke();
     }
 
 	// Update is called once per frame
