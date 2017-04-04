@@ -26,9 +26,9 @@ public class PlayerStateSystem : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Win"))
+        if (other.gameObject.tag == "Win")
         {
-            Events.PlayerWin.Invoke();
+            Events.RoomCompleted.Invoke();
         }
     }
 }
