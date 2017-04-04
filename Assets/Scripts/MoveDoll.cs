@@ -13,7 +13,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MoveDoll : MonoBehaviour {
-    
+
     //List to store the different positions the Doll can move to.
     private List<DollPosition> _possiblePositions;
     //The current position the Doll is occupying.
@@ -39,8 +39,8 @@ public class MoveDoll : MonoBehaviour {
 
     private int _pos = 0;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         _time = 0;
         _timerRun = false;
         _possiblePositions = new List<DollPosition>();
@@ -76,18 +76,17 @@ public class MoveDoll : MonoBehaviour {
             {
                 _targetTransform = tf;
             }
-            else if(tf.name == "Body")
+            else if (tf.name == "Body")
             {
                 _dollBody = tf;
             }
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
 
+    // Update is called once per frame
+    void Update() {
         //Increments the time by deltaTime if the timer is running.
-        if(_timerRun)
+        if (_timerRun)
         {
             _time += Time.deltaTime;
         }
@@ -97,7 +96,7 @@ public class MoveDoll : MonoBehaviour {
         {
             _playerLooked = true;
         }
-        else if (((int)Vector3.Distance(transform.position, _player.transform.position) <= 4) && _playerLooked)
+        else if (((int)Vector3.Distance(transform.position, _player.transform.position) <= 4.5f) && _playerLooked)
         {
             _timerRun = true;
             _time = 0;
@@ -146,7 +145,6 @@ public class MoveDoll : MonoBehaviour {
                 transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>()._force = (_dollBody.forward * 5) + (_dollBody.up * 4f);
-                transform.gameObject.GetComponentInChildren<DollHead>().enabled = false;
                 _movementOver = true;
             }
         }
@@ -189,5 +187,11 @@ public class MoveDoll : MonoBehaviour {
             }
             yield return null;
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 4.5f);
     }
 }
