@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿///<summary>
+///Used for elevating the object and player simultainiusly.
+///</summary>
+using UnityEngine;
 using System.Collections;
 using System;
 
+[RequireComponent(typeof(BoxCollider))]
 public class Elevator : MonoBehaviour {
 
     // The vector we will be moving towards.
@@ -14,6 +18,8 @@ public class Elevator : MonoBehaviour {
     public GameObject door1;
     // The second door object.
     public GameObject door2;
+    // The Player.
+    private GameObject rider;
     // Used to determine which elevator it is.
     public bool Open;
     private Coroutine co;
@@ -31,14 +37,18 @@ public class Elevator : MonoBehaviour {
     // Gets called when the player goes in the elevator.
     void OnTriggerEnter(Collider other)
     {
-        // Close the door if its open.
-        if (Open)
+        if (other.gameObject.tag == "Player")
         {
-            StopCoroutine(co);
-            co = StartCoroutine(OpenDoor(0));
+            // Close the door if its open.
+            if (Open)
+            {
+                StopCoroutine(co);
+                co = StartCoroutine(OpenDoor(0));
+            }
+            rider = other.gameObject;
+            // Start moving.
+            StartCoroutine(Lerp(rider));
         }
-        // Start moving.
-        StartCoroutine(Lerp(other.gameObject));
     }
 
     // Moves the elevator and player in it to the set Destination.
@@ -93,3 +103,5 @@ public class Elevator : MonoBehaviour {
         }
     }
 }
+
+///PLayer reF should not be hard set
