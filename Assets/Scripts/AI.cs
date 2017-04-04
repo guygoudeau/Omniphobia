@@ -40,7 +40,7 @@ public class AI : MonoBehaviour {
         Waypoints = new List<Transform>();
         foreach (Transform a in Terrain.transform)
         {
-            if (a.name == "Points")
+            if (a.tag == "Points")
             {
                 Points = a.gameObject;
             }
