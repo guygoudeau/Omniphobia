@@ -6,7 +6,8 @@ public class MenuSelect : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Play"))
         {
-            StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(1));
+            //StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(1));
+            Events.GameStarted.Invoke();
         }
     }
 }
