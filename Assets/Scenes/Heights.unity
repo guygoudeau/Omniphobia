@@ -1873,7 +1873,7 @@ Prefab:
     - target: {fileID: 114000011461662268, guid: 99c66a83ba4072c4f85122515e5c50da,
         type: 2}
       propertyPath: speed
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114000011461662268, guid: 99c66a83ba4072c4f85122515e5c50da,
         type: 2}
@@ -8482,6 +8482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e86041f706c244a8b7d92a2131aa91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1 &743017071
 GameObject:
   m_ObjectHideFlags: 0
@@ -20218,8 +20219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Destination: {x: 30, y: -45, z: 23}
   speed: 5
-  L_Hand: {fileID: 1232215259}
-  R_Hand: {fileID: 1232215258}
   active: 0
 --- !u!65 &1895352109
 BoxCollider:
@@ -21177,7 +21176,7 @@ BoxCollider:
   m_GameObject: {fileID: 1935382783}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 10, y: 0.03, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
