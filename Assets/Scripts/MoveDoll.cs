@@ -91,19 +91,15 @@ public class MoveDoll : MonoBehaviour {
             _time += Time.deltaTime;
         }
 
-        //Checks to see if the Doll entered the Camera view.
-        if (this.gameObject.GetComponentInChildren<MeshRenderer>().isVisible && !_movementOver)
-        {
-            _playerLooked = true;
-        }
-        else if (((int)Vector3.Distance(transform.position, _player.transform.position) <= 4.5f) && _playerLooked)
+        //Checks to see if the Player is within 4.5 unity units of distance from the Doll and if the movement is still happening
+        if (((int)Vector3.Distance(transform.position, _player.transform.position) <= 4.5f) && !_movementOver)
         {
             _timerRun = true;
             _time = 0;
         }
-        //Checks to see if more than ten seconds have passed since the Doll has left the Camera view.
+        //Checks to see if the timer is running and if the time is 1 or more seconds
         //If true the Doll is moved to the next waypoint
-        else if (_playerLooked && _time >= 2)
+        else if (_timerRun && _time >= 1)
         {
             _pos++;
 
