@@ -1,18 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(BoxCollider))]
 public class OpenDoor : MonoBehaviour {
 
     public bool open = false;
-    public float doorOpenAngle = -90f;
-    public float doorCloseAngle = 0f;
+    public float doorOpenAngle;
+    public float doorCloseAngle;
     public float smooth = 1f;
+    public bool OpensAway;
+    public string loadsScene;
 
 	// Use this for initialization
 	void Start ()
     {
-	
-	}
+        this.doorCloseAngle = this.gameObject.transform.eulerAngles.y;
+
+        if(OpensAway)
+            this.doorOpenAngle = this.doorCloseAngle - 90;
+        else
+            this.doorOpenAngle = this.doorCloseAngle + 90;
+    }
 	
     public void ChangeDoorState()
     {
