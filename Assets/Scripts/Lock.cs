@@ -17,7 +17,8 @@ public class Lock : MonoBehaviour {
     {
         if(other.name.Contains("Key"))
         {
-            StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(1));
+            //StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(1));
+            Events.RoomCompleted.Invoke();
         }
     }
 }

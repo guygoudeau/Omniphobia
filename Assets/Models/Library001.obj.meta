@@ -237,6 +237,52 @@ ModelImporter:
     4300086: window3
     4300088: window4
     4300090: window5
+    6400000: Book
+    6400002: BookshelfColumn_001:polySurface3_BookshelfColumn_001:polySurface4_polySurface73_pCube19_polySurface77
+    6400004: BookshelfColumn_001:polySurface3_BookshelfColumn_001:polySurface4_polySurface73_pCube19_polySurface79
+    6400006: BookshelfColumn_001:polySurface3_BookshelfColumn_001:polySurface4_polySurface73_pCube19_polySurface81
+    6400008: BookshelfColumn_001:polySurface3_BookshelfColumn_001:polySurface4_polySurface73_pCube19_polySurface83
+    6400010: BookshelfColumn_001:polySurface3_BookshelfColumn_001:polySurface4_polySurface73_pCube19_polySurface93
+    6400012: BookshelfColumn_001:polySurface3_BookshelfColumn_001:polySurface4_polySurface73_pCube19_polySurface95
+    6400014: BookshelfColumn_001:polySurface3_BookshelfColumn_001:polySurface4_polySurface73_pCube19_polySurface97
+    6400016: BookshelfColumn_001:polySurface3_BookshelfColumn_001:polySurface4_polySurface73_pCube19_polySurface99
+    6400018: BookshelfColumnSmall:polySurface8_BookshelfColumnSmall:polySurface9_polySurface73_pCube19_polySurface100
+    6400020: BookshelfColumnSmall:polySurface8_BookshelfColumnSmall:polySurface9_polySurface73_pCube19_polySurface102
+    6400022: BookshelfColumnSmall:polySurface8_BookshelfColumnSmall:polySurface9_polySurface73_pCube19_polySurface103
+    6400024: BookshelfColumnSmall:polySurface8_BookshelfColumnSmall:polySurface9_polySurface73_pCube19_polySurface104
+    6400026: BookshelfColumnSmall:polySurface8_BookshelfColumnSmall:polySurface9_polySurface73_pCube19_polySurface87
+    6400028: BookshelfColumnSmall:polySurface8_BookshelfColumnSmall:polySurface9_polySurface73_pCube19_polySurface88
+    6400030: BookshelfColumnSmall:polySurface8_BookshelfColumnSmall:polySurface9_polySurface73_pCube19_polySurface90
+    6400032: BookshelfColumnSmall:polySurface8_BookshelfColumnSmall:polySurface9_polySurface73_pCube19_polySurface92
+    6400034: BookshelfShelves_001:polySurface7_BookshelfShelves_001:polySurface8_polySurface73_pCube19_polySurface101
+    6400036: BookshelfShelves_001:polySurface7_BookshelfShelves_001:polySurface8_polySurface73_pCube19_polySurface105
+    6400038: BookshelfShelves_001:polySurface7_BookshelfShelves_001:polySurface8_polySurface73_pCube19_polySurface78
+    6400040: BookshelfShelves_001:polySurface7_BookshelfShelves_001:polySurface8_polySurface73_pCube19_polySurface80
+    6400042: BookshelfShelves_001:polySurface7_BookshelfShelves_001:polySurface8_polySurface73_pCube19_polySurface82
+    6400044: BookshelfShelves_001:polySurface7_BookshelfShelves_001:polySurface8_polySurface73_pCube19_polySurface86
+    6400046: BookshelfShelves_001:polySurface7_BookshelfShelves_001:polySurface8_polySurface73_pCube19_polySurface89
+    6400048: BookshelfShelves_001:polySurface7_BookshelfShelves_001:polySurface8_polySurface73_pCube19_polySurface91
+    6400050: BookshelfShelves_001:polySurface7_BookshelfShelves_001:polySurface8_polySurface73_pCube19_polySurface94
+    6400052: BookshelfShelves_001:polySurface7_BookshelfShelves_001:polySurface8_polySurface73_pCube19_polySurface96
+    6400054: BookshelfShelves_001:polySurface7_BookshelfShelves_001:polySurface8_polySurface73_pCube19_polySurface98
+    6400056: desk1:desk
+    6400058: FirePlace:FirePlace2_FirePlace:polySurface14_FirePlace:polySurface1
+    6400060: FullChair003:group1_FullChair003:pCube2_polySurface106_FullChair003:polySurface1
+    6400062: FullChair003:group1_FullChair003:pCube3_FullChair003:polySurface1_polySurface108
+    6400064: FullChair003:group1_FullChair003:pCube4_FullChair003:polySurface1_polySurface109
+    6400066: FullChair003:group1_FullChair003:pCube5_FullChair003:polySurface1_polySurface110
+    6400068: FullChair003:RoadKillOut1_FullChair003:group1_FullChair003:polySurface1_polySurface111
+    6400070: FullChair003:RoadKillOut_FullChair003:group1_FullChair003:polySurface1_polySurface107
+    6400072: polySurface73_pCube19_polySurface75
+    6400074: polySurface73_pCube19_polySurface76
+    6400076: polySurface73_pCube19_polySurface84
+    6400078: polySurface73_pCube19_polySurface85
+    6400080: polySurface74_polySurface73_pCube19
+    6400082: Sofa1:Sofa
+    6400084: window2
+    6400086: window3
+    6400088: window4
+    6400090: window5
   materials:
     importMaterials: 1
     materialName: 0
@@ -263,7 +309,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 1
