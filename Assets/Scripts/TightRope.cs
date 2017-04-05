@@ -1,6 +1,10 @@
-﻿using UnityEngine;
+﻿///<summary>
+///Used to simulate balencing on a tightrope in VR.
+///</summary>
+using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(BoxCollider))]
 public class TightRope : MonoBehaviour {
 
     private OVRPlayerController Player;
@@ -37,7 +41,7 @@ public class TightRope : MonoBehaviour {
 
         if (active)
         {
-            Changes = 0.1f /** Time.deltaTime*/ * (HandDifference /*+ 0.4f*/);
+            Changes = 0.1f * (HandDifference);
 
             Mathf.Clamp(Changes, 0, 0.8f);
 

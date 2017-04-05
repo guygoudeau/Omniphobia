@@ -3,9 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStateSystem : MonoBehaviour
 {
+    public GameObject Player;
+
+    void Start()
+    {
+        Player = FindObjectOfType<OVRPlayerController>().gameObject;
+    }
+
 	void Update ()
     {
-        if (SceneManager.GetActiveScene().name == "Heights" && transform.position.y <= -200)
+        if (SceneManager.GetActiveScene().name == "Heights" && Player.transform.position.y <= -72.5)
         {
             Events.PlayerDeath.Invoke();
             return;
