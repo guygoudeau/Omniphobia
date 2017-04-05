@@ -103,5 +103,3 @@ public class Elevator : MonoBehaviour {
         }
     }
 }
-
-///PLayer reF should not be hard set

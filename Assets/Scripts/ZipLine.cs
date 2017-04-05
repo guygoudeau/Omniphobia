@@ -1,15 +1,15 @@
-﻿using UnityEngine;
+﻿///<summary>
+///Used for moving the player down a zipline.
+///</summary>
+using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(BoxCollider))]
 public class ZipLine : MonoBehaviour {
 
-
     public Vector3 Destination;
-    //private Vector3 startPosition;
     public float speed = 3;
     private GameObject player;
-    public GameObject L_Hand;
-    public GameObject R_Hand;
     public bool active;
 
     private void OnTriggerEnter(Collider other)
@@ -35,9 +35,9 @@ public class ZipLine : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        // When active, moves the player to the destination.
             if (active)
             {
-            //player.GetComponent<CharacterController>()
             transform.position = Vector3.Lerp(transform.position, Destination, speed * Time.deltaTime);
             player.transform.position = Vector3.Lerp(player.transform.position, Destination, speed * Time.deltaTime);
         }
