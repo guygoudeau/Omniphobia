@@ -2524,12 +2524,27 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f0aa7aa4c0e498841bd83236686450cb, type: 2}
+    - target: {fileID: 114000010672621576, guid: 2ccf542ffaee4bd4ea767a3b3cfe6bbe,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 432196729}
+    - target: {fileID: 114000010672621576, guid: 2ccf542ffaee4bd4ea767a3b3cfe6bbe,
+        type: 2}
+      propertyPath: BreakList
+      value: 
+      objectReference: {fileID: 211577349}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ccf542ffaee4bd4ea767a3b3cfe6bbe, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &211577348 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013876483850, guid: 2ccf542ffaee4bd4ea767a3b3cfe6bbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 211577347}
+--- !u!1 &211577349 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013060742252, guid: 2ccf542ffaee4bd4ea767a3b3cfe6bbe,
     type: 2}
   m_PrefabInternal: {fileID: 211577347}
 --- !u!1 &224967016
@@ -5186,9 +5201,19 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 110
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010779101304, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a,
+        type: 2}
+      propertyPath: NotUsingOVC
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &432196729 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013853919370, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a,
+    type: 2}
+  m_PrefabInternal: {fileID: 432196728}
 --- !u!1 &446749748
 GameObject:
   m_ObjectHideFlags: 0
@@ -11429,12 +11454,12 @@ Prefab:
         type: 2}
       propertyPath: L_Hand
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1300546697}
     - target: {fileID: 114000011493783128, guid: 1c101912622eead40be0795dde907105,
         type: 2}
       propertyPath: R_Hand
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1300546696}
     - target: {fileID: 114000011493783128, guid: 1c101912622eead40be0795dde907105,
         type: 2}
       propertyPath: Player
@@ -14037,6 +14062,16 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb06f45f095055c4598341484c587b85, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1300546696 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011883810792, guid: fb06f45f095055c4598341484c587b85,
+    type: 2}
+  m_PrefabInternal: {fileID: 1300546695}
+--- !u!1 &1300546697 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011455383528, guid: fb06f45f095055c4598341484c587b85,
+    type: 2}
+  m_PrefabInternal: {fileID: 1300546695}
 --- !u!1 &1317590353
 GameObject:
   m_ObjectHideFlags: 0
@@ -21223,7 +21258,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 432196729}
     - target: {fileID: 114000013412834448, guid: cf4150f2b17a2d54bbd6aa60be37d510,
         type: 2}
       propertyPath: speed
