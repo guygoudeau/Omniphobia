@@ -1,7 +1,15 @@
-﻿using UnityEngine;
+﻿///<summary>
+///This script exists to play audio clips for walking and stays at the players feet for the 3D audio sounds appropriate.
+///This script does so by having multiple audio sources and putting them into a list. It then makes a raycast downward to check the tag of the floor/ground after a certain
+///     distance is traversed and if the player is ground. Afterwards it selects the appropriate clip based on the tag and then plays the clip.
+///This script requires the ONSP Audio Source script and at least one audio source attached to the GameObject to work properly.
+///This script also requires that an OVRPlayerController exist in the scene.
+/// </summary>
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(AudioSource))]
 public class WalkingSound : MonoBehaviour
 {
     GameObject _player;
@@ -34,6 +42,7 @@ public class WalkingSound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = _player.transform.rotation;
         //Part of the Timer
         if (GlassReady != true)
         {
@@ -54,6 +63,18 @@ public class WalkingSound : MonoBehaviour
                 {
                     if (Distance >= 1)
                     {
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position + transform.forward + new Vector3(0, 1, 0), new Vector3(0, -1, 0), out hit, 2f))
+                        {
+                            if (hit.transform.tag.Contains("Furnitured"))
+                                CurrentClip = 0;
+                            else if (hit.transform.tag.Contains("Wood"))
+                                CurrentClip = 1;
+                            else if (hit.transform.tag.Contains("Glass"))
+                                CurrentClip = 2;
+                            else if (hit.transform.tag.Contains("Regular"))
+                                CurrentClip = 4;
+                        }
                         steps[CurrentClip].Play();
                         //Part of the Timer
                         if (Timer == 5 && CurrentClip == 2)

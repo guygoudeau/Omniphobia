@@ -13,7 +13,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MoveDoll : MonoBehaviour {
-    
+
     //List to store the different positions the Doll can move to.
     private List<DollPosition> _possiblePositions;
     //The current position the Doll is occupying.
@@ -39,8 +39,8 @@ public class MoveDoll : MonoBehaviour {
 
     private int _pos = 0;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         _time = 0;
         _timerRun = false;
         _possiblePositions = new List<DollPosition>();
@@ -76,35 +76,30 @@ public class MoveDoll : MonoBehaviour {
             {
                 _targetTransform = tf;
             }
-            else if(tf.name == "Body")
+            else if (tf.name == "Body")
             {
                 _dollBody = tf;
             }
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
 
+    // Update is called once per frame
+    void Update() {
         //Increments the time by deltaTime if the timer is running.
-        if(_timerRun)
+        if (_timerRun)
         {
             _time += Time.deltaTime;
         }
 
-        //Checks to see if the Doll entered the Camera view.
-        if (this.gameObject.GetComponentInChildren<MeshRenderer>().isVisible && !_movementOver)
-        {
-            _playerLooked = true;
-        }
-        else if (((int)Vector3.Distance(transform.position, _player.transform.position) <= 4) && _playerLooked)
+        //Checks to see if the Player is within 4.5 unity units of distance from the Doll and if the movement is still happening
+        if (((int)Vector3.Distance(transform.position, _player.transform.position) <= 4.5f) && !_movementOver)
         {
             _timerRun = true;
             _time = 0;
         }
-        //Checks to see if more than ten seconds have passed since the Doll has left the Camera view.
+        //Checks to see if the timer is running and if the time is 1 or more seconds
         //If true the Doll is moved to the next waypoint
-        else if (_playerLooked && _time >= 2)
+        else if (_timerRun && _time >= 1)
         {
             _pos++;
 
@@ -146,7 +141,6 @@ public class MoveDoll : MonoBehaviour {
                 transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>()._force = (_dollBody.forward * 5) + (_dollBody.up * 4f);
-                transform.gameObject.GetComponentInChildren<DollHead>().enabled = false;
                 _movementOver = true;
             }
         }
@@ -189,5 +183,11 @@ public class MoveDoll : MonoBehaviour {
             }
             yield return null;
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 4.5f);
     }
 }
