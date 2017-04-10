@@ -12,6 +12,7 @@ TagManager:
   - Wood Floor
   - Glass Floor
   - Regular Floor
+  - KillBox
   layers:
   - Default
   - TransparentFX
