@@ -25,13 +25,11 @@ public class PlayerStateSystem : MonoBehaviour
 
     void CanBeKilled()
     {
-        this.isKillable = true;
-        Debug.Log(this.isKillable + "IsKill");
+        this.isKillable = true;       
     }
 
     void CantBeKilled()
     {
-        this.isKillable = false;
-        Debug.Log(this.isKillable + "IsKill");
+        this.isKillable = false;        
     }
 }
