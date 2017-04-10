@@ -8,7 +8,10 @@ public static class Events
 {
     public static PlayerEvent PlayerWin = new PlayerEvent();
     public static PlayerEvent PlayerDeath = new PlayerEvent();
-    public static PlayerEvent PlayerForceScene = new PlayerEvent();    
+    public static PlayerEvent PlayerForceScene = new PlayerEvent();
+    public static PlayerEvent PlayerCantDie = new PlayerEvent();
+    public static PlayerEvent PlayerCanDie = new PlayerEvent();
+    public static PlayerEvent PlayerEnteredKillBox = new PlayerEvent();
 
     public static RoomEvent RoomCompleted = new RoomEvent();
     public static RoomEvent RoomHeightSelected = new RoomEvent();
