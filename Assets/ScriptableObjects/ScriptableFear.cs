@@ -5,11 +5,11 @@ using System.Collections;
 public class ScriptableFear : ScriptableObject
 {
     string FearName;
-    int value;
+    bool CompletedStatus;
     public ScriptableFear Create(Fear f)
     {
         FearName = f.name;
-        value = f.value;
+        CompletedStatus = f.isCompleted;
         return this;
     }
 }

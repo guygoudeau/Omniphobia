@@ -1,8 +1,13 @@
-﻿using UnityEngine;
+﻿///<summary>
+///This script contains two coroutines that fade a white image in and out in front of the camera and transitions the game to the next scene.
+///This script must be attached to a GameObject with an Image component that is parented to a Canvas.
+/// </summary>
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(Image))]
 public class AlphaFade : MonoBehaviour {
 
     private Image _brightLight;
@@ -27,19 +32,22 @@ public class AlphaFade : MonoBehaviour {
         //Changes the Canvas to have the white fade be in front of the camera
         transform.parent.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
         transform.parent.GetComponent<Canvas>().worldCamera = GameObject.Find("CenterEyeAnchor").GetComponent<Camera>();
-        transform.parent.GetComponent<Canvas>().planeDistance = 0.101f;
+        transform.parent.GetComponent<Canvas>().planeDistance = 0.2f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        //If statement to start the FadeOut coroutine, activated once the FadeIn coroutine ends
         if (_fadingOut)
         {
             StartCoroutine(FadeOut());
             _fadingOut = false;
         }
-	
-	}
+        transform.parent.GetComponent<RectTransform>().rotation = transform.parent.GetComponent<Canvas>().worldCamera.transform.rotation;
 
+    }
+
+    //Coroutine that fades the Image in by increasing the Alpha and when the Image is at full Alpha a new scene is loaded using the passed in integer.
     public IEnumerator FadeIn(int sceneNum)
     {
         //For loop that increases the alpha of the image
@@ -57,8 +65,10 @@ public class AlphaFade : MonoBehaviour {
         }
     }
 
+    //Coroutine that fades the Image out by decreasing the Alpha until it is at zero Alpha.
     public IEnumerator FadeOut()
     {
+        //For loop that decreases the alpha of the image
         for (float i = 255f; i >= 0; i--)
         {
             _brightLight.color = new Color(255, 255, 255, i/255);
