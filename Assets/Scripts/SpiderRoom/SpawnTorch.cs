@@ -17,7 +17,7 @@ public class SpawnTorch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	 if (Input.GetKeyDown(KeyCode.Space))
+        if (OVRInput.GetDown(OVRInput.Button.Three))
         {
             transform.position = (Player.position + Player.forward);
             transform.rotation = new Quaternion(0, 0, 0, 0);
@@ -37,13 +37,13 @@ public class SpawnTorch : MonoBehaviour {
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
             gameObject.GetComponent<BoxCollider>().isTrigger = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
-            transform.position = gameObject.GetComponent<OVRGrabbable>().snapOffset.position;
+            transform.position = gameObject.GetComponent<OVRGrabbable>().grabbedBy.transform.position;
         }
         else
         {
-            gameObject.GetComponent<Rigidbody>().useGravity = true;
             if (spawnState == false)
             {
+                gameObject.GetComponent<Rigidbody>().useGravity = true;
                 gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 gameObject.GetComponent<BoxCollider>().isTrigger = false;
             }
