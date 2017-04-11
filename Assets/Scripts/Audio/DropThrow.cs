@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(ONSPAudioSource))]
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Rigidbody))]
 public class DropThrow : MonoBehaviour {
