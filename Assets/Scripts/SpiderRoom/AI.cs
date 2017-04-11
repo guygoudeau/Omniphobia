@@ -43,6 +43,7 @@ public class AI : MonoBehaviour {
             if (a.tag == "Points")
             {
                 Points = a.gameObject;
+
             }
         }
         foreach (Transform b in Points.GetComponentsInChildren<Transform>())
@@ -69,6 +70,7 @@ public class AI : MonoBehaviour {
                 Stop = false;
                 Ptimer = 10;
                 Pursuit = true;
+                
             }
         }
 
