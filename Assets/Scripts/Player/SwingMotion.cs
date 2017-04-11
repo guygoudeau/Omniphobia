@@ -11,10 +11,9 @@ public class SwingMotion : MonoBehaviour
         lTouchVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.LTouch).magnitude;
         rTouchVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch).magnitude;
 
-        while (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger))
+        if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger))
         {
-            transform.position += transform.forward * lTouchVelocity * Time.deltaTime;
-            transform.position += transform.forward * rTouchVelocity * Time.deltaTime;
+            transform.position += transform.forward * (lTouchVelocity + rTouchVelocity) * Time.deltaTime;
         }
     }
 }
