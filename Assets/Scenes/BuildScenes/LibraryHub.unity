@@ -138,7 +138,7 @@ Prefab:
     - target: {fileID: 114000010779101304, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a,
         type: 2}
       propertyPath: NotUsingOVC
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1000013853919370, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a, type: 2}
       propertyPath: m_IsActive
@@ -15981,6 +15981,11 @@ Prefab:
     - target: {fileID: 4000012904451608, guid: e9066da779d6dcd4bb99039a47d49b9b, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011310115654, guid: e9066da779d6dcd4bb99039a47d49b9b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9066da779d6dcd4bb99039a47d49b9b, type: 2}
