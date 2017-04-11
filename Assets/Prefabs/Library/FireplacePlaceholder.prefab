@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012084029056}
   m_Layer: 0
-  m_Name: Fireplace 1
+  m_Name: FireplacePlaceholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
