@@ -1,17 +1,16 @@
 ﻿Shader "Flip Normals" {
 	Properties{
-		_MainTex("Base (RGB) Alpha(A)", 2D) = "black" {}
+		_MainTex("Base (RGB)", 2D) = "black" {}
 	}
 		SubShader{
 
-		Tags{ "RenderType" = "Transparent" }
+		Tags{ "RenderType" = "Opaque" }
 
 		Cull Front
 
 		CGPROGRAM
 
 #pragma surface surf Lambert vertex:vert
-#pragma surface surf Standard alpha:fade
 		sampler2D _MainTex;
 
 	struct Input {
@@ -28,7 +27,7 @@
 	void surf(Input IN, inout SurfaceOutput o) {
 		fixed3 result = tex2D(_MainTex, IN.uv_MainTex);
 		o.Albedo = result.rgb;
-		o.Alpha = 0;
+		o.Alpha = 1;
 	}
 
 	ENDCG
