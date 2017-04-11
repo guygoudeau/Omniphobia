@@ -19,10 +19,11 @@ public class DevSpiderSkip : MonoBehaviour {
         if (OVRInput.GetDown(OVRInput.Button.Four))
         {
             Player.transform.position = Cheat.position;
-            if (OVRInput.GetDown(OVRInput.Button.Two))
-            {
-                Player.transform.position = Begin.position;
-            }
+            
+        }
+        if (OVRInput.GetDown(OVRInput.Button.Two))
+        {
+            Player.transform.position = Begin.position;
         }
 
     }
