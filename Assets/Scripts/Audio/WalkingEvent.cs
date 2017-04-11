@@ -9,16 +9,6 @@ using System.Collections;
 [RequireComponent(typeof(ONSPAudioSource))]
 public class WalkingEvent : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     //AnimationEvent Function
     public void FootDown()
     {
