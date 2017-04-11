@@ -12797,6 +12797,7 @@ GameObject:
   - 4: {fileID: 795985795}
   - 65: {fileID: 795985794}
   - 114: {fileID: 795985793}
+  - 114: {fileID: 795985796}
   m_Layer: 0
   m_Name: EndLevel
   m_TagString: Untagged
@@ -12815,8 +12816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60307dabd2c108d46ad0e1e549c6987d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cheat: {fileID: 1433478553}
-  Begin: {fileID: 459580958}
 --- !u!65 &795985794
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12842,6 +12841,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
+--- !u!114 &795985796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 795985792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15de177c3b6f77e49bc007983406f693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cheat: {fileID: 1433478553}
+  Begin: {fileID: 459580958}
 --- !u!1 &818799166
 GameObject:
   m_ObjectHideFlags: 0
