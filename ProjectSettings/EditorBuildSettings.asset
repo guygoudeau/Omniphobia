@@ -13,3 +13,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Heights.unity
   - enabled: 1
     path: Assets/Scenes/Win.unity
+  - enabled: 1
+    path: Assets/Scenes/Clowns.unity
+  - enabled: 1
+    path: Assets/Scenes/Dolls.unity
+  - enabled: 1
+    path: Assets/Scenes/Rory.unity
