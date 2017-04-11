@@ -23029,9 +23029,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 328342053}
   - 54: {fileID: 328342052}
-  - 82: {fileID: 328342055}
-  - 114: {fileID: 328342056}
   - 114: {fileID: 328342054}
+  - 82: {fileID: 328342055}
   m_Layer: 0
   m_Name: Doll (15)
   m_TagString: Untagged
@@ -23160,23 +23159,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &328342056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 328342051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSpatialization: 1
-  gain: 0
-  useInvSqr: 0
-  near: 1
-  far: 10
-  enableRfl: 0
 --- !u!1 &330959864
 GameObject:
   m_ObjectHideFlags: 0
@@ -29293,7 +29275,6 @@ GameObject:
   - 54: {fileID: 414568466}
   - 114: {fileID: 414568467}
   - 82: {fileID: 414568469}
-  - 114: {fileID: 414568470}
   - 114: {fileID: 414568468}
   m_Layer: 0
   m_Name: Key
@@ -29480,23 +29461,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &414568470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414568461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSpatialization: 1
-  gain: 0
-  useInvSqr: 0
-  near: 1
-  far: 10
-  enableRfl: 0
 --- !u!1 &415095897
 GameObject:
   m_ObjectHideFlags: 0
@@ -119732,7 +119696,6 @@ GameObject:
   - 54: {fileID: 1715397406}
   - 114: {fileID: 1715397408}
   - 82: {fileID: 1715397410}
-  - 114: {fileID: 1715397411}
   - 114: {fileID: 1715397409}
   m_Layer: 0
   m_Name: Moving Doll
@@ -119870,23 +119833,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1715397411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1715397405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSpatialization: 1
-  gain: 0
-  useInvSqr: 0
-  near: 1
-  far: 10
-  enableRfl: 0
 --- !u!1 &1716178888
 GameObject:
   m_ObjectHideFlags: 0
