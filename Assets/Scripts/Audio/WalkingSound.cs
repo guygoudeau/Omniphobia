@@ -61,7 +61,7 @@ public class WalkingSound : MonoBehaviour
             {
                 if (!(steps[CurrentClip].isPlaying))
                 {
-                    if (Distance >= 1)
+                    if (Distance >= .5f)
                     {
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position + transform.forward + new Vector3(0, 1, 0), new Vector3(0, -1, 0), out hit, 2f))
