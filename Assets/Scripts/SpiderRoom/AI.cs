@@ -69,6 +69,7 @@ public class AI : MonoBehaviour {
                 Stop = false;
                 Ptimer = 10;
                 Pursuit = true;
+                
             }
         }
 
