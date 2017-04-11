@@ -9,6 +9,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(ONSPAudioSource))]
 [RequireComponent(typeof(AudioSource))]
 public class WalkingSound : MonoBehaviour
 {
