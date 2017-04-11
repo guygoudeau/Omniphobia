@@ -13,8 +13,7 @@ public class SwingMotion : MonoBehaviour
 
         while (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger))
         {
-            transform.position += transform.forward * lTouchVelocity * Time.deltaTime;
-            transform.position += transform.forward * rTouchVelocity * Time.deltaTime;
+            transform.position += transform.forward * (lTouchVelocity + rTouchVelocity) * Time.deltaTime;
         }
     }
 }
