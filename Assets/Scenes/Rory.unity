@@ -866,7 +866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &390265267
 Light:
   m_ObjectHideFlags: 0
@@ -2974,7 +2974,7 @@ Prefab:
     - target: {fileID: 114000010779101304, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a,
         type: 2}
       propertyPath: NotUsingOVC
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a, type: 2}
@@ -2990,7 +2990,6 @@ GameObject:
   - 108: {fileID: 1664911922}
   - 198: {fileID: 1664911924}
   - 199: {fileID: 1664911923}
-  - 114: {fileID: 1664911925}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -3139,12 +3138,12 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -1929225217
+  randomSeed: -936113585
   InitialModule:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 0.15
+      scalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4828,17 +4827,6 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!114 &1664911925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1664911920}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0f74a6666c5fff44a87a3397cc3213a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1760182453
 GameObject:
   m_ObjectHideFlags: 0
@@ -5432,12 +5420,12 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -1667234603
+  randomSeed: 1750368197
   InitialModule:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 0.15
+      scalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7376,3 +7364,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   Grabbed: 0
+  spawnState: 0
