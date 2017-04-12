@@ -58,11 +58,7 @@ public class WalkingSound : MonoBehaviour
         //Debug.Log(steps[CurrentClip].clip);
         if (_prevPosition != _player.transform.position && _player.GetComponent<CharacterController>().isGrounded)
         {
-            if (!(_player.GetComponent<CharacterController>().velocity.x == 0) && !(_player.GetComponent<CharacterController>().velocity.z == 0))
-            {
-                if (!(steps[CurrentClip].isPlaying))
-                {
-                    if (Distance >= .5f)
+            if (Distance >= 1f)
                     {
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position + transform.forward + new Vector3(0, 1, 0), new Vector3(0, -1, 0), out hit, 2f))
@@ -87,8 +83,6 @@ public class WalkingSound : MonoBehaviour
                             GlassReady = false;
                         }
                         Distance = 0;
-                    }
-                }
             }
             Distance += Mathf.Abs(_player.transform.position.magnitude - _prevPosition.magnitude);
             _prevPosition = _player.transform.position;
