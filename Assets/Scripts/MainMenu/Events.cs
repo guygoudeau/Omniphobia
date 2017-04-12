@@ -12,6 +12,7 @@ public static class Events
     public static PlayerEvent PlayerCantDie = new PlayerEvent();
     public static PlayerEvent PlayerCanDie = new PlayerEvent();
     public static PlayerEvent PlayerEnteredKillBox = new PlayerEvent();
+    public static PlayerEvent PlayerMovementChange = new PlayerEvent();
 
     public static RoomEvent RoomCompleted = new RoomEvent();
     public static RoomEvent RoomHeightSelected = new RoomEvent();
