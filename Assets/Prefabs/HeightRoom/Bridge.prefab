@@ -3464,7 +3464,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011920212046}
-  m_Mesh: {fileID: 4300000, guid: 6bdf791f1055ed446a6a9407362c2ac7, type: 3}
+  m_Mesh: {fileID: 4300050, guid: 3133d54f63ed1c7478052bfd4a1194bd, type: 3}
 --- !u!33 &33000010096830006
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -4475,6 +4475,7 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 25
   BreakList: {fileID: 0}
+  IsTouching: 0
 --- !u!114 &114000011914264332
 MonoBehaviour:
   m_ObjectHideFlags: 1
