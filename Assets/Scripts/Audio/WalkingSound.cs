@@ -58,7 +58,7 @@ public class WalkingSound : MonoBehaviour
         //Debug.Log(steps[CurrentClip].clip);
         if (_prevPosition != _player.transform.position && _player.GetComponent<CharacterController>().isGrounded)
         {
-            if (Distance >= 1f)
+            if (Distance >= 2f)
                     {
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position + transform.forward + new Vector3(0, 1, 0), new Vector3(0, -1, 0), out hit, 2f))
@@ -84,7 +84,10 @@ public class WalkingSound : MonoBehaviour
                         }
                         Distance = 0;
             }
-            Distance += Mathf.Abs(_player.transform.position.magnitude - _prevPosition.magnitude);
+            float a = Mathf.Abs(_player.transform.position.x - _prevPosition.x);
+            float b = Mathf.Abs(_player.transform.position.z - _prevPosition.z);
+            float c = Mathf.Sqrt((a * a) + (b * b));
+            Distance += c;
             _prevPosition = _player.transform.position;
         }
     }
