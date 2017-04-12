@@ -8,6 +8,7 @@ public class PlayerStateSystem : MonoBehaviour
 
     private void Awake()
     {
+        this.isMotionControlled = true;
         this.isKillable = false;        
     }
 
@@ -44,7 +45,8 @@ public class PlayerStateSystem : MonoBehaviour
 
     void ChangeMovement()
     {
-        isMotionControlled = !isMotionControlled;
+        isMotionControlled = !isMotionControlled;        
+        GetComponent<SwingMotion>().enabled = isMotionControlled;
     }
 
     void CantBeKilled()
