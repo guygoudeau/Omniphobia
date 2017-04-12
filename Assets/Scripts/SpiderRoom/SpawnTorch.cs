@@ -43,6 +43,7 @@ public class SpawnTorch : MonoBehaviour {
         {
             if (spawnState == false)
             {
+                Grabbed = false;
                 gameObject.GetComponent<Rigidbody>().useGravity = true;
                 gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 gameObject.GetComponent<BoxCollider>().isTrigger = false;
