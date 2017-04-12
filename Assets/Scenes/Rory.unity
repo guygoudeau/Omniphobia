@@ -2468,6 +2468,8 @@ MonoBehaviour:
   Stop: 0
   Velocity: 0
   m_anim: {fileID: 233864786}
+  ChaseTimer: 0
+  TimerPursuit: 0
 --- !u!195 &233864785
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -14724,7 +14726,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  Grabbed: 0
   spawnState: 0
 --- !u!54 &1340237510
 Rigidbody:
@@ -15039,6 +15040,11 @@ Prefab:
         type: 2}
       propertyPath: m_Speed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 195000011892934540, guid: f69be73314b159a4a9c9e7650d71acc2,
+        type: 2}
+      propertyPath: m_StoppingDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f69be73314b159a4a9c9e7650d71acc2, type: 2}
@@ -17133,6 +17139,11 @@ Prefab:
         type: 2}
       propertyPath: isKillable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011122457576, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a,
+        type: 2}
+      propertyPath: isMotionControlled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a, type: 2}
