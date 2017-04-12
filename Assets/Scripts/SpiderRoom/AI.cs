@@ -63,7 +63,7 @@ public class AI : MonoBehaviour {
     {
         if (Stop == true)
         {
-            m_anim.SetBool("Lunge", true);
+            m_anim.SetTrigger("Lunge");
             Stimer -= Time.deltaTime;
             if (Stimer <= 0)
             {
@@ -71,7 +71,6 @@ public class AI : MonoBehaviour {
                 Stop = false;
                 Ptimer = 10;
                 Pursuit = true;
-                m_anim.SetBool("Lunge", false);
 
             }
         }
@@ -101,7 +100,7 @@ public class AI : MonoBehaviour {
                 Ptimer = 10;
                 Pursuit = false;
             }
-            if (Vector3.Distance(transform.position, Target.transform.position) <= 2.5f)
+            if (Vector3.Distance(transform.position, Target.transform.position) <= 3.5f)
             {
                 Stop = true;
                 return transform.position;
