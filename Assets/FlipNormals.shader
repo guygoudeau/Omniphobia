@@ -1,22 +1,25 @@
 ﻿Shader "Flip Normals" {
-	Properties{
+	Properties
+	{
 
-		_Color("Main Color", Color) = (1,1,1,1)
+		_Color("Main Color", Color) = (1,1,1,0)
 		_MainTex("Base (RGB) Trans (A)", 2D) = "white" {}
 
 	}
 
-		SubShader{
-		Tags{ 
-		"Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" 
+		SubShader
+	{
+		Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" 
 	}
-		LOD 200
 
-		CGPROGRAM
-#pragma surface vert Lambert vertex:vert
-#pragma surface surf Lambert alpha:fade
+	LOD 200
+	Cull Front
+	CGPROGRAM
 
-		sampler2D _MainTex;
+	#pragma surface surf Lambert alpha:fade
+	#pragma surface surf Lambert vertex:vert
+
+	sampler2D _MainTex;
 	fixed4 _Color;
 
 	struct Input {
@@ -36,11 +39,5 @@
 	ENDCG
 	}
 
-		Fallback "Legacy Shaders/Transparent/Diffuse"
+	Fallback "Legacy Shaders/Transparent/Diffuse"
 }
-//#pragma surface surf Lambert vertex:vert
-//#pragma surface surf Standard alpha:fade
-//void vert(inout appdata_full v)
-//{
-//	v.normal.xyz = v.normal * -1;
-//}
