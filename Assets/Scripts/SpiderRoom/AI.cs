@@ -63,6 +63,7 @@ public class AI : MonoBehaviour {
     {
         if (Stop == true)
         {
+            m_anim.SetBool("Lunge", true);
             Stimer -= Time.deltaTime;
             if (Stimer <= 0)
             {
@@ -70,7 +71,8 @@ public class AI : MonoBehaviour {
                 Stop = false;
                 Ptimer = 10;
                 Pursuit = true;
-                
+                m_anim.SetBool("Lunge", false);
+
             }
         }
 
