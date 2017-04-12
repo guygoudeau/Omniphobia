@@ -8,6 +8,11 @@ TagManager:
   - Win
   - Generator
   - Points
+  - Furnitured Floor
+  - Wood Floor
+  - Glass Floor
+  - Regular Floor
+  - KillBox
   layers:
   - Default
   - TransparentFX
