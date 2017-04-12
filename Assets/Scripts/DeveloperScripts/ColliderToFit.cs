@@ -8,7 +8,7 @@ public class ColliderToFit : MonoBehaviour
 
 
     [ContextMenu("Fit Colliders")]
-    private void FitColliderToChildren()
+    public void FitColliderToChildren()
     {
         var parentObject = gameObject;
         var bc = parentObject.GetComponent<BoxCollider>();
@@ -25,7 +25,16 @@ public class ColliderToFit : MonoBehaviour
             if (childmc)
                 DestroyImmediate(t.gameObject.GetComponent<MeshCollider>());
             if (!childbc && childgo.GetComponent<Renderer>())
-                childgo.AddComponent<BoxCollider>();
+            {
+                if (childbc != null)
+                {
+                    DestroyImmediate(childgo.GetComponent<BoxCollider>());
+                }
+                if (!childbc.transform.parent.GetComponent<BoxCollider>())
+                {
+                    childgo.AddComponent<BoxCollider>();
+                }               
+            }
         }
 
         foreach (var render in renderers)
