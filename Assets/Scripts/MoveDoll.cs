@@ -1,9 +1,19 @@
-﻿using UnityEngine;
+﻿///<summary>
+///This script moves the GameObject between different positions in an order when the player looks at the GameObject and has come within a certain distance of the GameObject.
+///This script also causes the GameObject to become invisible when moved and fade in quickly every time it changes position.
+///This script also ends the changing of positions once the GameObject reaches the last position. It then turns on the PopDoll script that should exist in a child
+///     of the GameObject. It updates the rotation of one of the GameObject's children called "Body" and updates the Force in the PopDoll script according to the new forward.
+///This script requires a GameObject called "Positions" with children that have a DollPosition script attached to them to exist in the scene.
+///This script requires a player GameObject called "OVRPlayerController" in the scene, a Material in the Resources folder called "DollTempMat" (subject to change),
+///     and requires three children parented to the GameObject called "Target" and "Body" and the third needs to have the DollHead script attached to it.
+///"Target" requires a BoxCollider and a PopDoll component.
+/// </summary>
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public class MoveDoll : MonoBehaviour {
-    
+
     //List to store the different positions the Doll can move to.
     private List<DollPosition> _possiblePositions;
     //The current position the Doll is occupying.
@@ -29,8 +39,8 @@ public class MoveDoll : MonoBehaviour {
 
     private int _pos = 0;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         _time = 0;
         _timerRun = false;
         _possiblePositions = new List<DollPosition>();
@@ -66,18 +76,17 @@ public class MoveDoll : MonoBehaviour {
             {
                 _targetTransform = tf;
             }
-            else if(tf.name == "Body")
+            else if (tf.name == "Body")
             {
                 _dollBody = tf;
             }
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
 
+    // Update is called once per frame
+    void Update() {
         //Increments the time by deltaTime if the timer is running.
-        if(_timerRun)
+        if (_timerRun)
         {
             _time += Time.deltaTime;
         }
@@ -87,7 +96,7 @@ public class MoveDoll : MonoBehaviour {
         {
             _playerLooked = true;
         }
-        else if (((int)Vector3.Distance(transform.position, _player.transform.position) <= 4) && _playerLooked)
+        else if (((int)Vector3.Distance(transform.position, _player.transform.position) <= 4.5f) && _playerLooked)
         {
             _timerRun = true;
             _time = 0;
@@ -136,7 +145,6 @@ public class MoveDoll : MonoBehaviour {
                 transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>()._force = (_dollBody.forward * 5) + (_dollBody.up * 4f);
-                transform.gameObject.GetComponentInChildren<DollHead>().enabled = false;
                 _movementOver = true;
             }
         }
@@ -179,5 +187,11 @@ public class MoveDoll : MonoBehaviour {
             }
             yield return null;
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 4.5f);
     }
 }

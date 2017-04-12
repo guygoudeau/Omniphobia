@@ -13,7 +13,7 @@ public class PlayerStateSystem : MonoBehaviour
 
         if (OVRInput.GetDown(OVRInput.Button.Start))
         {
-            Events.PlayerReloadScene.Invoke();
+            Events.PlayerDeath.Invoke();
             return;
         }
 
@@ -26,9 +26,9 @@ public class PlayerStateSystem : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Win"))
+        if (other.gameObject.tag == "Win")
         {
-            Events.PlayerWin.Invoke();
+            Events.RoomCompleted.Invoke();
         }
     }
 }
