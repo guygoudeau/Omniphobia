@@ -22,7 +22,7 @@ public class PlayerStateSystem : MonoBehaviour
 
     private void Update()
     {        
-        if (!isMotionControlled)
+        if (isMotionControlled)
         {
             GetComponent<OVRPlayerController>().Acceleration = 0;
         }
