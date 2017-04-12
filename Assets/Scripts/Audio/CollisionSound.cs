@@ -14,6 +14,7 @@ public class CollisionSound : MonoBehaviour {
 
     private Vector3 _prevPosition;
     private bool _moving = false;
+    private float _maxVelocity = 0;
 
     // Use this for initialization
     void Start() {
@@ -23,20 +24,30 @@ public class CollisionSound : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (GetComponent<Rigidbody>().velocity.magnitude >= 1)
+        {
+            if (_maxVelocity < GetComponent<Rigidbody>().velocity.magnitude)
+                _maxVelocity = GetComponent<Rigidbody>().velocity.magnitude;
             _moving = true;
+        }
+
+        VelocityCap(GetComponent<Rigidbody>());
     }
 
     void OnCollisionEnter(Collision other)
     {
         if(_moving)
         {
+            Debug.Log(_maxVelocity);
+            GetComponent<AudioSource>().volume = _maxVelocity * .1f;
             GetComponent<AudioSource>().Play();
             _moving = false;
+            _maxVelocity = 0;
         }
     }
 
-    void OnCollisionStay(Collision other)
+    void VelocityCap(Rigidbody _object)
     {
-
+        if (_object.velocity.magnitude > 10)
+            _object.velocity.Normalize();
     }
 }
