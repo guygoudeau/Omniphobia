@@ -28,8 +28,8 @@ public class VelocityTrigger : MonoBehaviour
 
         _audioRange = GetComponent<ONSPAudioSource>();
         _audioRange.Far = 50;
-        _audioRange.Near = 5;
-        _audioRange.Gain = 8;
+        _audioRange.Near = 20;
+        _audioRange.Gain = 30;
     }
 
     // Update is called once per frame
