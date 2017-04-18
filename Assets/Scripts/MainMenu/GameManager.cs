@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
     public ScriptableFearList scriptableFears;    
     private Fear currentFear = null;
 
+    string scenePath = "Scenes/BuildScenes/";
+
     Fear Spider;
     Fear Clown;
     Fear Height;
@@ -92,7 +94,7 @@ public class GameManager : MonoBehaviour
         Events.GameStarted.AddListener(RoomCompleted);
         Events.GameRestarted.AddListener(GameRestarted);
 
-        Spider = new Fear("Rory");
+        Spider = new Fear("Spiders");
         Clown = new Fear("Clowns");
         Height = new Fear("Heights");
         Doll = new Fear("Dolls");
@@ -106,7 +108,7 @@ public class GameManager : MonoBehaviour
 
     void GameRestarted()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(this.scenePath + "Menu");
         foreach (var fear in this.fearList)
         {
             fear.CompletedStatus(false);
@@ -128,7 +130,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentFear == null)
         {
-            SceneManager.LoadScene(this.Height.name);
+            SceneManager.LoadScene(this.scenePath + this.Height.name);
             this.currentFear = this.Height;
         }
     }
@@ -137,7 +139,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentFear == null)
         {
-            SceneManager.LoadScene(this.Clown.name);
+            SceneManager.LoadScene(this.scenePath + this.Clown.name);
             this.currentFear = this.Clown;
         }
     }
@@ -146,7 +148,7 @@ public class GameManager : MonoBehaviour
     {
         if(currentFear == null)
         {
-            SceneManager.LoadScene(this.Spider.name);
+            SceneManager.LoadScene(this.scenePath + this.Spider.name);
             this.currentFear = this.Spider;
         }        
     }
@@ -155,7 +157,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentFear == null)
         {
-            SceneManager.LoadScene(this.Doll.name);
+            SceneManager.LoadScene(this.scenePath + this.Doll.name);
             this.currentFear = this.Doll;
         }
     }
@@ -168,9 +170,9 @@ public class GameManager : MonoBehaviour
             this.currentFear = null;
         }
         if(!VictoryCheck())
-            SceneManager.LoadScene("LibraryHub");
+            SceneManager.LoadScene(this.scenePath + "LibraryHub");
         else
-            SceneManager.LoadScene("Win");
+            SceneManager.LoadScene(this.scenePath + "Win");
     }
 
     void PlayerDied()
