@@ -28,7 +28,7 @@ public class WalkingSound : MonoBehaviour
     {
         if (_player == null)
         {
-            _player = GameObject.Find("OVRPlayerController");
+            _player = GameObject.FindGameObjectWithTag("Player");
             _self = this.gameObject;
         }
 
@@ -43,6 +43,7 @@ public class WalkingSound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(_player.transform.transform.rotation);
         transform.rotation = _player.transform.rotation;
         //Part of the Timer
         if (GlassReady != true)
