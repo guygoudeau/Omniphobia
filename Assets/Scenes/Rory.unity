@@ -6659,31 +6659,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000013359316600, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
       propertyPath: m_Name
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1000014284512900, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
       propertyPath: m_Name
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1000013277852004, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
       propertyPath: m_Name
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1000011415068798, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
       propertyPath: m_Name
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1000011540017744, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
       propertyPath: m_Name
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1000012724866486, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
       propertyPath: m_Name
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1000012330144096, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
       propertyPath: m_Name
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1000010840593340, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
       propertyPath: m_TagString
@@ -6696,6 +6696,10 @@ Prefab:
     - target: {fileID: 4000012050331704, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012891574142, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3871e80408a3df4ebe96914ee98994f, type: 2}
@@ -15014,7 +15018,7 @@ Prefab:
     - target: {fileID: 95000013865647744, guid: f69be73314b159a4a9c9e7650d71acc2,
         type: 2}
       propertyPath: m_ApplyRootMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 195000011892934540, guid: f69be73314b159a4a9c9e7650d71acc2,
         type: 2}
