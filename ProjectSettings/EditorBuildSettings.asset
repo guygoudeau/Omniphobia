@@ -6,16 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/BuildScenes/Menu.unity
   - enabled: 1
-    path: Assets/Scenes/LibraryHub.unity
+    path: Assets/Scenes/BuildScenes/LibraryHub.unity
   - enabled: 1
-    path: Assets/Scenes/Heights.unity
+    path: Assets/Scenes/BuildScenes/Spiders.unity
   - enabled: 1
-    path: Assets/Scenes/Win.unity
+    path: Assets/Scenes/BuildScenes/Dolls.unity
   - enabled: 1
-    path: Assets/Scenes/Clowns.unity
-  - enabled: 1
-    path: Assets/Scenes/Dolls.unity
-  - enabled: 1
-    path: Assets/Scenes/Rory.unity
+    path: Assets/Scenes/BuildScenes/Heights.unity
