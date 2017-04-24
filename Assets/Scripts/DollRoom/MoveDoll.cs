@@ -44,7 +44,7 @@ public class MoveDoll : MonoBehaviour {
         _time = 0;
         _timerRun = false;
         _possiblePositions = new List<DollPosition>();
-        _player = GameObject.Find("OVRPlayerController");
+        _player = GameObject.FindGameObjectWithTag("Player");
         transform.gameObject.GetComponentInChildren<PopDoll>().enabled = false;
 
         foreach (Renderer r in GetComponentsInChildren<Renderer>())

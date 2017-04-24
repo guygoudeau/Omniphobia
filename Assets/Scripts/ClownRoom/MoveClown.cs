@@ -37,12 +37,12 @@ public class MoveClown : MonoBehaviour
             //self.position += self.forward * moveSpeed * Time.deltaTime; // move towards player
             _timerRun = true;
 
-            if (_time >= 5)
-            {
+            //if (_time >= 10)
+            //{
                 self.position = target.position - (target.forward * 2);
                 _time = 0;
                 _timerRun = false;
-            }
+            //}
         }
         else
         {
