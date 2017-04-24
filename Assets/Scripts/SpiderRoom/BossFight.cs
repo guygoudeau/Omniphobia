@@ -6,7 +6,7 @@ public class BossFight : MonoBehaviour {
 
 
     GameObject Player;
-    private bool isEnabled = true;
+    [SerializeField]private bool isEnabled;
 
     // Use this for initialization
     void Start()
@@ -32,6 +32,15 @@ public class BossFight : MonoBehaviour {
 
 
     }
+
+    [ContextMenu("Check")]
+    private void Check()
+    {
+        var braziers = FindObjectsOfType<BossFight>();
+        if (braziers.All(brazier => brazier.isEnabled))
+            Events.RoomCompleted.Invoke();
+    }
+
     // Update is called once per frame
     void Update()
     {
