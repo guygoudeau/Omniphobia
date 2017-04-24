@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.3735644, g: 0.38112032, b: 0.35887682, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000001, guid: 5e259e863dcae3e4490ab4a2a14a8245,
+  m_LightingDataAsset: {fileID: 112000001, guid: 26957fe6286adf64c997fdaaf44b1d11,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -9032,132 +9032,132 @@ Prefab:
     - target: {fileID: 108000011102291288, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000013666576402, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000013191702176, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000010782272032, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000010797547768, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000010864716210, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000012128214922, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000013087568356, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000012836851308, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000011313445052, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000011614273026, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000010263015392, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000010726698322, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Intensity
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 108000011102291288, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000013666576402, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000013191702176, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000010782272032, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000010797547768, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000010864716210, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000012128214922, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000013087568356, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000012836851308, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000011313445052, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000011614273026, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000010263015392, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000010726698322, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
       propertyPath: m_Range
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108000011102291288, guid: ba8b52f4266ef6440b316db7f6e3fae4,
         type: 2}
