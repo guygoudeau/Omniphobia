@@ -21,6 +21,10 @@ public class BossFight : MonoBehaviour {
             return;
 
         isEnabled = true;
+        foreach (Transform Light in gameObject.transform)
+        {
+            Light.gameObject.SetActive(true);
+        }
 
         var braziers = FindObjectsOfType<BossFight>();
         if (braziers.All(brazier => brazier.isEnabled))
