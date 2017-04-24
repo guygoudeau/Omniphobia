@@ -6,7 +6,7 @@ public class BossFight : MonoBehaviour {
 
 
     GameObject Player;
-    [SerializeField] private bool isEnabled;
+    private bool isEnabled = true;
 
     // Use this for initialization
     void Start()
