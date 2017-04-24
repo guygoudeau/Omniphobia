@@ -5,6 +5,7 @@ public class SwingMotion : MonoBehaviour
 {
     public float lTouchVelocity;
     public float rTouchVelocity;
+    public float speedMod;
 
 	void Update()
     {
@@ -13,7 +14,7 @@ public class SwingMotion : MonoBehaviour
 
         if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger))
         {
-            transform.position += transform.forward * (lTouchVelocity + rTouchVelocity) * Time.deltaTime;
+            transform.position += transform.forward * (lTouchVelocity + rTouchVelocity) * (speedMod);
         }
     }
 }
