@@ -46,7 +46,7 @@ public class ForceEvent : Developer
                 Events.RoomHeightSelected.Invoke();
             if (Input.GetKeyDown(KeyCode.V))
                 Events.RoomSpiderSelected.Invoke();
-            if (Input.GetKeyDown(KeyCode.N))
+            if (Input.GetKeyDown(KeyCode.B))
                 Events.RoomDollSelected.Invoke();
         }
 	}

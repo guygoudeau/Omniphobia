@@ -9,6 +9,6 @@ public class PlayerStateChanges : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.O))
         {
             Events.PlayerMovementChange.Invoke();
-        }
+        }        
     }
 }
