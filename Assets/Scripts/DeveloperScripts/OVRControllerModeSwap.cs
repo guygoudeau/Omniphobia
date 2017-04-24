@@ -11,7 +11,7 @@ public class OVRControllerModeSwap : MonoBehaviour
         }
         else
         {
-            GetComponent<OVRPlayerController>().NotUsingOVC = true;
+            GetComponent<OVRPlayerController>().NotUsingOVC = false;
         }
     }
 }
