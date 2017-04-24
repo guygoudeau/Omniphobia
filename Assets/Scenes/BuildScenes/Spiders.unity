@@ -12487,7 +12487,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 513044869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.074, z: 0}
+  m_LocalPosition: {x: 0, y: 0.353, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -17053,6 +17053,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f7eb022be45544b9f4f63a05a4e2c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1609102758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1609102756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1dc3f77955b53458b6d705b05da6e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lTouchVelocity: 0
+  rTouchVelocity: 0
 --- !u!1001 &1653151462
 Prefab:
   m_ObjectHideFlags: 0
@@ -17095,7 +17108,7 @@ Prefab:
     - target: {fileID: 114000010779101304, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a,
         type: 2}
       propertyPath: NotUsingOVC
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011122457576, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a,
         type: 2}
@@ -17105,7 +17118,7 @@ Prefab:
     - target: {fileID: 114000011122457576, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a,
         type: 2}
       propertyPath: isMotionControlled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a2fe0bbabeafa541bd49b28f3c89b3a, type: 2}
