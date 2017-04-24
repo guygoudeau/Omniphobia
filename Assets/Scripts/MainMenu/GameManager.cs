@@ -56,7 +56,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     public Vector3 Checkpoint;
-    public ScriptableFearList scriptableFears;    
     private Fear currentFear = null;
 
     string scenePath = "Scenes/BuildScenes/";
@@ -87,15 +86,13 @@ public class GameManager : MonoBehaviour
 
         Events.RoomCompleted.AddListener(RoomCompleted);
         Events.RoomHeightSelected.AddListener(HeightRoomSelected);
-        Events.RoomSpiderSelected.AddListener(SpiderRoomSelected);
-        Events.RoomClownSelected.AddListener(ClownRoomSelected);
+        Events.RoomSpiderSelected.AddListener(SpiderRoomSelected);        
         Events.RoomDollSelected.AddListener(DollRoomSelected);
 
         Events.GameStarted.AddListener(RoomCompleted);
         Events.GameRestarted.AddListener(GameRestarted);
 
         Spider = new Fear("Spiders");
-        Clown = new Fear("Clowns");
         Height = new Fear("Heights");
         Doll = new Fear("Dolls");
 
@@ -132,15 +129,6 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(this.scenePath + this.Height.name);
             this.currentFear = this.Height;
-        }
-    }
-
-    void ClownRoomSelected()
-    {
-        if (currentFear == null)
-        {
-            SceneManager.LoadScene(this.scenePath + this.Clown.name);
-            this.currentFear = this.Clown;
         }
     }
 
