@@ -105,7 +105,7 @@ public class AI : MonoBehaviour {
                 Ptimer = 10;
                 Pursuit = false;
             }
-            if (Vector3.Distance(transform.position, Target.transform.position) <= 2.5f)
+            if (Vector3.Distance(transform.position, Target.transform.position) <= 3.0f)
             {
                 Stop = true;
                 return transform.position;

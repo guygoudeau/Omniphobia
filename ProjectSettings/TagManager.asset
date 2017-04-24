@@ -13,6 +13,8 @@ TagManager:
   - Glass Floor
   - Regular Floor
   - KillBox
+  - Brazier
+  - Fire
   layers:
   - Default
   - TransparentFX
