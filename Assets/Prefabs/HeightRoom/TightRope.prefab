@@ -80,7 +80,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010090950462}
-  m_Mesh: {fileID: 4300106, guid: 6bdf791f1055ed446a6a9407362c2ac7, type: 3}
+  m_Mesh: {fileID: 4300106, guid: 3133d54f63ed1c7478052bfd4a1194bd, type: 3}
 --- !u!64 &64000011022314884
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -133,7 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092d451de0f0bc645b0eef037d022af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   active: 0
   L_Hand: {fileID: 0}
   R_Hand: {fileID: 0}

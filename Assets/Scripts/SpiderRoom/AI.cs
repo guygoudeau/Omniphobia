@@ -32,6 +32,8 @@ public class AI : MonoBehaviour {
     public bool Stop;
     public float Velocity = 0;
     public Animator m_anim;
+    public float ChaseTimer = 0.0f;
+    public bool TimerPursuit = false;
 
 
     private void Start()
@@ -61,9 +63,10 @@ public class AI : MonoBehaviour {
     // Gets called every frame.
     void Update()
     {
+        ChaseTimer = Time.realtimeSinceStartup;
         if (Stop == true)
         {
-            m_anim.SetBool("Lunge", true);
+            m_anim.SetTrigger("Lunge");
             Stimer -= Time.deltaTime;
             if (Stimer <= 0)
             {
@@ -71,11 +74,12 @@ public class AI : MonoBehaviour {
                 Stop = false;
                 Ptimer = 10;
                 Pursuit = true;
-                m_anim.SetBool("Lunge", false);
-
             }
         }
-
+        if (ChaseTimer >= 100)
+        {
+            Pursuit = true;
+        }
         Spider.destination = WayPoint(transform.position);
         // Changes position to the return value of seek.
 
@@ -96,7 +100,7 @@ public class AI : MonoBehaviour {
         if (Pursuit == true)
         {
             Ptimer -= Time.deltaTime;
-            if (Ptimer <= 0)
+            if (Ptimer <= 0  && TimerPursuit == false)
             {
                 Ptimer = 10;
                 Pursuit = false;
