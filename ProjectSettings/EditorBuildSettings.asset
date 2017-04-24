@@ -14,4 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BuildScenes/Dolls.unity
   - enabled: 1
-    path: Assets/Scenes/BuildScenes/Final.unity
+    path: Assets/Scenes/BuildScenes/Heights.unity
