@@ -55,7 +55,6 @@ public class WalkingSound : MonoBehaviour
             }
         }
         transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y - 1.05f, _player.transform.position.z);
-        //Debug.Log(steps[CurrentClip].clip);
         if (_prevPosition != _player.transform.position && _player.GetComponent<CharacterController>().isGrounded)
         {
             if (Distance >= 2f)
