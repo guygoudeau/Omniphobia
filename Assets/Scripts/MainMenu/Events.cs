@@ -18,7 +18,6 @@ public static class Events
     public static RoomEvent RoomHeightSelected = new RoomEvent();
     public static RoomEvent RoomSpiderSelected = new RoomEvent();
     public static RoomEvent RoomDollSelected = new RoomEvent();
-    public static RoomEvent RoomClownSelected = new RoomEvent();
     public static RoomEvent FadeIn = new RoomEvent();
 
     public static GameEvent GameRestarted = new GameEvent();
