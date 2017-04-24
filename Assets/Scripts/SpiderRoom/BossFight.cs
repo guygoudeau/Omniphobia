@@ -17,25 +17,29 @@ public class BossFight : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Fire")
-            return;
-
-        isEnabled = true;
-        foreach (Transform Light in gameObject.transform)
+        if (other.gameObject.tag == "Fire")
         {
-            Light.gameObject.SetActive(true);
+            isEnabled = true;
+            foreach (Transform Light in gameObject.transform)
+            {
+                Light.gameObject.SetActive(true);
+            }
+
+            var braziers = FindObjectsOfType<BossFight>();
+            if (braziers.All(brazier => brazier.isEnabled))
+                Events.RoomCompleted.Invoke();
         }
-
-        var braziers = FindObjectsOfType<BossFight>();
-        if (braziers.All(brazier => brazier.isEnabled))
-            Events.RoomCompleted.Invoke();
-
+        
 
     }
 
     [ContextMenu("Check")]
     private void Check()
     {
+        foreach (Transform Light in gameObject.transform)
+        {
+            Light.gameObject.SetActive(true);
+        }
         var braziers = FindObjectsOfType<BossFight>();
         if (braziers.All(brazier => brazier.isEnabled))
             Events.RoomCompleted.Invoke();

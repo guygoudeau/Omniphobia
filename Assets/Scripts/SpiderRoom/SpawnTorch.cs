@@ -30,7 +30,6 @@ public class SpawnTorch : MonoBehaviour {
         {
             spawnState = false;
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            gameObject.GetComponent<BoxCollider>().isTrigger = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
             transform.position = gameObject.GetComponent<OVRGrabbable>().grabbedBy.transform.position;
         }
