@@ -146,6 +146,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 1622090d235f3df4195eca36a4139b0a, type: 3}
+      propertyPath: m_TagString
+      value: Brazier
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1622090d235f3df4195eca36a4139b0a, type: 3}
   m_IsPrefabParent: 0
@@ -278,7 +282,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: 1819079636
+  randomSeed: 1404412077
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -6891,7 +6895,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: 302082306
+  randomSeed: 222260690
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -12671,11 +12675,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 595708003}
   - 65: {fileID: 595708007}
-  - 114: {fileID: 595708006}
   - 54: {fileID: 595708005}
+  - 114: {fileID: 595708004}
   m_Layer: 0
   m_Name: Brazier light
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12695,6 +12699,17 @@ Transform:
   - {fileID: 71412085}
   m_Father: {fileID: 1137752425}
   m_RootOrder: 1
+--- !u!114 &595708004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595708002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60307dabd2c108d46ad0e1e549c6987d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &595708005
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12710,23 +12725,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &595708006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 595708002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 1
-  m_snapOrientation: 0
-  m_snapOffset: {fileID: 0}
-  m_grabPoints:
-  - {fileID: 595708007}
 --- !u!65 &595708007
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12734,7 +12732,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 595708002}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -12860,6 +12858,10 @@ Prefab:
     - target: {fileID: 100000, guid: 52e839663e8274d408add7593ccabd8d, type: 3}
       propertyPath: m_Name
       value: PlayerTorch
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 52e839663e8274d408add7593ccabd8d, type: 3}
+      propertyPath: m_TagString
+      value: Fire
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52e839663e8274d408add7593ccabd8d, type: 3}
@@ -13111,7 +13113,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 795985795}
   - 65: {fileID: 795985794}
-  - 114: {fileID: 795985793}
   - 114: {fileID: 795985796}
   m_Layer: 0
   m_Name: EndLevel
@@ -13120,17 +13121,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &795985793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 795985792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60307dabd2c108d46ad0e1e549c6987d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &795985794
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13832,6 +13822,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 1622090d235f3df4195eca36a4139b0a, type: 3}
+      propertyPath: m_TagString
+      value: Brazier
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1622090d235f3df4195eca36a4139b0a, type: 3}
   m_IsPrefabParent: 0
@@ -14117,11 +14111,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 1243198178}
   - 65: {fileID: 1243198182}
-  - 114: {fileID: 1243198181}
   - 54: {fileID: 1243198180}
+  - 114: {fileID: 1243198179}
   m_Layer: 0
   m_Name: Brazier light
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14141,6 +14135,17 @@ Transform:
   - {fileID: 323502400}
   m_Father: {fileID: 59990851}
   m_RootOrder: 1
+--- !u!114 &1243198179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1243198177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60307dabd2c108d46ad0e1e549c6987d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1243198180
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14156,23 +14161,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1243198181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1243198177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 1
-  m_snapOrientation: 0
-  m_snapOffset: {fileID: 0}
-  m_grabPoints:
-  - {fileID: 1243198182}
 --- !u!65 &1243198182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14180,7 +14168,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1243198177}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -14194,11 +14182,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 1249583976}
   - 65: {fileID: 1249583980}
-  - 114: {fileID: 1249583979}
   - 54: {fileID: 1249583978}
+  - 114: {fileID: 1249583977}
   m_Layer: 0
   m_Name: Brazier light
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14218,6 +14206,17 @@ Transform:
   - {fileID: 455277306}
   m_Father: {fileID: 1853443885}
   m_RootOrder: 1
+--- !u!114 &1249583977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1249583975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60307dabd2c108d46ad0e1e549c6987d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1249583978
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14233,23 +14232,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1249583979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1249583975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 1
-  m_snapOrientation: 0
-  m_snapOffset: {fileID: 0}
-  m_grabPoints:
-  - {fileID: 1249583980}
 --- !u!65 &1249583980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14257,7 +14239,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1249583975}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -14550,11 +14532,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 1313376608}
   - 65: {fileID: 1313376612}
-  - 114: {fileID: 1313376611}
   - 54: {fileID: 1313376610}
+  - 114: {fileID: 1313376609}
   m_Layer: 0
   m_Name: Brazier light
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14574,6 +14556,17 @@ Transform:
   - {fileID: 1574502828}
   m_Father: {fileID: 1813767624}
   m_RootOrder: 1
+--- !u!114 &1313376609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1313376607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60307dabd2c108d46ad0e1e549c6987d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1313376610
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14589,23 +14582,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1313376611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1313376607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 1
-  m_snapOrientation: 0
-  m_snapOffset: {fileID: 0}
-  m_grabPoints:
-  - {fileID: 1313376612}
 --- !u!65 &1313376612
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14613,7 +14589,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1313376607}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -15311,7 +15287,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: 116946437
+  randomSeed: -788138972
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -17805,6 +17781,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 1622090d235f3df4195eca36a4139b0a, type: 3}
+      propertyPath: m_TagString
+      value: Brazier
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1622090d235f3df4195eca36a4139b0a, type: 3}
   m_IsPrefabParent: 0
@@ -17862,6 +17842,10 @@ Prefab:
     - target: {fileID: 100000, guid: 1622090d235f3df4195eca36a4139b0a, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 1622090d235f3df4195eca36a4139b0a, type: 3}
+      propertyPath: m_TagString
+      value: Brazier
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1622090d235f3df4195eca36a4139b0a, type: 3}
@@ -17999,7 +17983,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -1342282834
+  randomSeed: 1672131676
   InitialModule:
     serializedVersion: 2
     enabled: 1
