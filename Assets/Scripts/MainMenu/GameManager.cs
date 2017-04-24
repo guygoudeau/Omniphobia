@@ -61,7 +61,6 @@ public class GameManager : MonoBehaviour
     string scenePath = "Scenes/BuildScenes/";
 
     Fear Spider;
-    Fear Clown;
     Fear Height;
     Fear Doll;
 
@@ -98,7 +97,6 @@ public class GameManager : MonoBehaviour
 
         this.fearList = new List<Fear>();
         this.fearList.Add(Spider);
-        this.fearList.Add(Clown);
         this.fearList.Add(Height);
         this.fearList.Add(Doll);        
     }

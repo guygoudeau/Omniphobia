@@ -20,9 +20,6 @@ public class SceneTransitonTrigger : MonoBehaviour
                 case "Spiders":
                     Events.RoomSpiderSelected.Invoke();
                     break;
-                case "Clowns":
-                    Events.RoomClownSelected.Invoke();
-                    break;
             }
         }
     }
