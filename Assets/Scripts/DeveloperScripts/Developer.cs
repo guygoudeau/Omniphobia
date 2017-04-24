@@ -6,7 +6,7 @@
 /// This will handle turning dev mode on and off
 /// All Scripts that inherit from this class must also be placed
 /// on the DeveloperScripts prefab. The object is a singleton and is 
-/// located in the Menu scene
+/// located in the Menu scene 
 /// </summary>
 
 using UnityEngine;
