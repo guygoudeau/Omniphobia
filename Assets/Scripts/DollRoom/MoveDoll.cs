@@ -140,7 +140,7 @@ public class MoveDoll : MonoBehaviour {
             {
                 transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
                 transform.gameObject.GetComponentInChildren<PopDoll>().enabled = true;
-                transform.gameObject.GetComponentInChildren<PopDoll>().force = (_dollBody.forward * 5) + (_dollBody.up * 4f);
+                transform.gameObject.GetComponentInChildren<PopDoll>()._force = (_dollBody.forward * 5) + (_dollBody.up * 4f);
                 _movementOver = true;
             }
         }
@@ -152,7 +152,7 @@ public class MoveDoll : MonoBehaviour {
             Quaternion TargetRot = _targetTransform.localRotation;
             _dollBody.localRotation = new Quaternion(0, TargetRot.y, 0, TargetRot.w);
 
-            transform.gameObject.GetComponentInChildren<PopDoll>().force = (_dollBody.forward * 5) + (_dollBody.up * 4f);
+            transform.gameObject.GetComponentInChildren<PopDoll>()._force = (_dollBody.forward * 5) + (_dollBody.up * 4f);
         }
     }
 
