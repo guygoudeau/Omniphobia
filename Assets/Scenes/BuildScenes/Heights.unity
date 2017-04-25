@@ -66195,6 +66195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092d451de0f0bc645b0eef037d022af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offSet: 10
   active: 0
   Head: {fileID: 828347493}
 --- !u!65 &1502842343
