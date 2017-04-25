@@ -37,7 +37,6 @@ public class CollisionSound : MonoBehaviour {
     {
         if(_moving)
         {
-            Debug.Log(_maxVelocity);
             GetComponent<AudioSource>().volume = _maxVelocity * .1f;
             GetComponent<AudioSource>().Play();
             _moving = false;
