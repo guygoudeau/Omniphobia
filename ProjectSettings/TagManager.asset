@@ -15,6 +15,8 @@ TagManager:
   - KillBox
   - Brazier
   - Fire
+  - Positions
+  - Key
   layers:
   - Default
   - TransparentFX
