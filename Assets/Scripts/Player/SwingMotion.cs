@@ -23,5 +23,9 @@ public class SwingMotion : MonoBehaviour
         {
             rigidbody.velocity = transform.forward * (lTouchVelocity + rTouchVelocity) * (speedMod);
         }
+        else
+        {
+            rigidbody.velocity = Vector3.zero;
+        }
     }
 }
