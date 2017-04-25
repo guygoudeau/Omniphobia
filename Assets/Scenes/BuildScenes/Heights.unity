@@ -22151,7 +22151,7 @@ Prefab:
     - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
         type: 2}
       propertyPath: randomSeed
-      value: 1037371840
+      value: -1645315527
       objectReference: {fileID: 0}
     - target: {fileID: 4000013645638160, guid: 0e0e12bb963a89c4da9d89e78ed10254, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22251,7 +22251,7 @@ Prefab:
     - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
         type: 2}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 50
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
         type: 2}
@@ -22326,6 +22326,11 @@ Prefab:
     - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
         type: 2}
       propertyPath: SizeModule.z.minCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
+        type: 2}
+      propertyPath: looping
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
