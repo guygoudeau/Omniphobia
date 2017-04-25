@@ -33,7 +33,7 @@ public class PopDoll : MonoBehaviour {
         if (!_popped)
         {
             //If statement that checks to see of the colliding object is the player
-            if (other.name == _player.name)
+            if (other.tag == _player.tag)
             {
                 _parent.GetComponent<Rigidbody>().AddForce(_force, ForceMode.Impulse);
                 _popped = true;
