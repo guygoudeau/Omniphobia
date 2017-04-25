@@ -15,9 +15,8 @@ public class Lock : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.name.Contains("Key"))
+        if(other.tag == "Key")
         {
-            //StartCoroutine(FindObjectOfType<AlphaFade>().FadeIn(1));
             Events.RoomCompleted.Invoke();
         }
     }
