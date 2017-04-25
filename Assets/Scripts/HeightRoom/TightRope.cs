@@ -30,8 +30,8 @@ public class TightRope : MonoBehaviour {
     void OnTriggerExit(Collider other)
     {
         Player.gameObject.transform.rotation =
-            new Quaternion(Player.gameObject.transform.rotation.x,
-                Player.gameObject.transform.rotation.y, 0, Player.gameObject.transform.rotation.w);
+            new Quaternion(0,
+                0, 0, Player.gameObject.transform.rotation.w);
         active = false;
     }
 
