@@ -22151,7 +22151,7 @@ Prefab:
     - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
         type: 2}
       propertyPath: randomSeed
-      value: 1037371840
+      value: -1645315527
       objectReference: {fileID: 0}
     - target: {fileID: 4000013645638160, guid: 0e0e12bb963a89c4da9d89e78ed10254, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22251,7 +22251,7 @@ Prefab:
     - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
         type: 2}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 50
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
         type: 2}
@@ -22326,6 +22326,11 @@ Prefab:
     - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
         type: 2}
       propertyPath: SizeModule.z.minCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
+        type: 2}
+      propertyPath: looping
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -29388,23 +29393,23 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012454625612, guid: fb06f45f095055c4598341484c587b85, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 4000012454625612, guid: fb06f45f095055c4598341484c587b85, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 4000012454625612, guid: fb06f45f095055c4598341484c587b85, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4000012454625612, guid: fb06f45f095055c4598341484c587b85, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012454625612, guid: fb06f45f095055c4598341484c587b85, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.8353279
       objectReference: {fileID: 0}
     - target: {fileID: 4000012454625612, guid: fb06f45f095055c4598341484c587b85, type: 2}
       propertyPath: m_LocalRotation.z
@@ -29412,11 +29417,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012454625612, guid: fb06f45f095055c4598341484c587b85, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.549752
       objectReference: {fileID: 0}
     - target: {fileID: 4000012454625612, guid: fb06f45f095055c4598341484c587b85, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012454625612, guid: fb06f45f095055c4598341484c587b85, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 113.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb06f45f095055c4598341484c587b85, type: 2}
@@ -54600,8 +54609,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1248435654}
   - 33: {fileID: 1248435653}
-  - 64: {fileID: 1248435652}
   - 23: {fileID: 1248435651}
+  - 114: {fileID: 1248435655}
+  - 65: {fileID: 1248435652}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -54615,7 +54625,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1248435650}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -54638,18 +54648,18 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &1248435652
-MeshCollider:
+--- !u!65 &1248435652
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1248435650}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1248435653
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -54670,6 +54680,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
+--- !u!114 &1248435655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1248435650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47848da2772c1104cb6af302dbf78947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1249353962
 GameObject:
   m_ObjectHideFlags: 0
@@ -66205,7 +66226,7 @@ GameObject:
   - 23: {fileID: 1502842344}
   - 65: {fileID: 1502842343}
   - 114: {fileID: 1502842342}
-  - 65: {fileID: 1502842341}
+  - 64: {fileID: 1502842341}
   m_Layer: 0
   m_Name: TightRope
   m_TagString: Untagged
@@ -66227,8 +66248,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1273514658}
   m_RootOrder: 6
---- !u!65 &1502842341
-BoxCollider:
+--- !u!64 &1502842341
+MeshCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -66237,8 +66258,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.4269753, z: 17.84331}
-  m_Center: {x: 0, y: 1.2379608, z: 0.4072256}
+  m_Convex: 0
+  m_Mesh: {fileID: 4300106, guid: 3133d54f63ed1c7478052bfd4a1194bd, type: 3}
 --- !u!114 &1502842342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66266,7 +66287,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4269753, z: 17.84331}
-  m_Center: {x: 0, y: 1.2379608, z: 0.4072256}
+  m_Center: {x: 0.38, y: 1.2379608, z: 0.4072256}
 --- !u!23 &1502842344
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -80049,7 +80070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e86041f706c244a8b7d92a2131aa91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isKillable: 0
+  isKillable: 1
   isMotionControlled: 1
 --- !u!114 &1798457119
 MonoBehaviour:
