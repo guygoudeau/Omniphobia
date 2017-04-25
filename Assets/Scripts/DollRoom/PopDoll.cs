@@ -17,7 +17,7 @@ public class PopDoll : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        _player = GameObject.Find("OVRPlayerController");
+        _player = GameObject.FindGameObjectWithTag("Player");
         //The script needs to be applied to a child object for the purpose having a separate collider for the trigger
         _parent = transform.parent.gameObject;
         _force = _parent.transform.forward * 8 + _parent.transform.up * 1;

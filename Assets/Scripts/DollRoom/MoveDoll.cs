@@ -53,7 +53,7 @@ public class MoveDoll : MonoBehaviour {
         }
 
         //A foreach loop to find all the DollPositions and determines which ones are available to occupy.
-        foreach (DollPosition dp in GameObject.Find("Positions").GetComponentsInChildren<DollPosition>())
+        foreach (DollPosition dp in GameObject.FindGameObjectWithTag("Positions").GetComponentsInChildren<DollPosition>())
         {
             if (dp.transform.position == transform.position)
             {
