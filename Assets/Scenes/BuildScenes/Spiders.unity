@@ -14821,8 +14821,7 @@ MonoBehaviour:
   m_snapPosition: 0
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
-  m_grabPoints:
-  - {fileID: 1340237505}
+  m_grabPoints: []
 --- !u!1 &1353593831
 GameObject:
   m_ObjectHideFlags: 0
