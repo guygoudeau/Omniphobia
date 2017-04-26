@@ -45200,7 +45200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4016cc569b3693468af208080a5a69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: {x: 107, y: 14.5, z: 66.01}
+  Destination: {x: 105, y: 20, z: 66.01}
   speed: 5
   active: 0
 --- !u!65 &1056562196
@@ -78792,6 +78792,7 @@ GameObject:
   - 33: {fileID: 1774300397}
   - 23: {fileID: 1774300396}
   - 65: {fileID: 1774300394}
+  - 114: {fileID: 1774300395}
   m_Layer: 0
   m_Name: DoortoScene2
   m_TagString: Win
@@ -78823,8 +78824,19 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 137.2571, y: 281.6574, z: 54.523308}
-  m_Center: {x: -598.9902, y: 152.31528, z: 117.051384}
+  m_Size: {x: 257.3, y: 350.1, z: 193.7}
+  m_Center: {x: -598.9902, y: 152.31528, z: 162.3}
+--- !u!114 &1774300395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774300392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c72e3629c693e341810db2a22743e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1774300396
 MeshRenderer:
   m_ObjectHideFlags: 0
