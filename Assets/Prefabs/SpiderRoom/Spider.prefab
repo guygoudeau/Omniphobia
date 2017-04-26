@@ -2315,6 +2315,8 @@ MonoBehaviour:
   Stop: 0
   Velocity: 0
   m_anim: {fileID: 95000013865647744}
+  ChaseTimer: 0
+  TimerPursuit: 0
 --- !u!136 &136000010541357548
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2341,7 +2343,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: beb5a69940c88c04abe77e7845333a9d, type: 2}
+  - {fileID: 2100000, guid: d18684e5e9f5f314ca936caea38e751c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -2451,7 +2453,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1000013352598218}
   m_Enabled: 1
   m_Radius: 6
-  m_Speed: 10
+  m_Speed: 6
   m_Acceleration: 12
   avoidancePriority: 50
   m_AngularSpeed: 120
