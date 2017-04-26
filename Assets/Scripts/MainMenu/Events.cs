@@ -20,6 +20,8 @@ public static class Events
     public static RoomEvent RoomDollSelected = new RoomEvent();
     public static RoomEvent FadeIn = new RoomEvent();
 
+    public static LockEvent LockUnlocked = new LockEvent();
+
     public static GameEvent GameRestarted = new GameEvent();
     public static GameEvent GameStarted = new GameEvent();
 }
@@ -34,5 +36,9 @@ public class RoomEvent : UnityEvent
 }
 
 public class GameEvent : UnityEvent
+{
+}
+
+public class LockEvent : UnityEvent
 {
 }
