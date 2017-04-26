@@ -12,10 +12,11 @@ public class Key : MonoBehaviour
     private KeyColors keyColor;
     [HideInInspector]
     public Color KeyColor;
-
+    private Vector3 StartPosition;
 	// Use this for initialization
 	void Start ()
     {
+        StartPosition = this.transform.position;
 	    switch(keyColor)
         {
             case KeyColors.RED:
@@ -32,10 +33,11 @@ public class Key : MonoBehaviour
                 break;
         }
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (transform.position.y <= 0.9f)
-            transform.position = new Vector3(-7.315f, 2.2f, 23.43f);
-	}
+
+    private void Update()
+    {
+        if (this.transform.position.y <= 0.2F)
+            this.transform.position = StartPosition;
+
+    }
 }

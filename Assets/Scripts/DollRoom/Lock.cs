@@ -11,7 +11,8 @@ public class Lock : MonoBehaviour
     private LockColors lockColor;
     [HideInInspector]
     public Color LockColor;
-    public bool isLocked; 
+    public bool isLocked;
+    public GameObject FakeKey;
 	// Use this for initialization
 	void Start ()
     {
@@ -39,8 +40,8 @@ public class Lock : MonoBehaviour
         {            
             if(other.GetComponent<Key>().KeyColor == this.LockColor)
             {
-                other.transform.parent = this.transform;
-                other.transform.localPosition = Vector3.zero;
+                Destroy(other.gameObject);
+                FakeKey.GetComponent<MeshRenderer>().enabled = true;
                 isLocked = false;
                 Events.LockUnlocked.Invoke();
             }            
