@@ -22,6 +22,8 @@ GameObject:
   - 33: {fileID: 33000012495382692}
   - 23: {fileID: 23000011619878536}
   - 195: {fileID: 195000010270943388}
+  - 114: {fileID: 114000010209025078}
+  - 114: {fileID: 114000011181596182}
   m_Layer: 0
   m_Name: Clown 1
   m_TagString: Untagged
@@ -36,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011393587320}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.94, y: 4.758503e-16, z: -10.05}
+  m_LocalPosition: {x: -20.2, y: 0.00000011920929, z: 20.1}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -78,6 +80,41 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011393587320}
   m_Mesh: {fileID: 4300000, guid: 47cec70b4534f1f42bfd8a3845e84817, type: 3}
+--- !u!114 &114000010209025078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011393587320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc7db052abbe5c4286fddb2ecf5d839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveDelay: 10
+  Timer: 0
+  canJump: 1
+  JumpDistance: 5
+  ClownMeshes:
+  - {fileID: 4300000, guid: e2217cb43bd9f964bb76344b864128dd, type: 3}
+  - {fileID: 4300000, guid: 9020a995666b44045b54718e07339c92, type: 3}
+  - {fileID: 4300000, guid: 17fa40493bfbca246b86d9eb57619e2a, type: 3}
+  - {fileID: 4300000, guid: b679d34a2e027bb45bb6dc76a3694e83, type: 3}
+  - {fileID: 4300000, guid: 47cec70b4534f1f42bfd8a3845e84817, type: 3}
+--- !u!114 &114000011181596182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011393587320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468ef2cb159046141b96619e75d42546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  visible: 0
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!195 &195000010270943388
 NavMeshAgent:
   m_ObjectHideFlags: 1
