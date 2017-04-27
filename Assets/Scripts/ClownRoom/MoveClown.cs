@@ -4,11 +4,8 @@ public class MoveClown : MonoBehaviour
 {
     Transform self;
     public Transform target;
-    NavMeshAgent Clown;
-    float moveSpeed = 3;
-    float rotationSpeed = 2;
+    public NavMeshAgent Clown;
     public bool visible;
-    public Vector3 targetPosition;
 
     void Awake()
     {
@@ -17,7 +14,7 @@ public class MoveClown : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindWithTag("Player").transform;
+        target = FindObjectOfType<PlayerStateSystem>().transform;
         Clown = GetComponent<NavMeshAgent>();
     }
 

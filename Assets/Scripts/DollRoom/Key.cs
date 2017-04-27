@@ -12,6 +12,7 @@ public class Key : MonoBehaviour
     private KeyColors keyColor;
     [HideInInspector]
     public Color KeyColor;
+    [SerializeField]
     private Vector3 StartPosition;
 	// Use this for initialization
 	void Start ()
@@ -37,7 +38,10 @@ public class Key : MonoBehaviour
     private void Update()
     {
         if (this.transform.position.y <= 0.2F)
+        {
             this.transform.position = StartPosition;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
 
     }
 }

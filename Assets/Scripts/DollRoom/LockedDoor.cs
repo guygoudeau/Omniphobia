@@ -11,7 +11,7 @@ public class LockedDoor : MonoBehaviour
         Events.LockUnlocked.AddListener(CheckLocks);
         isFirstKey = true;
 	}
-	
+
 	void CheckLocks()
     {
         if (isFirstKey)

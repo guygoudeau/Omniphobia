@@ -18,6 +18,7 @@ public class DollRoomController : MonoBehaviour
         GetComponent<AudioSource>().Play();
         var newClown = Instantiate(ClownPrefab);
         newClown.transform.position = ClownSpawn.position;
+        newClown.transform.position = new Vector3(newClown.transform.position.x, 0, newClown.transform.position.z);
     }
 
     private void OnTriggerEnter(Collider other)
