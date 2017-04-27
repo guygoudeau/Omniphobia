@@ -18,6 +18,7 @@ TagManager:
   - Positions
   - Key
   - Canvas
+  - ClownTravel
   layers:
   - Default
   - TransparentFX

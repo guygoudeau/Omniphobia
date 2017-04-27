@@ -9,41 +9,26 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000012046368814}
+  m_RootGameObject: {fileID: 1000012290007914}
   m_IsPrefabParent: 1
---- !u!1 &1000012046368814
+--- !u!1 &1000011899021964
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000010725065580}
-  m_Layer: 0
-  m_Name: Green Key
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1000012929817494
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 4000013902782780}
-  - 33: {fileID: 33000014093789200}
-  - 23: {fileID: 23000014262158872}
-  - 65: {fileID: 65000011803355722}
-  - 54: {fileID: 54000011412491128}
-  - 114: {fileID: 114000011159037772}
-  - 82: {fileID: 82000011327208812}
-  - 114: {fileID: 114000011626311238}
-  - 114: {fileID: 114000011767213416}
-  - 114: {fileID: 114000013113178664}
-  - 108: {fileID: 108000013875277650}
+  - 4: {fileID: 4000013487030412}
+  - 33: {fileID: 33000013230011076}
+  - 23: {fileID: 23000012479991504}
+  - 65: {fileID: 65000010438625488}
+  - 54: {fileID: 54000013917236632}
+  - 114: {fileID: 114000010956774124}
+  - 82: {fileID: 82000010091870068}
+  - 114: {fileID: 114000011718012182}
+  - 114: {fileID: 114000011894577122}
+  - 114: {fileID: 114000010709872812}
+  - 108: {fileID: 108000011346663042}
   m_Layer: 0
   m_Name: KeyGreen
   m_TagString: Untagged
@@ -51,39 +36,54 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000010725065580
+--- !u!1 &1000012290007914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012728105734}
+  m_Layer: 0
+  m_Name: Green Key 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000012728105734
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012046368814}
+  m_GameObject: {fileID: 1000012290007914}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.070713, y: 1.326, z: 0.419}
+  m_LocalPosition: {x: 16.070713, y: 1.2258, z: 0.419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 4000013902782780}
+  - {fileID: 4000013487030412}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &4000013902782780
+--- !u!4 &4000013487030412
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012929817494}
+  m_GameObject: {fileID: 1000011899021964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 4000010725065580}
+  m_Father: {fileID: 4000012728105734}
   m_RootOrder: 0
---- !u!23 &23000014262158872
+--- !u!23 &23000012479991504
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012929817494}
+  m_GameObject: {fileID: 1000011899021964}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -107,19 +107,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &33000014093789200
+--- !u!33 &33000013230011076
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012929817494}
+  m_GameObject: {fileID: 1000011899021964}
   m_Mesh: {fileID: 4300000, guid: e5382d024ca4b484b8b4e7a39173c0e4, type: 3}
---- !u!54 &54000011412491128
+--- !u!54 &54000013917236632
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012929817494}
+  m_GameObject: {fileID: 1000011899021964}
   serializedVersion: 2
   m_Mass: 0.2
   m_Drag: 0
@@ -129,24 +129,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65000011803355722
+--- !u!65 &65000010438625488
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012929817494}
+  m_GameObject: {fileID: 1000011899021964}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.07715404, y: 0.012674866, z: 0.16880004}
   m_Center: {x: 0.0000000018626451, y: -6.9849193e-10, z: 0.054196455}
---- !u!82 &82000011327208812
+--- !u!82 &82000010091870068
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012929817494}
+  m_GameObject: {fileID: 1000011899021964}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300001, guid: 1dd706bb85d8aef4e83a6229dbd62c36,
@@ -216,12 +216,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!108 &108000013875277650
+--- !u!108 &108000011346663042
 Light:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012929817494}
+  m_GameObject: {fileID: 1000011899021964}
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
@@ -250,12 +250,25 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114000011159037772
+--- !u!114 &114000010709872812
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012929817494}
+  m_GameObject: {fileID: 1000011899021964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e70403f9562cc488a6158c9a5d7be0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyColor: 3
+  KeyColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114000010956774124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011899021964}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
@@ -266,12 +279,12 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
---- !u!114 &114000011626311238
+--- !u!114 &114000011718012182
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012929817494}
+  m_GameObject: {fileID: 1000011899021964}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
@@ -283,27 +296,14 @@ MonoBehaviour:
   near: 1
   far: 10
   enableRfl: 0
---- !u!114 &114000011767213416
+--- !u!114 &114000011894577122
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012929817494}
+  m_GameObject: {fileID: 1000011899021964}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 726b50587745fb54f8e67bf9d6d7d096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000013113178664
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012929817494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92e70403f9562cc488a6158c9a5d7be0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyColor: 0
-  KeyColor: {r: 0, g: 0, b: 0, a: 0}

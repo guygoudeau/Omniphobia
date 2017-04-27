@@ -8,7 +8,7 @@ public class ClownTravel : MonoBehaviour
     private void Start()
     {
         Events.ClownJumped.AddListener(TravelToNewPosition);
-        this.transform.position = TravelPoints[Random.Range(0, TravelPoints.Count - 1)].transform.position;
+        //this.transform.position = TravelPoints[Random.Range(0, TravelPoints.Count - 1)].transform.position;
     }
 
     void TravelToNewPosition()

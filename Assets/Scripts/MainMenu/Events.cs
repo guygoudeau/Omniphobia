@@ -23,6 +23,7 @@ public static class Events
     public static LockEvent LockUnlocked = new LockEvent();
 
     public static ClownEvent ClownJumped = new ClownEvent();
+    public static ClownEvent SpawnClown = new ClownEvent();
 
     public static GameEvent GameRestarted = new GameEvent();
     public static GameEvent GameStarted = new GameEvent();
