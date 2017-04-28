@@ -22255,7 +22255,7 @@ Prefab:
     - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
         type: 2}
       propertyPath: randomSeed
-      value: -1645315527
+      value: -803694529
       objectReference: {fileID: 0}
     - target: {fileID: 4000013645638160, guid: 0e0e12bb963a89c4da9d89e78ed10254, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22355,7 +22355,7 @@ Prefab:
     - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
         type: 2}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 198000014255837788, guid: 0e0e12bb963a89c4da9d89e78ed10254,
         type: 2}

@@ -35,36 +35,28 @@ public class AI : MonoBehaviour {
     public float ChaseTimer = 0.0f;
     public bool TimerPursuit = false;
     private bool FirstAttack = true;
-
+    public string pointsTag;
 
     private void Start()
     {
         //Waypoints = new SortedList();
         Waypoints = new List<Transform>();
-        foreach (Transform a in Terrain.transform)
+        foreach (GameObject a in GameObject.FindGameObjectsWithTag(pointsTag))
         {
-            if (a.tag == "Points")
-            {
-                Points = a.gameObject;
-
-            }
-        }
-        foreach (Transform b in Points.GetComponentsInChildren<Transform>())
-        {
-             Waypoints.Add(b.transform);
+            Waypoints.Add(a.transform);
         }
 
         index = 0;
         Spider = GetComponent<NavMeshAgent>();
 
-
+        Target = FindObjectOfType<PlayerStateSystem>().gameObject;
     }
     //public string Entity;
 
     // Gets called every frame.
     void Update()
     {
-        ChaseTimer = Time.realtimeSinceStartup;
+        //ChaseTimer = Time.realtimeSinceStartup;
         if (Stop == true)
         {
             if (FirstAttack == true)
@@ -86,10 +78,10 @@ public class AI : MonoBehaviour {
                 Pursuit = true;
             }
         }
-        if (ChaseTimer >= 100)
-        {
-            Pursuit = true;
-        }
+        //if (ChaseTimer >= 100)
+        //{
+        //    Pursuit = true;
+        //}
         if (Stop != true)
         { 
             Spider.destination = WayPoint(transform.position);
@@ -121,7 +113,7 @@ public class AI : MonoBehaviour {
         if (Pursuit == true)
         {
             Ptimer -= Time.deltaTime;
-            if (Ptimer <= 0  && TimerPursuit == false)
+            if (Ptimer <= 0 && TimerPursuit == false)
             {
                 Ptimer = 10;
                 Pursuit = false;
@@ -146,10 +138,10 @@ public class AI : MonoBehaviour {
         if (RoundPos(transform.position, Destination.position) == true)
         {
             ClosestPoint = Destination;
-            int i=0;
+            int i = 0;
             foreach (Transform point in Waypoints)
             {
-                if (Vector3.Distance(Target.transform.position,point.position) <= Vector3.Distance(Target.transform.position,ClosestPoint.position))
+                if (Vector3.Distance(Target.transform.position, point.position) <= Vector3.Distance(Target.transform.position, ClosestPoint.position))
                 {
                     ClosestPoint = point;
                     if (ClosestPoint == LastPoint)
@@ -169,12 +161,10 @@ public class AI : MonoBehaviour {
             Destination = Waypoints[index];
 
         }
-        Velocity = (transform.position - VLastPos).magnitude*5;
+        Velocity = (transform.position - VLastPos).magnitude * 5;
         m_anim.SetFloat("Speed", Velocity);
         VLastPos = transform.position;
         LastPoint = Destination;
         return Destination.position;
     }
-    
-
 }

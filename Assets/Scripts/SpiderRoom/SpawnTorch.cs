@@ -11,8 +11,6 @@ public class SpawnTorch : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Player = FindObjectOfType<CharacterController>().GetComponent<Transform>();
-
-
     }
 	
 	// Update is called once per frame

@@ -7,7 +7,7 @@ TagManager:
   - Play
   - Win
   - Generator
-  - Points
+  - Points1
   - Furnitured Floor
   - Wood Floor
   - Glass Floor
@@ -19,6 +19,8 @@ TagManager:
   - Key
   - Canvas
   - ClownTravel
+  - Points2
+  - Points3
   layers:
   - Default
   - TransparentFX

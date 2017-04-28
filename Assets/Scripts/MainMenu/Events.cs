@@ -25,6 +25,8 @@ public static class Events
     public static ClownEvent ClownJumped = new ClownEvent();
     public static ClownEvent SpawnClown = new ClownEvent();
 
+    public static SpiderRoomEvent FireLit = new SpiderRoomEvent();
+
     public static GameEvent GameRestarted = new GameEvent();
     public static GameEvent GameStarted = new GameEvent();
 }
@@ -47,5 +49,9 @@ public class LockEvent : UnityEvent
 }
 
 public class ClownEvent : UnityEvent
+{
+}
+
+public class SpiderRoomEvent : UnityEvent
 {
 }
