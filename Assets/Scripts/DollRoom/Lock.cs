@@ -34,6 +34,14 @@ public class Lock : MonoBehaviour
         }
 	}
 
+    [ContextMenu("ForceLock")]
+    void ForceLock()
+    {
+        FakeKey.GetComponent<MeshRenderer>().enabled = true;
+        isLocked = false;
+        Events.LockUnlocked.Invoke();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<Key>())
