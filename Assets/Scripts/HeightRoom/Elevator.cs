@@ -54,30 +54,31 @@ public class Elevator : MonoBehaviour {
     // Moves the elevator and player in it to the set Destination.
     private IEnumerator Lerp(GameObject player)
     {
+        yield return new WaitForSeconds(2);
         // Choses if we are going up or down.
         if (Destination.y / Mathf.Abs(Destination.y) == 1)
         {
-            // Changes player and elevator y position over deltaTime times speed.
-            while (transform.position.y <= Destination.y)
+            // Changes player and elevator y localPosition over deltaTime times speed.
+            while (transform.localPosition.y <= Destination.y)
             {
                 Vector3 temp;
                 temp = Destination * Time.deltaTime;
                 temp *= speed;
-                gameObject.transform.position = transform.position + temp;
-                player.transform.position = player.transform.position + temp;
+                gameObject.transform.localPosition = transform.localPosition + temp;
+                player.transform.localPosition = player.transform.localPosition + temp;
                 yield return 0;
             }
         }
         else if (Destination.y / Mathf.Abs(Destination.y) == -1)
         {
-            // Changes player and elevator y position over deltaTime times speed.
-            while (transform.position.y >= Destination.y)
+            // Changes player and elevator y localPosition over deltaTime times speed.
+            while (transform.localPosition.y >= Destination.y)
             {
                 Vector3 temp;
                 temp = Destination * Time.deltaTime;
                 temp *= speed;
-                gameObject.transform.position = transform.position + temp;
-                player.transform.position = player.transform.position + temp;
+                gameObject.transform.localPosition = transform.localPosition + temp;
+                player.transform.localPosition = player.transform.localPosition + temp;
                 yield return 0;
             }
         }
