@@ -35,7 +35,6 @@ public class ClownScare : MonoBehaviour
                 StartCoroutine(JumpScare());
             }                
         }
-        Debug.Log(canJump);
         if(canJump == false)
         {
             Timer += Time.deltaTime;
