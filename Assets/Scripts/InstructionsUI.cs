@@ -8,6 +8,8 @@ public class InstructionsUI : MonoBehaviour {
     public GameObject Player;
     public GameObject Canvas;
     public Text Instructions;
+   float Timer = 10;
+    bool on;
     
 	// Use this for initialization
 	void Start () {
@@ -27,12 +29,26 @@ public class InstructionsUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (on == true)
+        {
+            Timer -= Time.deltaTime;
+        }
+        if (Timer <= 0)
+        {
+             Instructions.text = "";
+            on = false;
+
+        }
 	}
 
     private void OnTriggerEnter(Collider other)
     {
         if (other = Player.GetComponent<CharacterController>())
         Instructions.text = DisplayInfo;
+        Timer = 10;
+        on = true;
+
+
+
     }
 }
