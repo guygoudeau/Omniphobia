@@ -9,7 +9,7 @@ public class Sight : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        Player = FindObjectOfType<PlayerStateSystem>().gameObject;
 	}
     private void OnTriggerEnter(Collider other)
     {

@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc7db052abbe5c4286fddb2ecf5d839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveDelay: 10
+  JumpDelay: 10
   Timer: 0
   canJump: 1
   JumpDistance: 5
@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  Clown: {fileID: 0}
   visible: 0
-  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!195 &195000010270943388
 NavMeshAgent:
   m_ObjectHideFlags: 1
