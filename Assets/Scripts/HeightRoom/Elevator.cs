@@ -54,7 +54,7 @@ public class Elevator : MonoBehaviour {
     // Moves the elevator and player in it to the set Destination.
     private IEnumerator Lerp(GameObject player)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         // Choses if we are going up or down.
         if (Destination.y / Mathf.Abs(Destination.y) == 1)
         {
