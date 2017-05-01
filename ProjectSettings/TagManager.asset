@@ -17,6 +17,7 @@ TagManager:
   - Fire
   - Positions
   - Key
+  - Canvas
   layers:
   - Default
   - TransparentFX

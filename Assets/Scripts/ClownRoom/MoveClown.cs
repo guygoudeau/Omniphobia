@@ -3,7 +3,7 @@
 public class MoveClown : MonoBehaviour
 {
     Transform self;
-    Transform target;
+    public Transform target;
     NavMeshAgent Clown;
     float moveSpeed = 3;
     float rotationSpeed = 2;

@@ -34,6 +34,7 @@ public class AI : MonoBehaviour {
     public Animator m_anim;
     public float ChaseTimer = 0.0f;
     public bool TimerPursuit = false;
+    private bool FirstAttack = true;
 
 
     private void Start()
@@ -66,11 +67,20 @@ public class AI : MonoBehaviour {
         ChaseTimer = Time.realtimeSinceStartup;
         if (Stop == true)
         {
-            m_anim.SetTrigger("Lunge");
+            if (FirstAttack == true)
+            {
+                m_anim.SetTrigger("Lunge");
+                FirstAttack = false;
+            }
+            Velocity = (transform.position - VLastPos).magnitude * 5;
+            m_anim.SetFloat("Speed", Velocity);
+            VLastPos = transform.position;
+            LastPoint = Destination;
             Stimer -= Time.deltaTime;
             if (Stimer <= 0)
             {
-                Stimer = 2;
+                FirstAttack = true;
+                Stimer = 3;
                 Stop = false;
                 Ptimer = 10;
                 Pursuit = true;
@@ -80,7 +90,18 @@ public class AI : MonoBehaviour {
         {
             Pursuit = true;
         }
-        Spider.destination = WayPoint(transform.position);
+        if (Stop != true)
+        { 
+            Spider.destination = WayPoint(transform.position);
+        }
+        else
+        {
+            Velocity = (transform.position - VLastPos).magnitude * 5;
+            m_anim.SetFloat("Speed", Velocity);
+            VLastPos = transform.position;
+            LastPoint = Destination;
+            Spider.destination = gameObject.transform.position;
+        }
         // Changes position to the return value of seek.
 
     }
@@ -112,6 +133,10 @@ public class AI : MonoBehaviour {
             }
             else
             {
+                Velocity = (transform.position - VLastPos).magnitude * 5;
+                m_anim.SetFloat("Speed", Velocity);
+                VLastPos = transform.position;
+                LastPoint = Destination;
                 return Target.transform.position;
             }
         }
