@@ -36,9 +36,16 @@ public class AI : MonoBehaviour {
     public bool TimerPursuit = false;
     private bool FirstAttack = true;
     public string pointsTag;
+    public List<AudioSource> Sounds;
+
 
     private void Start()
     {
+        foreach (AudioSource sound in GetComponents<AudioSource>())
+        {
+            Sounds.Add(sound);
+        }
+        
         //Waypoints = new SortedList();
         Waypoints = new List<Transform>();
         foreach (GameObject a in GameObject.FindGameObjectsWithTag(pointsTag))
@@ -63,6 +70,7 @@ public class AI : MonoBehaviour {
             {
                 m_anim.SetTrigger("Lunge");
                 FirstAttack = false;
+                Sounds[1].Play();
             }
             Velocity = (transform.position - VLastPos).magnitude * 5;
             m_anim.SetFloat("Speed", Velocity);
